@@ -105,7 +105,7 @@ import UserDevelopList from '../../../../components/Data/Leader/UserDevelopList.
             this.init()
 
             if (this.$store.state.share_type <= 0) { this.is_showing = false }
-            if (this.me.bonu_period.DPV <= 0) { this.is_showing = false }
+            if (this.me.bonu_period.Rank < this.conf.RANK_DEVELOP_VIEW) { this.is_showing = false }
         },
         methods: {
             init() {

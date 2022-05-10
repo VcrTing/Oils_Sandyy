@@ -1,5 +1,5 @@
 <template>
-    <pdf-content-layout :is_null="items.length > 0">>
+    <pdf-content-layout :is_null="is_view">
 
         <span slot="header">
             Leader Dividend - Development Bonus
@@ -18,7 +18,6 @@
                 
                 <!-- div style="width: 9%; float: left;">Total PT</div -->
             </div>
-            
             <qiong-space :space="'0.15rem'"></qiong-space>
 
             <div style="overflow: hidden; padding: 0.24rem 0px" v-for="(v, i) in items" :key="i">
@@ -46,10 +45,11 @@
 
 <script>
 import UserDevelopList from '../../../../components/Data/Leader/UserDevelopList.vue'
+import QiongSpace from '../../../../components/Qiong/Ui/QiongSpace.vue'
 import PdfCommonFooter from '../common/PdfCommonFooter.vue'
 import PdfContentLayout from '../common/PdfContentLayout.vue'
     export default {
-  components: { PdfContentLayout, PdfCommonFooter, UserDevelopList },
+  components: { PdfContentLayout, PdfCommonFooter, UserDevelopList, QiongSpace },
         name: '',
         props: {
             mine: { type: Object  },
@@ -65,9 +65,16 @@ import PdfContentLayout from '../common/PdfContentLayout.vue'
                 result: null,
             }
         },
+        computed: {
+            is_view() {
+                return true
+            }
+        },
         mounted() {
             this.fetchItems()
             this.switchRes()
+
+            console.log('this.bonuss =', this._item)
         },
         methods: {
             async fetchItems() {

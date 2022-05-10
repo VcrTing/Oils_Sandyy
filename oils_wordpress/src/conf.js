@@ -1,6 +1,6 @@
 
 const TEST = false
-const VERSION = '2.30'
+const VERSION = '2.31'
 const VERSION_TIME = '2022-05-10' 
 
 const baseURL = 'https://strapi03.svr.up5d.com'
@@ -17,6 +17,7 @@ const LAYOUT = {
 
 const RANK_LEAD = 5
 const RANK_DEVELOP = 8
+const RANK_DEVELOP_VIEW = 7
 const HK_RATIO = 7.7
 const SHARE_RATIO = 0.015
 const SHOP_LEVEL_LP_IMG = [
@@ -164,6 +165,7 @@ export default {
 
   RANK_LEAD,
   RANK_DEVELOP, 
+  RANK_DEVELOP_VIEW,
 
   HK_RATIO,
   SHARE_RATIO,
