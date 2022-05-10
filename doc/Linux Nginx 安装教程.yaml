@@ -1,0 +1,27 @@
+
+Nginx:
+  准备工作:
+    sudo yum install epel-release
+    yum update
+  下载:
+    yum install nginx
+  设置自启动:
+    systemctl enable nginx.service
+  配置Conf:
+    cp /root/Oils_Web/doc/nginx_global.conf /etc/nginx/conf.d/oils.conf
+
+    改 oils.conf 里面的 Server Name
+    vim /etc/nginx/conf.d/oils.conf
+  更改User为 Root:
+    yum install vim
+    vim /etc/nginx/nginx.conf
+  移除 Nginx 默认的配置:
+    删除 nginx.conf 里面默认的一个 80 端口的配置
+
+Nginx:
+  状态:
+    service nginx status
+  重启:
+    service nginx restart
+  停止:
+    sudo service nginx stop

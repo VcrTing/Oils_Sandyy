@@ -1,0 +1,106 @@
+
+$userActiveLine: #f5f6f6
+
+.live_panel_wrapper
+    // background: $userActiveLine // #eaeaea
+
+@import ./page_2_ani.sass
+
+
+.taped
+    .tap-header
+        @extend .qiong-txt-16
+        color: $sub_x4
+        margin-top: 12px
+    .tap-content
+        @extend .qiong-txt-42
+        font-weight: bold
+        span
+            @extend .qiong-txt-12
+    .tap-img
+        padding-left: calc(12px + 2vw)
+        padding-right: calc(12px + 2vw)
+        .img
+            max-width: calc(100px + 2vw )
+
+// MENU
+.menu-split-line
+    @extend .hand
+    transition: all .1s
+    height: 60px
+    user-select: none
+    position: relative
+    &:hover
+        // background: rgba(0, 0, 0, .02)
+        .msl-qgl
+            // opacity: 0
+        i
+            transform: translateX(12px)
+    &:focus,
+    &:active,
+    &:focus-visible
+        background: rgba(0, 0, 0, .1)
+
+    &::before
+        position: absolute
+        content: ''
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+    
+    i
+        color: rgba(0, 0, 0, .14) !important
+
+    .msl-qgl
+        opacity: 1
+        margin-top: -1px
+        transition: all .1s
+
+    .menu-split-line_inner
+        height: 48px
+        font-size: 13px
+        color: #000000D7
+
+//    
+
+.iitw-active
+    opacity: 1
+    z-index: 999
+    max-height: 7em
+    & > div
+        animation: upper 0.242s
+
+    .btn-save
+        animation: lefter 0.62s
+
+@keyframes upper
+    0% 
+        transform: translateY(-20px)
+    100%
+        transform: translateY(0px)
+@keyframes lefter
+    0%
+        opacity: 0.8
+        transform: translateX(20px)
+    100%
+        opacity: 1
+        transform: translateX(0px)
+
+    
+.iitw-hide
+    max-height: 0px
+    opacity: 0
+    overflow: hidden
+    & > div
+        transform: translateY(-10px)
+
+// 
+.pro-choise-item
+    min-height: 36px
+    margin: 1px 0px
+    border-radius: 2px
+    border: 1px solid transparent
+    &:hover 
+        background: $bg_c0
+        box-shadow: 0.1px 0.2px 3px -2.2px rgba(0, 0, 0, 0.6)

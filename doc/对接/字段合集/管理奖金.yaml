@@ -1,0 +1,60 @@
+Period_total_pv: 全球总点数
+领袖粉红: 1.5% * 全球总点数
+Period_total_management_point: 獲得領袖分紅管理總點數 
+
+MPV: 領袖分紅管理獎金
+
+Highest_ranking_member_in_direct_relation: 下线给予最高支付级别资格
+
+Management_point: 領袖分紅管理點數 
+
+全球成员级别概况: vip
+获得领袖分红管理点数: team bonus detail. leader points
+该级别成员数量: filter 成员数量
+总点数: 获得领袖分红管理点数 * 该级别成员数量
+
+
+
+DPV: 領袖分紅发展獎金
+development_point: 領袖分紅发展點數 
+Period_total_development_point: 獲得領袖分紅发展總點數 
+Highest_ranking_member_in_direct_relation: 我要求下线做的最高rank
+
+
+# DPV = my_PT / all_PT * 0.015 * sell_PV
+DPV:
+  development_point / 
+  Period_total_development_point * 
+  0.015 * 
+  Period_total_pv
+
+1.
+  每个领袖级别都对应一个 PT 数量
+2.
+  my_PT / all_PT
+
+  all_PT = 所有领袖
+
+1.
+  我自己必须做到 8级（银钻）
+2.
+  用 Enroller 用户关系
+3.
+  因为是银钻，所以，最少是有4条子成员线的
+5.
+  每条线都一定会有一个成员是，最高的级别
+6.
+  最高级别的这个领袖，对应一个 PT 数量
+7.
+  每条线都贡献一个最高级别的 PT
+8.
+  我本人这个月的 PT = 每条线最高的 PT 加起来
+  # 但是
+9.
+  因为我本人是 银钻，我无法获取黑钻 和 星钻的 PT，黑钻与星钻的 PT 均 取 银钻的 PT
+10.
+  不是银钻不算
+11.
+  总的 PT = Enroller 关系中每个人算一次发展 PT，这些 PT 加起来就是 总 PT
+12.
+  发展奖金 = 我本人 PT / 总的 PT * 0.015 * 全球总点数

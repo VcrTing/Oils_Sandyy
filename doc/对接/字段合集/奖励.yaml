@@ -1,0 +1,56 @@
+individual_pv: IPV
+Rank: 支付级别
+active_branch_bonus: 分店资料
+  # 会出现一人多个订单的情况
+active_branch_payout: 分店奖金数量
+active_branch_credit: 
+
+合资格下线:
+  enroller_son_can_num = Active_qualified_lines.rank.count
+  # 1 - 5 的 是一样的，取 5 的
+
+referral_bonus: 首购的资料(数组) >
+  payment_level: 层级
+  order_pv: 订单PV
+  bonus_pv: 单人贡献 的推荐奖金点数
+  bonus_percentage: 首购百分比
+  # 只会一人一个订单
+
+FPV: 首购的 PV
+
+
+OPV: 团队销售 结算奖金
+organization_pv: 团队销售PV sponsor
+organization_pv: 每周期下线的团队销售奖励 在 active_qualified_line 里面
+
+organisation_bonus: 个人下线贡献的奖金
+  payment_level: 层级
+  order_pv: 订单的PV
+  # 会出现一人多个订单的情况
+
+自用点数:
+
+# 界面功能
+
+奖金报表：
+  活跃分店: # Active_branch_bonus
+  首购推荐: 每个订单给自己的贡献 # Referral_bonus
+  团队奖金: 每个订单给自己的贡献 # Organisation_bonus
+
+奖励明细
+  活跃分店：每个人给自己的贡献 # Active_branch_bonus 表示多少人给他作贡献，没贡献的其它人数据都是 0
+  首购推荐：每个人给自己的贡献 # 只会出现一个人一次订单，因为这次订单叫首购
+  团队奖金：每个人给自己的贡献 # 会出现一个人一个月多个订单，这些订单要加起来。
+
+# 跳转记录 与 Widget 设计
+奖金报表: 
+  每个订单有个跳转链接，进入每个订单给自己贡献的明细，以及订单的产品信息与收货信息
+  # 此设计应当独立成 Widget
+
+奖励明细:
+  奖励明细都是展示每个给自己的贡献，称为：展示自己的奖金信息的界面
+  那么自己的奖金信息展示在最上方 # 该模块应当独立成 Widget
+
+  每个人的贡献可以点进去，跳转至：他的奖金信息展示界面
+
+  # 整个界面都应当独立成为 Widget Page，这样可以展示任何一个人的 奖金信息

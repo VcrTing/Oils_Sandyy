@@ -1,0 +1,171 @@
+.w-7
+    width: 7%
+.w-8
+    width: 8%
+.w-10
+    width: 10%
+.w-12
+    width: 12%
+.w-13
+    width: 13%
+.w-14
+    width: 14%
+.w-15
+    width: 15%
+.w-17
+    width: 17%
+.w-18
+    width: 18%
+.w-19
+    width: 19%
+.w-20
+    width: 20%
+.w-21
+    width: 21%
+.w-22
+    width: 22%
+.w-25
+    width: 25%
+.w-30
+    width: 30%
+.w-35
+    width: 35%
+.w-65
+    width: 65%
+.w-78
+    width: 78%
+.w-75
+    width: 75%
+.w-80
+    width: 80%
+.w-82
+    width: 82%
+.w-100
+    width: 100%
+
+.d-ib
+    display: inline-block
+
+.pdf_modal,
+.pdf-plate
+    z-index: 800
+    left: 0px
+    top: 120vh
+    width: 768px
+    height: 10vh
+    position: fixed
+    overflow: scroll
+    background: rgba(255, 255, 255, 0.5)
+    box-shadow: 2px 2px 16px -2px rbga(0, 0, 0, 0.46)
+
+.pdf-plate
+    top: 110vh
+    height: 10vh
+
+$p_dis_s: 0.5em
+$p_dis_n: 0.7em
+$p_dis: 1em
+$p_dis_x: 1.5em
+$p_dis_x2: 2em
+
+$p_fs: 16px
+
+.td
+    overflow: hidden
+    & > div
+        float: left
+.td-fix
+    padding: 0px 0px $p_dis 0px
+
+
+.t-r
+    text-align: right
+.t-r_son,
+.t-r_son div
+    text-align: right
+
+.pt
+    padding-top: $p_dis
+.pt_s
+    padding-top: $p_dis_s
+.pr_s
+    padding-right: $p_dis_s
+
+.ma-0
+    margin: 0 !important
+
+.b_son,
+.b_son div 
+    font-weight: bolder
+
+.p-header
+    font-weight: 900
+    font-size: 2.6em
+    text-transform: uppercase
+
+.pdf-img
+    filter: grayscale(100%)
+
+$p_txt: #0E0F0F // #111317
+$p_tip: #131314 // #16181c
+$p_br: #e9f0f4
+$p_bg: #f2f7fc
+
+.p-tip_son
+    color: $p_tip
+    div
+        color: $p_tip
+
+.pdf-fs
+    color: $p_txt // #16181c
+    font-size: $p_fs // 
+    line-height: 1.24em
+
+.td-data
+    color: $p_tip
+    padding: $p_dis_s 0px
+    & > div
+        // border-right: 1px solid $p_br
+        // border-bottom: 1px solid $p_br
+
+.pdf-panel
+    overflow: hidden
+    border-radius: 3px
+    border-top-width: 0px
+    border-left: 2px solid transparent
+    border-right: 2px solid transparent
+    border-bottom: 1px solid transparent
+    border-color: $p_br
+    border-bottom-color: $p_br
+
+    margin-bottom: $p_dis_x2        
+    .pdf-panel-header,
+    .pdf-panel-cont
+        padding: $p_dis_n $p_dis_x2
+
+    .pdf-panel-header
+        font-weight: bold
+        padding-top: $p_dis
+        background: $p_bg
+    .pdf-panel-cont
+        min-height: $p_dis_x2
+        padding-top: $p_dis_x
+
+.pdf-panel-total
+    background-color: $p_bg
+    padding: $p_dis_n $p_dis_x2
+    text-transform: uppercase
+    .total
+        font-weight: 800
+        font-size: 1.4em
+
+
+.tag-inven
+    font-size: 0.7em
+    padding: 1px 3px
+    border-radius: 3px
+    border: 1px solid $p_tip
+
+.t-wrap
+    word-wrap: break-word
+    word-break: break-all

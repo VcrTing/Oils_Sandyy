@@ -1,0 +1,41 @@
+
+PAGES:
+  Account:
+    Statement: bonus_get
+      AsTopMsg: buy_get
+      AsRecommend: buy_get
+      AsTeamLayer: buy_get
+      AsActiveHouse: buy_get
+
+  Bonu: # 无连接
+
+  Buys:
+    BuyRecords: buy_get
+
+  User:
+    UserCenter: # 无连接
+    UserSponser: # 无连接
+    UserEnroller: # 无连接
+    
+  i:
+    PdfUser:
+      PdfUserActiveHouse: buy_get
+      PdfUserEnrollerRef: buy_get
+      PdfUserTeamLayer: buy_get
+
+  Home:
+    Chronus: chronus_get
+
+COMPONENTS:
+  Bar:
+    MenuMsgWidget: chronus_get + bonus_get
+
+  Conning:
+    LoginFromStrapi: login + users_get
+    # LoginWithWoocId: user_get + login
+    # SyncBonus: bonus_get + bonus_put * 2
+    SyncMe: bonus_get + bonus_put
+
+  Data:
+    InitAuto: buy_get + users_get
+    

@@ -1,0 +1,22 @@
+/browse_loyalty_points/record/203003/?_sort=date:DESC&_limit=999
+
+[
+  {
+    # 订单号
+    order_uuid: 3539,
+    # 订单日期
+    date: '2021-10-29T15:34:21.591Z',
+    # LP +
+    LP_difference: '+83.8',
+    # 类型
+    type: 'issue',
+    # 过账日期
+    issue_date: '2021-04-20',
+    # 过期日期
+    expire_date: '2022-04-20',
+    # 加入的 百分比
+    LP_percentage: 0.1,
+    # 订单 PV
+    order_pv: 120
+  }
+]

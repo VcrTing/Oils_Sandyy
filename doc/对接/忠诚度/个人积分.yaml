@@ -1,0 +1,18 @@
+
+{
+  # 本月可用
+  LP_available: 664,
+  # 有效数
+  LP_about_to_expire: 0,
+  # 现月份
+  consecutive_month: 3,
+  # 百分比
+  LP_percentage: 0.1,
+  # 每月的入账记录
+  LP_by_month: {
+                    # LP                 # 过期日期
+    '2021-04-20': { LP_remaining: 251.4, expire_date: '2022-04-20' },
+    '2021-08-20': { LP_remaining: 87.6, expire_date: '2022-08-20' },
+    '2021-09-20': { LP_remaining: 325, expire_date: '2022-09-20' }
+  }
+}

@@ -1,0 +1,80 @@
+Orders:
+  Stripe_fee
+  Stripe_payout
+    不用理它
+  Stripe_transaction_id
+    要顯示出來
+  Shipping_method
+    運送方法：自取、送貨
+
+  Shipping_total
+    就是有可能會收費的
+    之前有一個order收了55元運費
+  Total_pv
+    就是總PV
+  Price_difference
+    之後會有用的，暫時不用理它
+
+  Role
+    這個是用戶角色，暫時不用理
+  Ordered_date
+    購買日期時間
+  Modified_date
+    暫時不用
+  Product_total
+    購買的東西的價值
+  Is_new
+    就 是給FPV用的
+
+  Payment_method_title
+    收費的方法，有現金，信用卡，銀行轉帳
+    之後會再加其他方法
+
+  Product_total ＋Shipping_total
+    這樣才是單子的總數
+
+
+  Coupon_code
+    就是優惠碼
+  Discount_total
+    订单优惠价格
+
+  
+  Payment_method
+    應該不用理它
+  Uuid
+    就是單號
+  Status
+    單子的狀況
+
+  Ordered_product: #就是買的東西
+    Product_uuid
+      這個是sku
+    Quantity
+      數量
+    Unit_price
+      價錢
+    Pv
+      這單一個東西的pv
+    Discounted_price
+      暫時不用理這個
+    Original_price
+      原價，暫時不用理
+
+  地址: # billing_address, shipping_address
+
+  Customer_uuid:
+    就是用戶
+  Time_period:
+    你懂的
+
+
+订单状态:
+  # 计入分成
+  shipped
+  completed
+  processing
+
+  # 不计如分成
+  on-hold
+  pending payment

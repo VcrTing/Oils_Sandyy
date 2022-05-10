@@ -1,0 +1,122 @@
+
+
+$def: #f2f3f3
+
+._btn_tag
+    cursor: pointer
+    user-select: none
+    transition: all .242s ease-out
+    padding: 0px 12px
+    border-radius: 3px
+    border: 2px solid transparent
+    i
+        color: currentColor !important
+
+.btn-thin
+    @extend ._btn_tag
+    color: $bodyFont
+    background: $bg_c1
+    border: 1px solid rgba(0, 0, 0, 0.001)
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.012)
+    i
+        opacity: 0.9
+    &:hover
+        box-shadow: 0px 0.3px 3px -0.7px rgba(0, 0, 0, 0.382)
+
+.btn-sec-thin
+    @extend ._btn_tag
+    color: $sec
+    background: $sec_tin
+    &:hover
+        color: #FFFFFFF2 !important
+        background: $sec
+        box-shadow: 0px 0px 0px 3px $sec_sdo
+
+.btn-sec-txt
+    color: $sec
+    border: none
+    background: none
+    border-radius: 4.5px
+    padding: 4px 12px
+    transition: all .242s ease-out
+    &:focus,
+    &:active
+        color: $sec_x2
+        background: $sec_tin
+
+
+.btn-op
+    position: relative
+    animation: lefter 0.62s
+    &:focus,
+    &:active
+        color: #FFF
+        background: $sec
+        border-color: $sec
+        i
+            opacity: 0.9 !important
+
+.btn-sec-out
+    @extend ._btn_tag
+    color: $sec
+    border-color: $sec
+
+.btn-sec-hov,
+.btn-pri-hov
+    color: $sec
+    background: none
+    border-radius: 4.5px
+    transition: all .242s ease-in
+    &:hover 
+        background: $sec_tin
+.btn-pri-hov
+    color: $pri
+    &:hover
+        background: $pri_tin
+
+.btn-sec,
+.btn-sec-dark
+    @extend ._btn_tag
+    color: #FFF
+    background: $sec // $sec
+    border: 2px solid transparent
+    box-shadow: 1px 1px 3px rgba(10, 0, 0, 0.12)
+    &:hover
+        box-shadow: 0px 0px 0px 3px $sec_sdo
+
+.btn-sec-dark
+    background: $sec
+    &:hover
+        color: $sec
+        background: transparent
+        border-color: $sec
+
+.btn-lg
+    padding: 4px 16px
+
+.btn-pri,
+.btn-pri-thin
+    color: #FFFFFFEE
+    border-radius: 4.5px
+    transition: all .242s ease-out
+    box-shadow: 0.3px 0.5px 3px 0px rgba(0, 0, 0, 0.04)
+    i
+        opacity: 0.96
+        color: currentColor !important
+
+.btn-pri
+    background: $pri
+    &:hover, &:active, &:focus
+        background: $pri
+        color: #FFFFFFEE
+        box-shadow: 0px 0px 0px 3px $pri_sdo
+
+.btn-pri-thin
+    color: $pri
+    padding: 8px 16px
+    border: 2px solid none
+    background: $pri_tin
+    &:hover, &:active, &:focus
+        border-color: $pri_sdo
+        // box-shadow: 0px 0px 0px 3px $pri_sdo
+

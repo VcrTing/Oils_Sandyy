@@ -1,0 +1,31 @@
+
+网站加载:
+  加载本月份: # 延时操作
+
+  获取 WOOC数据: # 延时操作
+    有：
+    # 依赖 WOOC ID 登录
+      检查 数据与 localstore 数据一致性:
+        是：
+          # 暂时无需登录 strapi
+          检查 TOEKN:
+            有： 
+              # 登录成功，user_backend 一并 有
+              执行 INIT: 展示首页
+        否：
+          # 更新 localstore 数据
+          登录 strapi用户:
+            有：
+              储存 TOKEN:
+                完成：
+                  # 登录成功，user_backend 一并 保存
+                    执行 INIT: 展示首页
+            无：
+              # 做好提示
+    无：
+    # 依赖 输入登录
+      检查 TOKEN:
+        有：
+          # 直接进入首页
+        无：
+          # 跳转至登录界面
