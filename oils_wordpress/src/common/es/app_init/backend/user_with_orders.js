@@ -7,10 +7,7 @@ const user_with_orders = function(users, orders, hooking = null) {
         hooking(u)
         let res = [ ]
         for (let o of orders) {
-
-            // console.log('orders =', o)
-            if (o.customer_uuid) {
-            }
+            // if (o.customer_uuid) { }
             if (u[ ID_FIELD ] == o.customer_uuid[ ID_FIELD ]) {
                 res.push(o)
             }

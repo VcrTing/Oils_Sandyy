@@ -48,5 +48,5 @@
 
 .qiong-avatar-wrapper img
     width: 100% !important
-    border-radius: calc( 1px + 1vw )
+    border-radius: calc( 1px + 0.5vw )
 </style>

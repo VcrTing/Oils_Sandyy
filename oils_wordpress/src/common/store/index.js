@@ -53,7 +53,6 @@ export default new Vuex.Store({
         // 储存 登录讯息
         changeAuth(state, token) {
             state.token = token
-            // localStorage.setItem('oils_token', token)
         },
         clearToken(state) {
             state.token = ''
@@ -138,7 +137,7 @@ export default new Vuex.Store({
                 delete _chr.published_at;
 
     
-                localStorage.setItem('oils_chronu', JSON.stringify(_chr))
+                sessionStorage.setItem('oils_chronu', JSON.stringify(_chr))
                 
             }
             state.chronus = _chr
@@ -152,7 +151,7 @@ export default new Vuex.Store({
             delete _chr.commissions;
             delete _chr.published_at;
 
-            localStorage.setItem('oils_chronu_now', JSON.stringify(_chr))
+            sessionStorage.setItem('oils_chronu_now', JSON.stringify(_chr))
                 
             state.chronus_now = _chr
         },
@@ -187,7 +186,7 @@ export default new Vuex.Store({
         checkToken(state) {
             let res = false
 
-                const token = localStorage.getItem('oils_token')
+                const token = sessionStorage.getItem('oils_token')
                 
                 if ((token == undefined) || (token == '') || (token == null) || (token == 'undefined')) {
                     res = true
@@ -209,7 +208,7 @@ export default new Vuex.Store({
             let res = false
 
             try{
-                const user_backend = JSON.parse(localStorage.getItem('oils_user_backend'))
+                const user_backend = JSON.parse(sessionStorage.getItem('oils_user_backend'))
                 
                 if ((user_backend == undefined) || (user_backend == '') || (user_backend == null) || (user_backend == 'undefined')) {
                     res = true
@@ -228,12 +227,12 @@ export default new Vuex.Store({
             let res = false
 
             try{
-                const chron = JSON.parse(localStorage.getItem('oils_chronu'))
+                const chron = JSON.parse(sessionStorage.getItem('oils_chronu'))
                 if ((chron == undefined) || (chron == '') || (chron == null)) {
                     res = true
                 } else {
                     state.chronus = chron
-                    state.chronus_now = JSON.parse( localStorage.getItem('oils_chronu_now') )
+                    state.chronus_now = JSON.parse( sessionStorage.getItem('oils_chronu_now') )
                 }
             } catch(e) { }
 
@@ -245,7 +244,7 @@ export default new Vuex.Store({
             let res = false
 
             try{
-                const item = JSON.parse(localStorage.getItem('oils_conn_data'))
+                const item = JSON.parse(sessionStorage.getItem('oils_conn_data'))
                 if ((item == undefined) || (item == '') || (item == null)) {
                     res = true
                 } else {

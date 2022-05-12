@@ -6,11 +6,7 @@
 import moment from 'moment'
 import app_init from '../../common/es/app_init/index'
     export default {
-        props: {
-            chronu_id: {
-                type: String
-            }
-        },
+        props: { chronu_id: { type: String } },
         data() {
             return {
                 user: null,
@@ -22,9 +18,6 @@ import app_init from '../../common/es/app_init/index'
 
                 results: [ ]
             }
-        },
-        mounted() {
-
         },
         computed: {
             user_backend() { return this.$store.state.user_backend },
@@ -54,12 +47,8 @@ import app_init from '../../common/es/app_init/index'
                     app_init.user_with_orders(user_e, orders, this.buildData)
                     
                     // 制作树形
-                    res_sponser = await app_init.rolling(user_s, 
-                        this.user.member_code, 'SPONSER'
-                    )
-                    res_enroller = await app_init.rolling(user_e, 
-                        this.user.member_code, 'ENROLLER'
-                    )
+                    res_sponser = await app_init.rolling(user_s, this.user.member_code, 'SPONSER' )
+                    res_enroller = await app_init.rolling(user_e, this.user.member_code, 'ENROLLER' )
 
                     // 搜集 Collect
                     const coll = await app_init.collection(user_s, user_e)
@@ -205,18 +194,6 @@ import app_init from '../../common/es/app_init/index'
                 return u
             },
             serialUser(users, mode) {
-                /*
-                users = users.filter(e => e.member_code == '203001')
-
-                users = users.map(e => {
-                    let res = e.bonuses[10].active_qualified_lines
-                    res = JSON.parse(res)
-                    console.log(e)
-                    console.log(res)
-                })
-                console.log('USERS =', users)
-                return
-                */
                 return new Promise( (rej, rev) => {
 
                     let res = [ ]
@@ -235,13 +212,9 @@ import app_init from '../../common/es/app_init/index'
                             
                             if (!(u.relation_index_sponsor + '_').startsWith(
                                 (this.user.relation_index_sponsor + '_')
-                            )) {
-                                inner = false
-                            }
+                            )) { inner = false }
 
-                            if (inner) {
-                                res.push(this._clearUser(u))
-                            }
+                            if (inner) { res.push(this._clearUser(u)) }
                         }
                     } 
                     else if (mode == 'ENROLLER') {
@@ -257,13 +230,9 @@ import app_init from '../../common/es/app_init/index'
 
                             if (!(u.relation_index_enroller + '_').startsWith(
                                 (this.user.relation_index_enroller + '_')
-                            )) {
-                                inner = false
-                            }
+                            )) { inner = false }
 
-                            if (inner) {
-                                res.push(this._clearUser(u))
-                            }
+                            if (inner) { res.push(this._clearUser(u)) }
                         }
                     }
 

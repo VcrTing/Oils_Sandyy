@@ -9,12 +9,12 @@
                 </div -->
             </div>
             <div class="qiong-wide-70 pl-5">
-                <qiong-space :space="'0.5vw'" class="mobie-hide"></qiong-space>
+                <qiong-space :space="'0.2vw'" class="mobie-hide"></qiong-space>
 
                 <div class="qiong-txt-20 txt-menu">
                     {{ named(pro) }}
                 </div>
-                <div class="qiong-td pt-1 qiong-txt-14">
+                <div class="qiong-td pt-1 qiong-txt-12">
                     <div class="d-ib pr-4 txt-sub_x2">
                         單價：HK$&nbsp;{{ _product.unit_price }}，
                     </div>
@@ -25,7 +25,7 @@
                         SKU：{{ pro.sku }}
                     </div>
 
-                    <div class="qiong-txt-16 mobie-wide-100 pt-2 mobie-show txt-menu">
+                    <div class="qiong-txt-16 mobie-wide-100 pt-2 mobie-show">
                         <div class="mobie-show txt-menu">
                             {{ _product.pv }}&nbsp;PV</div>
                     </div>
@@ -82,5 +82,6 @@ import QiongSpace from '../../../../components/Qiong/Ui/QiongSpace.vue'
 <style lang="sass" scoped>
 .pro-ine
     align-items: flex-start
-
+.txt-menu
+    font-weight: 500
 </style>

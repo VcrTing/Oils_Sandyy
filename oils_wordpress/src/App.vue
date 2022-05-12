@@ -57,7 +57,6 @@
         beforeDestroy() {
             localStorage.clear()
             sessionStorage.clear()
-            localStorage.removeItem('oils_chronu')
             window.sessionStorage.removeItem('sandyy_vx_tk')
             window.sessionStorage.removeItem('sandyy_active_code')
         },

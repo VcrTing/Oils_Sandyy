@@ -127,6 +127,7 @@ import UserManagementList from '../../../../components/Data/Leader/UserManagemen
                 this.is_showing = this.showing
             }
 
+
         },
         methods: {
             init() {
@@ -146,12 +147,16 @@ import UserManagementList from '../../../../components/Data/Leader/UserManagemen
                     get_total_lead_pt: this.get_total_lead_pt
                 }
 
+                console.log('chronu.period_total_pv =', chronu.period_total_pv)
+                console.log('this.me.bonu_period.management_point =', this.me.bonu_period.management_point)
             },
             
 
             async fetchBonusDetail() {
                 
                 const res = await this.$refs.umlREF.fetchingList()
+
+                console.log('manage_items =', res)
                 if (res) {
                     this.manage_items = res
                     setTimeout(e => { this.loading = false }, 200)

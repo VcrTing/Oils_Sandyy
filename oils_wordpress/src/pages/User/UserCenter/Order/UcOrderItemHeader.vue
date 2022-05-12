@@ -10,7 +10,7 @@
             <div class="qiong-txt-22 ">
                 <product-name-viewing class="" :id="buy.product_uuid.id" :product="buy.product_uuid" v-if="$store.state.products"></product-name-viewing>
             </div>
-            <div class="qiong-pt-5 mt-1 qiong-line-hight-15 txt-sub_x2">
+            <div class="qiong-pt-5 mt-2 qiong-line-hight-15  txt-sub_x2">
                 <div class="mobie-row">
                     <span>
                     {{ $t('ORDER.price') }}:&nbsp;
@@ -25,7 +25,7 @@
                         {{ buy.quantity }}</span>
                     <span class="txt-sus">，&nbsp;</span>
                 </div>
-                <div class="mobie-row">
+                <div class="mobie-row op-80">
                     <span class="">SKU：
                         <!-- sku-viewing :product_id="buy.product_uuid.id"></!-->
                         {{ buy.product_uuid.sku }}
@@ -40,7 +40,7 @@
             </div>
         </div>
         <div class="qiong-wide-28 text-right qiong-pt-10 pr-6 mt-1 qiong-txt-td">
-            <div class="mobie-hide txt-sub">
+            <div class="mobie-hide txt-sus">
                 <v-icon size="16" class="">mdi-calendar</v-icon>&nbsp;
                 {{ view.ser_timed(buy.ordered_date, true, true) }}
                 {{ $t('ORDER.buy') }}
