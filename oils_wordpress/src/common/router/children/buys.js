@@ -21,6 +21,10 @@ const InventoryRecords = () => import('@/pages/Buys/Inventory/InventoryRecord')
 
 const Products = () => import('@/pages/Buys/Products/Products')
 
+
+// PMA
+const PmaStockRecord = () => import('../../../pages/Buys/PMA/PmaStockRecord.vue')
+const PmaInventory = () => import('../../../pages/Buys/PMA/PmaInventory.vue')
 export default {
     
     path: '/home/buys',
@@ -50,6 +54,15 @@ export default {
         {
             path: '/home/buys/product_detail',
             component: ProductDetail
+        },
+
+        {
+            path: '/home/buys/pma_stock_record',
+            component: PmaStockRecord
+        },
+        {
+            path: '/home/buys/pma_inventory',
+            component: PmaInventory
         }
     ]
 }

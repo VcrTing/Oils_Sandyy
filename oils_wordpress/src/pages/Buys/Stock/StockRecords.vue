@@ -156,6 +156,8 @@ import StockRecordsExpanel from './Body/StockRecordsExpanel.vue'
             },
             sliceData(start = 0, end = this.limit) {
                 this.logos = this.logos_origin.slice(start, end)
+
+                console.log('库存记录 =', this.logos_origin)
             },
 
             plusFinish() {

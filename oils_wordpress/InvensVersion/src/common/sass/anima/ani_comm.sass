@@ -1,0 +1,60 @@
+
+.an_upper,
+.an_lefter,
+.an_righter
+    opacity: 1
+    animation-duration: .72s
+    animation-iteration-count: 1
+    animation-timing-function: ease-in-out
+
+.an_lefter
+    animation-name: an_lefter
+
+@keyframes an_lefter 
+    0%
+        opacity: 0.3
+        transform: translateX(24px)
+        -webkit-transform: translateX(24px)
+    100%
+        opacity: 1
+        transform: translateX(0px)
+        -webkit-transform: translateX(0px)
+
+.an_righter
+    animation-name: an_righter
+
+@keyframes an_righter 
+    0%
+        opacity: 0.3
+        transform: translateX(-24px)
+        -webkit-transform: translateX(-24px)
+    100%
+        opacity: 1
+        transform: translateX(0px)
+        -webkit-transform: translateX(0px)
+
+.an_upper
+    animation-name: an_upper
+
+@keyframes an_upper 
+    0%
+        opacity: 0.3
+        transform: translateY(24px)
+        -webkit-transform: translateY(24px)
+    100%
+        opacity: 1
+        transform: translateY(0px)
+        -webkit-transform: translateY(0px)
+
+.pti-go-pdf
+    @extend .an_upper
+.page-inner-title::after
+    animation: pit_big 0.362s ease-in-out
+@keyframes pit_big
+    0%
+        opacity: 0
+        width: 0px
+    100%
+        opacity: 0.5
+        width: 60px
+    

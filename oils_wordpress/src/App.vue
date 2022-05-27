@@ -41,6 +41,7 @@
                         this.layout = _layout ? _layout : this.conf.LAYOUT.WORDPRESS
                         if (this.layout == this.conf.LAYOUT.WIDGET) { this.do_shimmer(false) }
                         this.$store.commit('saveLayout', this.layout)
+
                         rej( true )
                     })
                 })

@@ -1,0 +1,162 @@
+
+.bg-primary
+    background-color: $qPrimary !important
+.bg-primary-title
+    background-color: $qPrimaryTitleBg !important
+
+.txt-sec
+    color: $sec
+    &:hover
+        color: $sec
+
+// STATUS
+.txt-error
+    @extend .time
+    color: $error
+    &:hover
+        color: $errorHover
+
+.txt-warning
+    @extend .time
+    color: $warning,
+    &:hover
+        color: $warningHover
+
+.txt-gold
+    @extend .time
+    color: $gold !important
+    &:hover
+        color: $goldHover !important
+
+
+.txt-focus
+    @extend .time
+    color: $focus !important
+    &:hover
+        color: $focusHover !important
+
+.txt-title
+    @extend .time
+    color: $titleFont !important
+
+.txt-money
+    color: $money !important
+.txt-money-deep
+    color: $moneyDeep !important
+
+.qiong-bc-accent
+    background-color: $qAccent
+.qiong-bc-accent-reverse
+    background-color: $qAccentReverseBG 
+
+.qiong-image-blue
+    background: #eee // linear-gradient(to right, #a6c1ee, #d9d9d9)
+
+.deep-header
+    color: #525252
+
+.qiong-zebra-L
+    background-color: $qBgZebraL !important
+
+.primary-header
+    color: $qPrimary !important
+    opacity: 1 !important
+
+.primary-T-header
+    color: #000000
+    opacity: 0.1
+.primary-L-header
+    color: #000000
+    opacity: 0.15
+
+.txt-red
+    color: #d74949 // #db1f1f
+
+.txt-vider
+    color: $vider
+    &:hover
+        color: $viderHover
+
+
+///import css-variables from
+.qiong-primay-bg-title
+    user-select: none
+    box-sizing: border-box
+    color: $headerFont
+    background: $qPrimaryTitleBg
+.table-in-bg-title
+    border-radius: 1px
+
+//    
+.br-simple 
+    border: 1px solid $qBrSimple
+    &:hover
+        border: 1px solid $qBrSimpleHover
+
+.bg-simple
+    background: $qBgSimple
+    &:hover
+        background: $qBgSimpleHover
+
+//    
+.circle-XL
+    border-radius: $qBRXL
+.circle-100
+    border-radius: 100% !important
+
+//  
+
+.qiong-gradient-line
+    min-height: 1px
+    background: #6b6b6b // $qLineXL // rgba(0, 0, 0, 0.24) // 
+    // background: linear-gradient(to right, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.01))
+    // background: linear-gradient(to right, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.01))
+
+.bonus-tip
+    @extend .flex-middle
+    @extend .qiong-txt-16
+    line-height: 2
+    &::before
+        content: ''
+        display: inline-block
+        width: 4px
+        height: 18px
+        border-radius: 4px
+        background: #ffc0c0
+
+.cr-health
+    color: $health
+
+.tip-health_in
+    color: #88c6bd !important
+
+
+
+// 
+.turn-up
+    i
+        transform: rotate(0deg)
+        transition: all .182s !important
+.turn-bown
+    i
+        transform: rotate(180deg)
+        transition: all .182s !important
+
+
+$price: #cf7c26
+// font-weight: bold
+
+
+    
+// 
+.pay-title
+    color: #484849
+
+.txt-sec
+    color: #d42828
+
+.a-hover
+    @extend .time
+    @extend .hand
+    &:hover 
+        color: $sec

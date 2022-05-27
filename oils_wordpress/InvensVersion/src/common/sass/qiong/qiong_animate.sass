@@ -1,0 +1,83 @@
+
+.circle-around
+    animation: around 1s cubic-bezier(0, 0.2,0.2,0) infinite
+
+@keyframes around
+    0%
+        transform: rotate(0deg)
+        -webkit-transform: rotate(0deg)
+    50%
+        transform: rotate(180deg)
+        -webkit-transform: rotate(180deg)
+    100%
+        transform: rotate(360deg)
+        -webkit-transform: rotate(360deg)
+
+// VUE ANIMATION
+
+.A
+    color: rgb(7, 178, 67)
+
+// 载入延迟
+.anime-later
+    animation-name: later
+    animation-duration: .6s
+    animation-timing-function: ease-in-out
+    animation-iteration-count: 1
+
+.anilay-S
+    animation-delay: 0.2s
+.anilay-L
+    animation-delay: 0.4s
+.anilay-XL
+    animation-delay: 0.6s
+
+@keyframes later
+    0%
+        opacity: 0
+        transform: translateY(6vh)
+        -webkit-transform: translateY(6vh)
+    100%
+        opacity: 1
+        transform: translateY(0vh)
+        -webkit-transform: translateY(0vh)
+
+        
+.ssi-go-right
+    animation: ssi_go_right 3s
+
+@keyframes ssi_go_right 
+    0%
+        transform: translateX(0px)
+    30%
+        transform: translateX(12px)
+    50%
+        transform: translateX(12px)
+
+    80%
+        transform: translateX(12px)
+    100%
+        transform: translateX(0px)
+
+.ani-rotate
+    animation: ssi_rotate 2s infinite ease-in-out
+.ani-rotate_s
+    animation: ssi_rotate 0.6s infinite ease-in-out
+
+@keyframes ssi_rotate
+    0%
+        transform: rotate(0deg)
+    100%
+        transform: rotate(360deg)
+        
+
+.ani-from-r
+    animation: from_r .242s ease-in
+
+@keyframes from_r
+    0%
+        opacity: 0.382
+        transform: translateX(24px)
+    100%
+        opacity: 1
+        transform: translateX(0px)

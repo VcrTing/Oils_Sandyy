@@ -1,0 +1,70 @@
+
+$hr: #eeeeef
+
+$bg_Zebra: #f9fafb
+
+.bg-none
+    background: none !important
+
+.bg-FFF
+    background: white
+
+.bg-zebra
+    background-color: $bg_Zebra
+
+.td-hr
+    border-bottom: 1px solid $hr
+
+.td-def
+    & > div
+        @extend .fx-l
+        min-height: 42px
+
+    & > .td-hr:last-child
+        border-bottom: none !important
+
+.td-opt-icon
+    @extend .hand
+    color: rgba(0, 0, 0, 0.5) !important
+    &::before
+        color: currentColor !important
+    &::after
+        opacity: 0.07 !important
+        background: #000 !important
+        transform: scale(1.6) !important
+    &:focus,
+    &:active
+        &::after
+            opacity: 0.12 !important
+
+.td-line-with-img
+    position: relative
+    &::before
+        position: absolute
+        content: ''
+        left: 7%
+        width: 93%
+        bottom: 0%
+        border-bottom: 1px solid $hr
+
+.tb-in-img
+    padding-right: 0.8vw !important
+
+.td-no-pr
+    & > div
+        padding-right: 0px !important
+
+.tb-first
+    // color: #585858
+    font-weight: normal
+    
+$tr_bg: #fbfafa
+
+.extra-tr
+    background: $tr_bg
+    margin-bottom: 6px !important
+
+$td_txt: #343434
+.extra-td
+    .qiong-td
+        color: $td_txt

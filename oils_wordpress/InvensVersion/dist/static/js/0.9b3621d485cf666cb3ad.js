@@ -1,0 +1,2 @@
+webpackJsonp([0],{Um5R:function(t,e,n){"use strict";var a={props:{space:{type:String,default:"1vw"}},name:"",data:function(){return{}}},s={render:function(){var t=this.$createElement,e=this._self._c||t;return e("div",{staticClass:"w-full"},[e("div",{style:{height:this.space}})])},staticRenderFns:[]};var i=n("VU/8")(a,s,!1,function(t){n("yek4")},"data-v-3e1b4bf2",null);e.a=i.exports},yek4:function(t,e){}});
+//# sourceMappingURL=0.9b3621d485cf666cb3ad.js.map

@@ -10,7 +10,9 @@
             <div class="pti-content">
                 <div v-for="(v, i) in items" :key="i" class="qiong-td text-center pti-td">
                     <div class="qiong-wide-13" style="text-align: left;">
-                        {{ v.user.member_code }}&nbsp;
+                        <span v-if="v.user">
+                            {{ v.user.member_code }}&nbsp;
+                        </span>
                     </div>
                     <div class="qiong-wide-12" style="text-align: left;">
                         <level-viewing :item="v.vip_code" v-if="v.Rank > 0" style="display: inline;"></level-viewing>
