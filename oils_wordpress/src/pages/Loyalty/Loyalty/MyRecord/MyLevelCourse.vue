@@ -44,7 +44,10 @@ import LevelCourseShower from './Inner/LevelCourseShower.vue'
             LevelCourseShower
         },
         computed: {
-            rk() { let _k = this._item.rank; return _K ? _k : 0 }
+            rk() { 
+                const _k = this._item.rank
+                return _k ? _k : 0 
+            }
         },
         
         data() {

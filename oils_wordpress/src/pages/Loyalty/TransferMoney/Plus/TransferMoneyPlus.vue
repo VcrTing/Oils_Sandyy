@@ -26,6 +26,7 @@
             </div>
         <net-fund ref="fundREF"></net-fund>
         <net-transfer ref="tsREF"></net-transfer>
+        
         <sign v-if="user" @sign_Father="LP"></sign>
     </mc-form-page-layout>
 </template>
@@ -36,8 +37,10 @@ import Sign from '../../../../extra/func/Sign.vue'
 import NetFund from '../../../../extra/net/NetFund/fund/NetFund.vue'
 import McFormPageLayout from '../../../MemberChange/Form/Layout/McFormPageLayout.vue'
 import FTmpForm from './Inner/FTmpForm.vue'
+
+import NetTransfer from '../../../../extra/net/NetFund/transfer/NetTransfer.vue'
     export default {
-        components: { McFormPageLayout, FTmpForm, NetFund, Sign, QiongLoading },
+        components: { NetTransfer, McFormPageLayout, FTmpForm, NetFund, Sign, QiongLoading },
         name: '',
         data() {
             return {

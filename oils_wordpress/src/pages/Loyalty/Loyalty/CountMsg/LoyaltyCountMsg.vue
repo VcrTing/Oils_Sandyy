@@ -86,4 +86,6 @@ import LcmRatioInner from './Inner/LcmRatioInner.vue'
 
 .act-sec
     background: #fcfaf8
+    border-radius: 12px
+    margin-bottom: 24px
 </style>

@@ -1,5 +1,5 @@
 <template>
-    <div class="px-7" v-if="_many && many.length > 0">
+    <div class="px-7" v-if="_many && _many.length > 0">
         <div class="qiong-td qiong-txt-td  py-2 lh-def" 
             v-for="(v, i) in _many" :key="i">
             
