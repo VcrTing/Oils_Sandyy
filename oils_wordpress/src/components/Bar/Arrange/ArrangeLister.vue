@@ -84,12 +84,12 @@
                     }
 
                     // if (this.admin) {
-                        if (this.conf.TEST) {
+                        // if (this.conf.TEST) {
                             res.children.push(...[
                                 { icon: 'mdi-wallet-outline', title: '電子錢包', link: 'loyalty/wallet' },
                                 { icon: 'mdi-cash-fast', title: '轉賬', link: 'loyalty/transfer_money' },
                             ])
-                        }
+                        // }
                     // }
                     this.group.push(res)
                     rec(true)
