@@ -39,12 +39,13 @@ import Sign from '../../../extra/func/Sign.vue'
         props: [ 'hide_transfer' ],
         data() {
             return {
-                wallet: [
-                    0,
-                ],
+                wallet: [ ],
                 last_upd: ''
             }
         },
+        mounted() { 
+            console.log('钱包')
+            this.init() },
         computed: { 
             user() { let res = this.$store.state.user_backend; return res ? res : null }
         },

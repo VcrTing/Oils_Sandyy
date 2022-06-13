@@ -1,5 +1,5 @@
 
-const TEST = false
+const TEST = true
 const VERSION = '2.4'
 const VERSION_TIME = '2022-06-13' 
 
