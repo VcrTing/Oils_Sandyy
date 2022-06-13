@@ -16,18 +16,18 @@ import app_init from '@/common/es/app_init/index'
         },
         methods: {
             _serBonu(bonus) {
+                let res = [ ]
                 for (let b of bonus) {
                     b.vip_code = app_init.vip_view.rank_to_code(b.Rank)
                     if (b.user) {
+                        res.push(b)
                         b.member_code_int = Number.parseInt(b.user.member_code)
                     }
                 }
-                
-                bonus = bonus.sort((n, o) => {
-
+                res = res.sort((n, o) => {
                     return n.member_code_int - o.member_code_int
                 })
-                return bonus
+                return res
             },
             async switchingBonus(filter) {
 
