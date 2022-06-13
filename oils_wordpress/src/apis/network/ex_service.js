@@ -8,10 +8,10 @@ import conn_util from './for_conn_util'
 const _build = function(ep, key = '') {
     return conf.apiURL + '/' + conf.ENDPOINT[ ep ] + '/'  + key
 } 
-const ex_get = function(vue, uri, condition = {}) {
-    console.log('Ex Url =', _build(uri) + conn_util.builParam(condition))
+const ex_get = function(vue, uri, condition = {}, key = '') {
+    console.log('Ex Url =', _build(uri, key) + conn_util.builParam(condition))
     return net({
-        url: _build(uri) + conn_util.builParam(condition),
+        url: _build(uri, key) + conn_util.builParam(condition),
         method: 'GET',
         headers: conn_util.headers(vue.$store.state.token)
     })

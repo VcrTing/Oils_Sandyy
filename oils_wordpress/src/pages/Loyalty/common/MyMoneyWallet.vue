@@ -11,7 +11,7 @@
                         <span>我要轉賬</span>
                         <v-icon class="qiong-txt-16">mdi-arrow-top-right</v-icon>
                     </div>
-                    <div class="t-r">
+                    <div class="t-r" v-if="last_upd">
                         <span class="a-sus_sec">
                             <v-icon class="qiong-txt-16">mdi-calendar-blank</v-icon>&nbsp;&nbsp;
                             <span class="hv">最後更新於：{{ view.ser_timed(last_upd, true, false) }}</span>
