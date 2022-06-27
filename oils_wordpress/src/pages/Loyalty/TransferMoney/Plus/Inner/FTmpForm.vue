@@ -164,5 +164,5 @@ import DialogAlert from '@/components/Shimmer/Alert/DialogAlert.vue'
 </script>
 <style lang="sass" scoped>
 .txt-money
-    color: #ef9f30
+    color: #db9738
 </style>

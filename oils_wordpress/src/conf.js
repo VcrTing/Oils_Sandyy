@@ -1,7 +1,7 @@
 
-const TEST = true
-const VERSION = '2.4'
-const VERSION_TIME = '2022-06-13' 
+const TEST = false
+const VERSION = '2.42'
+const VERSION_TIME = '2022-06-27' 
 
 const baseURL = 'https://strapi03.svr.up5d.com'
 const apiURL = baseURL
@@ -113,6 +113,9 @@ const ENDPOINT = {
     // 重启会员资格
     admin_wallet_lp_reboot: 'wallet/loyalty_points/extend',
     admin_wallet_lp_reboot_remove: 'wallet/loyalty_points/remove_extend',
+
+    // Eallet
+    admin_wallet_modify: 'wallet/e_wallet/modify',
 
     // 用户 
     user_s_tree: 'browse_user/sponsor/tree',

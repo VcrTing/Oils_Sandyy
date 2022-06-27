@@ -45,6 +45,7 @@
                             { icon: 'mdi-account-sync-outline', title: '重啟 LP 資格', link: 'member_operate/reload_qualify' },
 
                             //
+                            { icon: 'mdi-cash-multiple', title: '用戶資金操作 ', link: 'wallet/by-admin' },
                         ]
                     }
                     if (this.conf.TEST) {

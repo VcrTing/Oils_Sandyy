@@ -52,6 +52,7 @@ import Sign from '../../../extra/func/Sign.vue'
         methods: {
             async init() {
                 let res = await this.$refs.fundREF.fetching(this.user)
+                console.log('钱包钱 =', res)
                 if (res) {
                     if (res.length >= 1) {
                         this.wallet = res.map(e => {

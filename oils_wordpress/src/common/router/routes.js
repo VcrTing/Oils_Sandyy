@@ -9,6 +9,7 @@ import uiRouter from './children/ui'
 import mcRouter from './children/member_change'
 
 import authRouter from './children/auth'
+import walletRouter from './wallet/wallet'
 
 const Home = () => import('@/pages/Home/Home')
 
@@ -29,6 +30,7 @@ const AllRoutes = [
         buysRouter,
         uiRouter,
         mcRouter,
+        walletRouter,
 
         {
           path: '/home/dump',
