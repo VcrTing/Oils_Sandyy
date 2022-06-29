@@ -3,7 +3,7 @@
         <member-msg-widget :_code="user.member_code"></member-msg-widget>
 
         <my-money-wallet class="mt-6"></my-money-wallet>
-
+        <div class="py-3"></div>
         <mm-jf-in-record></mm-jf-in-record>
 
         <net-fund ref="fundREF"></net-fund>
