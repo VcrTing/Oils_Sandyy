@@ -18,7 +18,7 @@
                             </span>
                         </span>
                         <span v-else>
-                            無
+                            (自動檢索)
                         </span>
                     </p>
                     
@@ -34,7 +34,7 @@
             <v-col col="12" :sm="8" cols="12">
                 <label>收款人現有余額</label>
                 
-                <button class="input input-fix txt-money fw-b">
+                <button @click="() => { }" class="input input-fix txt-money fw-b">
                     {{ hkd ? hkd : 0 }}&nbsp;&nbsp;HKD
                 </button>
 

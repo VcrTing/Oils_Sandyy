@@ -56,7 +56,7 @@
             <qiong-space :space="'1.2vh'"></qiong-space>
 
             <div v-for="(v, i) in result_next" :key="i" >
-                <div class="bg-simple qiong-mb-10 circle-XL mobie-mb-16">
+                <div class="bg-iine qiong-mb-10 circle-XL mobie-mb-16">
 
                     <div class="unm-task-card" :class="'ani-up_' + i">
                         <div class="qiong-wide-48 qiong-pl-20 pr-0">
@@ -72,7 +72,7 @@
                     </div>
                 </div>
             </div>
-                <div class="bg-simple qiong-mb-10 circle-XL mobie-mb-16" v-if="res_next">
+                <div class="bg-iine qiong-mb-10 circle-XL mobie-mb-16" v-if="res_next">
 
                     <div class="unm-task-card ani-up_2">
                         <div class="qiong-wide-48 qiong-pl-20 pr-0">
@@ -204,5 +204,8 @@ import QiongSpace from '../../../../components/Qiong/Ui/QiongSpace.vue'
     padding: 6px 0
 
 .bg-simple
-    background: #f0f0f0
+    background: #efefef
+
+.bg-iine
+    background: #e7e7e7
 </style>

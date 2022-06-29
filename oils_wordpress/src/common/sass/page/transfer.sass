@@ -1,16 +1,45 @@
+$trans_Br: #cacbcd
+$trans_Active: #bdbec4
+    
 .form-transfer
     .transfer-wrapper
         .input,
         .input-transfer
             font-size: 2em
+            font-weight: 600
+            letter-spacing: 0.2em
 
     input
         border: none
         outline: none !important
         border-bottom-left-radius: 0
         border-bottom-right-radius: 0
-        border-bottom: 1px solid $input_br
+        border-bottom: 1px solid $trans_Br
         &:hover,
         &:focus,
         &:focus-visible
-            border-color: $input_Active
+            border-color: $trans_Active
+
+$pri_ex: #cd2828
+.btn-transfer
+    @extend .fx-c
+    margin-top: 24px
+    text-align: center
+    button
+        border-radius: 0px
+    button:first-child 
+        padding: 12px 36px
+        border: 2px solid transpaernt !important
+        border-top-left-radius: 0.3rem
+        border-bottom-left-radius: 0.3rem
+    button:last-child
+        padding: 12px 48px
+        border-radius: 0.2rem
+
+    .btn-pri
+        background-color: $pri_ex
+        &:hover
+            border-radius: 0.4rem
+            box-shadow: inset 0px 0px 3px 0px rgba(0, 0, 0, 0.08)
+    .reset
+        background: none !important

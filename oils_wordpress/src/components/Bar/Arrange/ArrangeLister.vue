@@ -87,7 +87,7 @@
                     // if (this.admin) {
                         // if (this.conf.TEST) {
                             res.children.push(...[
-                                { icon: 'mdi-wallet-outline', title: '電子錢包', link: 'loyalty/wallet' },
+                                { icon: 'mdi-wallet-outline', title: '電子錢包', link: 'wallet/me' },
                                 { icon: 'mdi-cash-fast', title: '轉賬', link: 'loyalty/transfer_money' },
                             ])
                         // }

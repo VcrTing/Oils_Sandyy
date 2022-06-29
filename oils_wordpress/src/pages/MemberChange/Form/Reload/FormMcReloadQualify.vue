@@ -5,18 +5,16 @@
             <f-mrq-form ref="formREF"></f-mrq-form>
         </div>
 
-            <div class="fx-c my-3 qiong-pt-15 qiong-txt-14">
-                <button class="btn-pri mx-3 px-5 py-1 round an_lefter" 
-                    @click="submit">
-                    
-                    <v-icon class="qiong-txt-16 mr-2">mdi-check-underline</v-icon>
-                    提交結果
-                </button>
-                <button class="mx-3 px-5 py-1 reset round"
+            <div class="btn-transfer an_upper qiong-pt-15 qiong-txt-14">
+                <button class="reset"
                     @click="reset">
-                    
                     <v-icon class="qiong-txt-16">mdi-refresh</v-icon>
                     重置表單
+                </button>
+                <button class="btn-pri" 
+                    @click="submit">
+                    <v-icon class="qiong-txt-16 mr-3">mdi-check-underline</v-icon>
+                    提交結果
                 </button>
             </div>
     </mc-form-page-layout>

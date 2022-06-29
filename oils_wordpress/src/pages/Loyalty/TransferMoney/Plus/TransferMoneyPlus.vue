@@ -9,19 +9,16 @@
             <qiong-loading v-else></qiong-loading>
         </div>
 
-
-            <div class="fx-c my-3 qiong-pt-15 qiong-txt-14 anime-later anilay-XL">
-                <button class="fm-submit mx-3 px-5 py-1 round" 
-                    @click="submit">
-                    
-                    <v-icon class="qiong-txt-16 mr-2">mdi-check-underline</v-icon>
-                    提交結果
-                </button>
-                <button class="mx-3 px-5 py-1 reset round"
+            <div class="btn-transfer an_upper qiong-pt-15 qiong-txt-14">
+                <button class="reset"
                     @click="reset">
-                    
                     <v-icon class="qiong-txt-16">mdi-refresh</v-icon>
                     重置表單
+                </button>
+                <button class="btn-pri" 
+                    @click="submit">
+                    <v-icon class="qiong-txt-18 mr-3">mdi-cash-fast</v-icon>
+                    確認轉賬
                 </button>
             </div>
         <net-fund ref="fundREF"></net-fund>
