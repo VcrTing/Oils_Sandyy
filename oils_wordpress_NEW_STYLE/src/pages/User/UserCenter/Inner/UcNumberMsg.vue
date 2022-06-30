@@ -9,7 +9,7 @@
             <qiong-space :space="'0.6vh'"></qiong-space>
 
             <div class="pt-2 pb-2 user-vip-card bg-simple">
-                    <div class="qiong-wide-25 flex-center pr-0 qiong-pt-5 mini-wide-40">
+                    <div class="qiong-wide-25 fx-c pr-0 qiong-pt-5 mini-wide-40">
                         <level-image-viewing :bigger="2" 
                             :item="me.vip.name + '_' + me.vip.star"
                             :extra_class="'vip_showing'"
