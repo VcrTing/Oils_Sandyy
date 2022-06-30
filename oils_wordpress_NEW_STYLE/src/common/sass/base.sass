@@ -1,0 +1,53 @@
+
+@import ./lunching
+
+*
+    border: none
+    margin: 0
+    cursor: default
+    padding: 0
+    outline: none
+    box-sizing: border-box
+
+::-webkit-scrollbar
+  width: 0px
+
+a,
+li,
+img,
+span,
+button
+  border-radius: 0.24rem
+  transition: all .2s ease-in-out
+
+img
+  width: 100%
+  height: auto
+  border-radius: 1.5px
+
+html, .v-application, .v-application--wrap
+    color: $tit !important
+    background: $bg
+    font-weight: 500
+    font-family: tahoma,"microsoft yahei","\5FAE\8F6F\96C5\9ED1" !important
+.v-list-item__content > div
+    font-weight: 400
+    color: $tit !important
+    font-family: tahoma,"microsoft yahei","\5FAE\8F6F\96C5\9ED1" !important
+
+
+.ff-kk
+    font-family: Kirang Haerang !important
+
+button
+    &::after
+      z-index: -1
+      @extend .ps-f
+    &,
+    &::after
+      outline: none
+      background: none
+      min-height: 1.5rem
+      border-radius: 1.5px
+      border: 2px solid transparent
+      transition: all .2s ease-in-out

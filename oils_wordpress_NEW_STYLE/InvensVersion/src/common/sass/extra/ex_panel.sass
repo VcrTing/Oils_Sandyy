@@ -1,0 +1,166 @@
+$appHui: #fdfdfd // #fcfcfc
+.app-bar
+    z-index: 360
+    background-color: $mainHui 
+    .v-navigation-drawer__border
+        background: $mainHui // #eeefef
+    & > div
+        background: $mainHui
+    & > .v-navigation-drawer__content
+        box-shadow: 0px 1px 6px -1px rgba(0, 0, 0, 0.42)
+        & > div
+            background-color: $appHui !important
+    
+.ex-panel-br
+    // border-bottom: 1px solid #f1f1f2
+
+// 购买页面
+.buy-ex-panel
+    .v-expansion-panel
+        padding: 0px !important
+
+    .v-expansion-panel-header
+        position: relative
+        padding-bottom: 0px
+        padding-top: 0px
+        min-height: 39px
+    .v-expansion-panel-header__icon
+        position: absolute
+        right: 28px
+        top: 50%
+        transform: translateY(-28%)
+        *
+            color: #999 !important
+
+    .v-expansion-panel-content
+        background: #f8f8f8 //$mainHui
+
+    .v-expansion-panel-content__wrap
+        box-shadow: inset 0px -1px 1px rgba(0, 0, 0, 0.10)
+
+
+
+// 购买记录
+
+.buy-logo-panel
+
+    .blp-header
+        overflow: hidden
+        background: #fcfcfc !important
+        i
+            color: #b25d5d // #5a5a5a // #a14527
+        p
+            color: #929292 // #282524
+
+    *
+        box-shadow: none !important
+    
+    .v-expansion-panel-header
+        min-height: auto !important
+        .i-chevron-down
+            color: rgba(0, 0, 0, 0.4) !important
+
+    .v-expansion-panels--flat
+        box-shadow: 0px 0.7px 3px -1px rgba(0, 0, 0, 0.5) !important
+
+    .v-item--active,
+    .v-expansion-panels--flat,
+    .v-expansion-panel-content, 
+    .v-expansion-panel-content__wrap
+        background: #fff
+        overflow: hidden
+        border-radius: 7px
+        // border-bottom-left-radius: 12px
+        // border-bottom-right-radius: 12px
+    .v-expansion-panel-content, 
+    .v-expansion-panel-content__wrap
+        background: #fff !important
+        border-top-left-radius: 0px
+        border-top-right-radius: 0px
+    .v-expansion-panel-content
+        border-top: 1px solid rgba(0, 0, 0, 0.09)
+
+        .qiong-tr > div
+            // color: #494949
+            // font-weight: normal
+    
+        
+// APP 
+.v-list-item--active
+    &::after
+        position: absolute
+        content: ''
+        top: 0
+        right: 0
+        bottom: 0
+        width: 0.5px
+        background: rgba(0, 0, 0, 0.06)
+
+ul
+    list-style: none
+    text-decoration: none
+
+// MENU
+
+.tag-audit_coise
+    position: absolute
+    width: 100%
+    top: -12px
+    left: 50%
+    z-index: 700
+    padding: 0.1em 0px !important
+    border-radius: 12px
+    background-color: #fff
+    transform: translateX(-50%)
+    box-shadow: 0px 0.7px 3px rgba(0, 0, 0, 0.16)
+
+    li
+        padding: 0.6em 12px 
+        border-bottom: 1px solid #f1f1f2
+
+    li:last-child
+        border: none
+
+    .tgc-active
+        background-color: #FFF
+
+// 行内颜色
+.out-money-row
+    background: #f7fbff
+.lp-td-br
+    border-bottom: 1px solid #efefef // #fbf9f9
+
+.me-buy-row
+    background: #fbfbfb !important
+
+// HEADER
+.extra-page-header
+    // background: #fbf9f9
+
+// ALERT
+.alert
+    overflow: hidden
+    border-radius: 1em
+    position: relative
+    background: #f3f3f3
+    border: 1px solid transparent
+    box-shadow: 0.3px 0.5px 3px -0.3px rgba(0, 0, 0, 0.012)
+    &::after
+        content: ''
+        z-index: 10
+        position: absolute
+        top: -1em
+        left: 3em
+        width: 1em
+        bottom: -1em
+        transform: rotate(-36deg)
+    span
+        z-index: 100
+        position: relative
+.alert-warning
+    color: #b06c0c
+    background: #fef6eb
+    border-color: #f9ead4
+    &::after
+        left: 1em
+        background: rgba(0, 0, 0, 0.025)

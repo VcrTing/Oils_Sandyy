@@ -12,7 +12,7 @@
                 <qiong-space :space="'24px'" class="mobie-show"></qiong-space>
             </v-col>
 
-            <!--v-col class="anime-later pc-user-col-r" cols="12" :sm="6">
+            <v-col class="anime-later pc-user-col-r" cols="12" :sm="6">
                 <qiong-header >{{ $t('HEADER.task_list') }}</qiong-header>
                 <qiong-panel-element :need_space="false">
                     <nav class="px-7 qiong-pb-20">
@@ -24,7 +24,7 @@
 
                     </nav>
                 </qiong-panel-element> 
-            </v-col-->
+            </v-col>
         </v-row>
   
         <uc-buy-record ref="buyRecord" class="mobie-mt-24" @long_Father="() => long = true"></uc-buy-record>

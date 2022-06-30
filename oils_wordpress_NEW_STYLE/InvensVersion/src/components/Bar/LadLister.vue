@@ -1,0 +1,161 @@
+<template>
+
+    <v-list-item-group class="qiong-br-0 qiong-list-item"
+        v-model="group"
+        v-if="!loading"
+    >
+    
+        <v-list-item
+            v-for="(tile, k) in tiles"
+            :key="k"
+
+            @click.stop="go(`/home/${tile.link}`)"
+
+            :class="{ 'v-list-item--active': (`/home/${tile.link}` == $route.path) }"
+        >
+
+            <v-list-item-avatar class="py-0 my-0">
+                <v-icon v-html="tile.icon"></v-icon>
+            </v-list-item-avatar>
+
+            <v-list-item-content>
+                <div tag="div">
+                    {{ tile.title }}
+                </div>
+            </v-list-item-content>
+        </v-list-item>
+
+
+        <!-- 樹形結構 -->
+        <v-list-group
+            v-for="(tile, i) in tiles_group"
+            :key="i + 100"
+
+            no-action
+            sub-group
+            
+            v-model="tile.active"
+            :prepend-icon="tile.icon"
+
+            class="lad_list_group"
+            color="rgba(255, 255, 255, 0.6)"
+            
+            :id="'lister_' + i"
+            @click="menuOpera(i)"
+        >
+            <template v-slot:activator>
+                <v-list-item-content>
+                    <v-list-item-title class="pl-2 fs-16">{{ tile.title }}</v-list-item-title>
+                </v-list-item-content>
+            </template>
+            
+            <lister-children-items :items="tile.children" :link="tile.link"></lister-children-items>
+        </v-list-group>
+
+        <!-- 編輯 -->
+        <menu-setting-simple></menu-setting-simple>
+
+        <arrange-lister ref="arrangeREF" v-if="!$store.state.loading" @menu_Father="init"></arrange-lister>
+    </v-list-item-group>
+
+    <div v-else>
+        <qiong-loading :bigger="0"></qiong-loading>
+    </div>
+</template>
+
+<script>
+import QiongLoading from '../Qiong/Ui/QiongLoading.vue'
+import ArrangeLister from './Arrange/ArrangeLister.vue'
+import ListerChildrenItems from './Arrange/ListerChildrenItems.vue'
+import MenuSettingSimple from './menu/MenuSettingSimple.vue'
+    export default {
+        components: {
+            ArrangeLister , MenuSettingSimple, ListerChildrenItems, QiongLoading 
+        },
+        data() {
+            return {
+                group: null,
+
+                loading: false,
+
+                tiles: [ ],
+
+                tiles_group: [ ]
+            }
+        },
+        methods: {
+            async serMenu() {
+                const res = await this.$refs.arrangeREF.menuNow()
+                if (res) {
+                    res.one.map(e => {
+                        this.tiles.splice(1, 0, e)
+                    })
+                    
+                    /*
+                    res.group = res.group.sort((n, o) => o.order - n.order)
+                    res.group.map(e => {
+                        this.tiles_group.splice(0, 0, e)
+                    })
+
+                    if (this.$store.state.is_admin) { 
+                        this.tiles_group.map(e => {
+                            if (e.id == 4) {
+                                e.children.push(
+                                    { icon: 'mdi-alarm-panel', title: this.$t('MENU.commission_total'), link: 'user/pma2' },
+                                )
+                            }
+                        })
+                    }
+                    */
+                }
+
+                // console.log('拥有二级菜单的 菜单', this.tiles_group)
+            },
+
+            init() {
+                
+                return new Promise((rej, rev) => {
+                    this.tiles = [
+                        { icon: 'mdi-database-settings-outline', title: '產品庫存', link: 'buys/inventory' },
+                        { icon: 'mdi-database-cog-outline', title: '庫存操作記錄', link: 'log/stocks' },
+                    ]
+
+                    // this.serMenu()
+
+                    rej( true )
+                })
+            },
+
+
+            go(path) { this.$router.push({ path }) },
+
+
+            menuOpera(i) {
+
+                return 
+                const list_LEN = this.tiles_group.length
+
+                let _dom = 'lister_' + i
+
+                for (let i= 0; i< list_LEN; i++ ) {
+
+                    _dom = document.getElementById('lister_' + i)
+                    // _dom.click()
+                }
+            }
+        },
+    }
+</script>
+
+<style lang="sass" scoped>
+.lad_list_group
+    margin-left: -8px !important
+.lad_list_group > div
+    padding-left: 16px !important
+
+.qiong-list-item div
+    border-radius: 0px !important
+.qiong-list-item:hover div
+    border-radius: 0px !important
+
+</style>
