@@ -1,5 +1,6 @@
 <template>
-    <div></div>
+    <div>
+    </div>
 </template>
 
 <script>
@@ -34,17 +35,20 @@
                     
                     if (res.length > 0) {
                         let data = res[0]
+                        console.log('通过 Chronu')
                         data.start = this.view.chronu_start(data.start)
 
                         this.$store.commit('saveChronus', [ data, true ])
                         this.$store.commit('saveChronusNow', data)
+
                     } else {
                         this.$store.commit('saveDialog', 601)
                     }
                 } else {
                     this.$store.commit('saveDialog', 600)
                 }
-            }
+            },
+
         },
     }
 </script>

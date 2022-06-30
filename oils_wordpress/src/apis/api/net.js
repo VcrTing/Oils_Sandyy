@@ -3,7 +3,7 @@ import axios from 'axios'
 export function net( config) {
   
   const instance = axios.create({
-    timeout: 99999
+    timeout: 999999
   })
 
   // 重复器

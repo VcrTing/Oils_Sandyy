@@ -70,6 +70,7 @@ import HomeLoading from './extra/HomeLoading.vue'
             } else {
                 this.menu = true
             }
+
         },
         
         watch: {
@@ -107,8 +108,7 @@ import HomeLoading from './extra/HomeLoading.vue'
             },
             
             async init() {
-                let res = await this.$refs.productREF.productLoading()
-                this.$store.commit('saveProducts', res)
+                await this.$store.commit('saveProducts', await this.$refs.productREF.productLoading())
             },
 
             reload() {

@@ -3,7 +3,9 @@
         <div v-if="$store.state.token">
             <chronus-now v-if="need"></chronus-now>
         </div>
-        <layout v-if="layout" :_layout="layout" @shimmer_Father="do_shimmer"></layout>
+        <transition name="fade_out">
+            <layout v-if="layout" :_layout="layout" @shimmer_Father="do_shimmer"></layout>
+        </transition>
 
         <transition name="fade_out">
             <init-shimmer v-show="shimmer"></init-shimmer>
@@ -53,7 +55,10 @@
                 })
             },
 
-            do_shimmer(v) { this.shimmer = v }
+            do_shimmer(v) { 
+                setTimeout(e => this.shimmer = v, 2000) 
+            },
+
         },
         beforeDestroy() {
             localStorage.clear()

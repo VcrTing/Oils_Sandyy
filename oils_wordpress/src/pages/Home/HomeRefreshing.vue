@@ -21,27 +21,19 @@ import MeSonCanNum from '../../components/Data/Me/MeSonCanNum.vue'
 import ExAppInit from '../../excenter/init/ExAppInit.vue'
 import NetBonusStatement from '../../extra/net/NetBonus/NetBonusStatement.vue'
     export default {
-        name: '',
         components: { TeamBonusDetailInit, BonusNumedInit, BonusEnrollerLineMe, MeSonCanNum, NetBonusStatement, ExAppInit },
-        data() {
-            return {
-                
-            }
-        },
+       
         async mounted() {
-                let res = [ ]
-                
-                let numed = this.$refs.boNumedREF.numdLoading()
-                numed = numed ? await numed : [ ]
-                this.$store.commit('saveBonusNum', numed)
 
                 this.$store.commit('saveTeamBonusDetail', await this.$refs.tbdREF.tbdLoading())
 
                 this.$store.commit('saveBonusQualifyLine', await this.$refs.belmREF.lunch_Line())
-                await this.refreshSCN()
+            
+                let numed = this.$refs.boNumedREF.numdLoading()
+                numed = numed ? await numed : [ ]
+                this.$store.commit('saveBonusNum', numed)
 
-                // 加载新的 数据
-                await this.$refs.appInitREF.init()
+                await this.refreshSCN()
         },
         methods: {
             async refreshSCN() {
@@ -49,10 +41,6 @@ import NetBonusStatement from '../../extra/net/NetBonus/NetBonusStatement.vue'
                 let ub = this.$store.state.user_backend
                 ub.son_can_num = son_num
                 this.$store.commit('saveBackendUser', ub)
-
-                // 获取 个人 bonus
-                // let bonus = await this.$refs.bonusREF.fetching( ub )
-                // this.$store.commit('saveBonusStatement', bonus)
             }
         }
     }
