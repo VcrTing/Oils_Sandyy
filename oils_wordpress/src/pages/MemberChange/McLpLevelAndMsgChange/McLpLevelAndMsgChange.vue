@@ -11,12 +11,12 @@
 
         <qiong-panel-element class="mobie-table" :need_space="false" v-if="def_typed == 2">
             <mllamc-lp-tr></mllamc-lp-tr>
-            <mllamc-lp-body :items="records" v-if="!loading"></mllamc-lp-body>
+            <mllamc-lp-body :_items="records" v-if="!loading"></mllamc-lp-body>
             <qiong-loading v-else></qiong-loading>
         </qiong-panel-element>
         <qiong-panel-element class="mobie-table" :need_space="false" v-else>
             <mllamc-tr></mllamc-tr>
-            <mllamc-body :items="records" v-if="!loading"></mllamc-body>
+            <mllamc-body :_items="records" v-if="!loading"></mllamc-body>
             <qiong-loading v-else></qiong-loading>
         </qiong-panel-element>
 
@@ -44,31 +44,6 @@ import MllamcTopBar from './Top/MllamcTopBar.vue'
 import MllamcTopFilter from './Top/MllamcTopFilter.vue'
 import MllamcTr from './Top/MllamcTr.vue'
     export default {
-  components: { QiongHeaderFilter,
-    MllamcTopBar,
-    QiongPanelElement,
-    MllamcBody,
-    MllamcTr,
-    MllamcTopFilter,
-    QiongLoading,
-    Pagenation,
-    TablePagerFooter,
-    NetMemberLpLevelRecord,
-    MllamcLpBody,
-    MllamcLpTr,
-    NetLpPlusRecord        },
-        data() {
-            return {
-                records_origin: null,
-                records_page: null,
-
-                records: null,
-                loading: true,
-
-                def_typed: 2,
-                limit: 30
-            }
-        },
         methods: {
             typed(v) { this.def_typed = v; this.switching( this.$refs.topREF.result() ) },
             async switching(cond) { 
@@ -85,6 +60,7 @@ import MllamcTr from './Top/MllamcTr.vue'
             },
             async origin(condition) {
                 condition._limit = 300
+                // condition.user_contains = '203404'
                 if (this.def_typed == 1) {
                     return await this.$refs.recLpLevelREF.LpLevelAuto( condition )
                 }
@@ -95,9 +71,35 @@ import MllamcTr from './Top/MllamcTr.vue'
 
             pager(m, n) {
                 let res = this.funnel()
+                console.log('res =', res.slice(m, n), m, n)
                 this.records = res.slice(m, n)
             }
-        }
+        },
+        data() {
+            return {
+                records_origin: null,
+                records_page: null,
+
+                records: null,
+                loading: true,
+
+                def_typed: 2,
+                limit: 30
+            }
+        },
+  components: { QiongHeaderFilter,
+    MllamcTopBar,
+    QiongPanelElement,
+    MllamcBody,
+    MllamcTr,
+    MllamcTopFilter,
+    QiongLoading,
+    Pagenation,
+    TablePagerFooter,
+    NetMemberLpLevelRecord,
+    MllamcLpBody,
+    MllamcLpTr,
+    NetLpPlusRecord        },
     }
     /*
 

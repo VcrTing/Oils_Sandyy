@@ -7,12 +7,17 @@
                 v-for="(v, i) in _items" :key="i">
 
                 <nav class="qiong-td qiong-txt-td ">
-                    <div class="qiong-wide-11 fw-b">
+                    <div class="qiong-wide-10 fw-b">
                         {{ v.order_uuid }}
                     </div>
                     <div class="qiong-wide-8">
                         {{ v.order_pv }}
                     </div>
+
+                <div class="qiong-wide-10">
+                    {{ v.user }}
+                </div>
+
                     <div class="qiong-wide-9">
                         <span v-if="v.LP_percentage">
                             {{ v.LP_percentage * 100 }}&nbsp;%
@@ -27,18 +32,19 @@
                     <div class="qiong-wide-8 txt-sus">
                         {{ v.wallet_before }}
                     </div>
-                    <div class="qiong-wide-10 pr-0">
+                    <div class="qiong-wide-9 pr-0">
                         {{ v.wallet_after }}
                     </div>
 
-                    <div class="qiong-wide-16 pr-0">
+                    <div class="qiong-wide-7">
+                        {{ view.backend.view_lp_opera_typed( v.type ) }} 
+                    </div>
+
+                    <div class="qiong-wide-15 pr-0">
                         {{ view.ser_timed( v.date, false, false ) }}
                     </div>
 
-                    <div class="qiong-wide-10">
-                        {{ view.backend.view_lp_opera_typed( v.type ) }} 
-                    </div>
-                    <div class="qiong-wide-16 fx-s pr-0">
+                    <div class="qiong-wide-12 fx-s pr-0">
                         {{ v.remark }}
                     </div>
                     <!--div class="qiong-wide-6 t-r pr-0">
@@ -57,6 +63,9 @@ import QiongEmpty from '../../../../components/Qiong/Ui/QiongEmpty.vue'
   components: { QiongEmpty },
         name: '',
         props: [ '_items' ],
+        mounted() {
+            console.log('this.items =', this._items)
+        },
         data() {
             return {
                 itemss: [ ],

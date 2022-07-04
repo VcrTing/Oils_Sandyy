@@ -21,7 +21,7 @@
             </div>
 
             <div class="d-ib mobie-pt-12">
-                <input v-model="funnel.user" type="text" @keyup.enter="submit" placeholder="会员編號或名稱">
+                <input v-model="funnel.user" type="text" @keyup.enter="submit" placeholder="会员編號">
             </div>
 
             <div class="mobie-show pt-6"></div>
@@ -35,22 +35,6 @@
                 重置
             </button>
         </div>
-
-        <!--div class="v_col">
-            <label>信息過濾</label>
-            <input type="text" placeholder="產品名稱" v-model="funnel.named">
-            <input type="text" placeholder="操作人員" v-model="funnel.user">
-
-            <button class="submit" @click="submit">
-                <v-icon>mdi-filter-outline</v-icon>
-                過濾
-            </button>
-
-            <button @click="reset">
-                <v-icon>mdi-reload</v-icon>
-                重置
-            </button>
-        </div-->
     </v-row>
 </template>
 
@@ -85,7 +69,7 @@ import DateSelect from '../../../../components/Qiong/Dialog/DateSelect.vue'
                 for (let k in src) {
                     if (src[k]) {
                         if (k == 'user') {
-                            if (this.is_number(src[k])) { res['user.member_code'] = src[k] } else { res['user.display_name'] = src[k] }
+                            if (this.is_number(src[k])) { res['member_code'] = src[k] } else { res['user_name'] = src[k] }
                         } else {
                             res[k] = src[k]
                         }

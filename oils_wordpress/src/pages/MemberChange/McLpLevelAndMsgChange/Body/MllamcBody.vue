@@ -1,9 +1,9 @@
 <template>
-    <div class="px-7 mb-3" v-if="items && items.length > 0">
+    <div class="px-7 mb-3" v-if="_items && _items.length > 0">
         
         <div class="qiong-td qiong-txt-td  py-3 lh-def fx-l"
         
-            v-for="(v, i) in items" :key="i"
+            v-for="(v, i) in _items" :key="i"
         >
             <div class="qiong-wide-10">
                 {{ v.user.member_code }}
@@ -34,8 +34,11 @@ import ExtraChangeTypeView from '../../../../extra/view/member_change/ExtraChang
     export default {
   components: { QiongEmpty, ExtraChangeTypeView },
         props: [
-            'items'
+            '_items'
         ],
+        mounted() {
+            console.log('this.items =', this._items)
+        },
         data() {
             return {
                 
