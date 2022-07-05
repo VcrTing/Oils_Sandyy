@@ -15,10 +15,11 @@
         data() {
             return {
                 rewords: {
-                    issue: { txt: '奖赏' },
-                    deactivate: { txt: '转账' },
-                    reward: { txt: '消费' },
-                    lp_reward: { txt: '兑换' }
+                    issue: { txt: '消費' },
+                    deactivate: { txt: '轉賬' },
+                    reward: { txt: '消費' },
+                    lp_reward: { txt: '兌換' },
+                    additional: { txt: '獎賞' }
                 }
             }
         },
