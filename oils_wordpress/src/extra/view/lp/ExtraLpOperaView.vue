@@ -15,11 +15,10 @@
         data() {
             return {
                 rewords: {
-                    issue: { txt: '消費' },
-                    deactivate: { txt: '轉賬' },
-                    reward: { txt: '消費' },
-                    lp_reward: { txt: '兌換' },
-                    additional: { txt: '獎賞' }
+                    issue: { txt: '發放' },
+                    redeem: { txt: '購買' },
+                    transfer: { txt: '轉賬' },
+                    manual: { txt: '手動更改' },
                 }
             }
         },

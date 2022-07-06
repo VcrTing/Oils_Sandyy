@@ -1,7 +1,7 @@
 
 const TEST = false
 const VERSION = '2.50'
-const VERSION_TIME = '2022-07-05' 
+const VERSION_TIME = '2022-07-06' 
 
 const baseURL = 'https://strapi03.svr.up5d.com'
 const apiURL = baseURL
@@ -116,6 +116,8 @@ const ENDPOINT = {
 
     // Eallet
     admin_wallet_modify: 'wallet/e_wallet/modify',
+    user_wallet_log: 'browse_ewallet/log',
+
 
     // 用户 
     user_s_tree: 'browse_user/sponsor/tree',

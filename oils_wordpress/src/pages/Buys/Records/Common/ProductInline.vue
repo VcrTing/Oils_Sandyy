@@ -11,7 +11,7 @@
             <div class="qiong-wide-70 pl-5">
                 <qiong-space :space="'0.2vw'" class="mobie-hide"></qiong-space>
 
-                <div class="qiong-txt-20 txt-menu">
+                <div class="qiong-txt-20 pro-named">
                     {{ named(pro) }}
                 </div>
                 <div class="qiong-td pt-1 qiong-txt-12">
@@ -84,4 +84,8 @@ import QiongSpace from '../../../../components/Qiong/Ui/QiongSpace.vue'
     align-items: flex-start
 .txt-menu
     font-weight: 500
+
+.pro-named
+    font-weight: 450
+    color: #090a09 !important
 </style>

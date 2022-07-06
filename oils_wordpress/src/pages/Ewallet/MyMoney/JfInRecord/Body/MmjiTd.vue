@@ -3,31 +3,30 @@
         <div class="qiong-td qiong-txt-td py-3 lh-def"
             v-for="(v, i) in many" :key="i"
         >
+            <div class="qiong-wide-13">
+                <extra-lp-opera-view :v="v.change_type"></extra-lp-opera-view>
+            </div>
             <div class="qiong-wide-11">
-                <extra-lp-opera-view :v="v.type"></extra-lp-opera-view>
+                <span v-if="v.order_id">{{ v.order_id }}</span><span v-else>--</span>
             </div>
-            <div class="qiong-wide-8 t-c pr-0">{{ v.order_uuid ? v.order_uuid : '--' }}</div>
-            <div class="qiong-wide-4">&nbsp;</div>
 
-            <div class="qiong-wide-12">
-                <span v-if="v.order_pv">
-                    {{ v.order_pv ? v.order_pv : 0 }}&nbsp;PV
+            <div class="qiong-wide-11 txt-sus">
+                {{ v.wallet_original_value }}
+            </div>
+
+            <div class="qiong-wide-15 fw-b">
+                <span v-if="v.is_add">+</span>
+                <span v-else>-</span>
+                <span class="px-1">
+                    {{ v.hkd }}
                 </span>
-            </div>
-            <div class="qiong-wide-8">
-                <span v-if="v.LP_percentage">
-                    {{ v.LP_percentage * 100 }} %
-                </span>
+                <span>HKD</span>
             </div>
 
-            <div class="qiong-wide-15">
-                <loyalty-pv-viewing :lp="v.lp" :is_add="v.is_add"></loyalty-pv-viewing>
-            </div>
-
-            <div class="qiong-wide-13">{{ v.wallet_after }}</div>
+            <div class="qiong-wide-13">{{ v.wallet_new_value }}</div>
             
             <div class="qiong-wide-16">{{ view.ser_timed( v.date, false, false ) }}</div>
-            <div class="qiong-wide-13">{{ v.remark }}</div>
+            <div class="qiong-wide-20">{{ v.change_detail }}</div>
         </div>
         <qiong-space :space="'12px'"></qiong-space>
     </div>
@@ -45,9 +44,9 @@ import ExtraLpOperaView from '../../../../../extra/view/lp/ExtraLpOperaView.vue'
             many() {
                 let res = this.items
                 res = res ? res.map(e => {
-                    e.is_add = e.LP_difference.startsWith('+')
-                    const n = Number.parseFloat(e.LP_difference)
-                    e.lp = n > 0 ? n : (0 - n); return e
+                    e.is_add = !(e.wallet_change.startsWith('-'))
+                    const n = Number.parseFloat(e.wallet_change)
+                    e.hkd = n > 0 ? n : (0 - n); return e
                 }) : []
                 return res
             }

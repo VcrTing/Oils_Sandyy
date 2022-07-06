@@ -4,13 +4,29 @@
 <script>
 export default {
     methods: {
+        ser_detaii(one) {
+            let res = [ '', '' ]
+            if (one.change_type == 'redeem') {
+                res = one.change_detail.split('uuid')
+                if (res) {
+                    res = res.map(e => { const _ee = e.match(/\d+(.\d+)?/g); return _ee ? _ee[0] : '' })
+                } else { res = [ '', '' ] }
+            }
+            one.order_id = res[0]
+            one.uuid = res[1]
+            return one
+        },
+
         async many(data) {
             let res = await this.conn.ex_get( this,
-                'browse_LP_log',
+                'user_wallet_log',
                 data
             )
             res = res && res.message ? res.message : [ ]
-            return res
+            return res.map(e => {
+                e = this.ser_detaii(e)
+                return e
+            })
         }
     }
 }
