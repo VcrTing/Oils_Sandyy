@@ -10,7 +10,7 @@
                 <span v-if="v.order_id">{{ v.order_id }}</span><span v-else>--</span>
             </div>
 
-            <div class="qiong-wide-11 txt-sus">
+            <div class="qiong-wide-11">
                 {{ v.wallet_original_value }}
             </div>
 
