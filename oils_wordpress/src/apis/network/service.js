@@ -15,8 +15,6 @@ const get = function(url, token, condition = {}) {
 }
 
 const post = function(url, token, data) {
-  // console.log('POST , url =', url, ' data =', data)
-  // return [ ]
   return net({
     url: url[0],
     method: 'post',

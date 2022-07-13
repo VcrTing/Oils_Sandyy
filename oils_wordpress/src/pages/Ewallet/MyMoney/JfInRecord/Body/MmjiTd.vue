@@ -3,9 +3,11 @@
         <div class="qiong-td qiong-txt-td py-3 lh-def"
             v-for="(v, i) in many" :key="i"
         >
-            <div class="qiong-wide-13">
+            <div class="qiong-wide-12">
                 <extra-lp-opera-view :v="v.change_type"></extra-lp-opera-view>
             </div>
+
+            <div class="qiong-wide-10">{{ v.user }}</div>
             <div class="qiong-wide-11">
                 <span v-if="v.order_id">{{ v.order_id }}</span><span v-else>--</span>
             </div>
@@ -23,10 +25,10 @@
                 <span>HKD</span>
             </div>
 
-            <div class="qiong-wide-13">{{ v.wallet_new_value }}</div>
+            <div class="qiong-wide-12">{{ v.wallet_new_value }}</div>
             
-            <div class="qiong-wide-16">{{ view.ser_timed( v.date, false, false ) }}</div>
-            <div class="qiong-wide-20">{{ v.change_detail }}</div>
+            <div class="qiong-wide-15">{{ view.ser_timed( v.date, false, false ) }}</div>
+            <div class="qiong-wide-13"></div>
         </div>
         <qiong-space :space="'12px'"></qiong-space>
     </div>

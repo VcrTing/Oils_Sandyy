@@ -3,6 +3,9 @@
 </template>
 <script>
 export default {
+    computed: {
+        admin() { return this.$store.state.is_admin }
+    },
     methods: {
         ser_detaii(one) {
             let res = [ '', '' ]
@@ -18,16 +21,20 @@ export default {
         },
 
         async many(data) {
+            if (!this.admin) { delete data.member_code }
             let res = await this.conn.ex_get( this,
-                'user_wallet_log',
-                data
-            )
-            res = res && res.message ? res.message : [ ]
-            return res.map(e => {
-                e = this.ser_detaii(e)
-                return e
-            })
-        }
+                'user_wallet_log', data
+            ); res = res && res.message ? res.message : [ ]
+            return res.map(e => { e = this.ser_detaii(e); return e })
+        },
+
+        // admin_wallet_request
+        async wallet_req(data) {
+            let res = await this.conn.ex_get( this,
+                'admin_wallet_request', data
+            ); res = res && res.data ? res.data : [ ]
+            return res // .map(e => { e = this.ser_detaii(e); return e })
+        },
     }
 }
 </script>
