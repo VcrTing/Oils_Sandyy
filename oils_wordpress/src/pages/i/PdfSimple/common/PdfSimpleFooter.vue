@@ -18,7 +18,7 @@
             </div>
             <div style="overflow: hidden;">
                 <div style="width: 40%; float: left;">
-                    Closing Balance
+                    E-wallet remain
                 </div>
                 <div style="width: 16%; float: left;">
                     US$&nbsp;{{ close }}
