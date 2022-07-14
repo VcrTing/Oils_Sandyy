@@ -24,7 +24,6 @@
                 <span class="px-1">
                     {{ v.hkd }}
                 </span>
-                <span>HKD</span>
             </div>
 
             <div class="qiong-wide-11">{{ v.wallet_new_value }}</div>
