@@ -36,7 +36,6 @@ export default {
             this.loading = true
             this.many = await this.$refs.iogREF.many()
             setTimeout(e => this.loading = false, 400)
-            console.log('RES =', res)
         }
     }
 }

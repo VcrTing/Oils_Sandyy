@@ -9,7 +9,7 @@
 
             <div class="qiong-wide-11">交易前余額</div>
 
-            <div class="qiong-wide-15">交易金額</div>
+            <div class="qiong-wide-15">交易金額&nbsp;(HKD)</div>
 
             <div class="qiong-wide-12">交易後余額</div>
 

@@ -13,7 +13,7 @@
 
 <script>
 import MemberMsgWidget from '../../widget/Header/MemberMsgWidget.vue'
-import MyMoneyWallet from '@/pages/Loyalty/common/MyMoneyWallet.vue'
+import MyMoneyWallet from '../../../pages/Loyalty/common/MyMoneyWallet.vue'
 import NetFund from '@/extra/net/NetFund/fund/NetFund.vue'
 import Sign from '@/extra/func/Sign.vue'
 import MmJfInRecord from './JfInRecord/MmJfInRecord.vue'

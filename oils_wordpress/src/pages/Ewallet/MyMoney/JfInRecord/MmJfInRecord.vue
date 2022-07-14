@@ -48,7 +48,6 @@ import MmjiTr from './Top/MmjiTr.vue'
                 this.ioading = true
                 let res = await this.$refs.iogREF.many({ member_code: this.user.member_code })
                 this.iog_origins = res
-                console.log('RES =', res)
                 this.funni(null)
                 setTimeout(e => this.ioading = false, 300)
             },
@@ -57,8 +56,7 @@ import MmjiTr from './Top/MmjiTr.vue'
                 let res = this.iog_origins
                 if (v) {
                     res = res.filter(e => e.type == v.type)
-                }
-                this.iogs = res
+                } this.iogs = res
             }
         }
     }

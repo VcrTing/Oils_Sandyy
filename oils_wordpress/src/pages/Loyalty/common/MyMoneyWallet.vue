@@ -43,16 +43,13 @@ import Sign from '../../../extra/func/Sign.vue'
                 last_upd: ''
             }
         },
-        mounted() { 
-            console.log('钱包')
-            this.init() },
+        mounted() { this.init() },
         computed: { 
             user() { let res = this.$store.state.user_backend; return res ? res : null }
         },
         methods: {
             async init() {
                 let res = await this.$refs.fundREF.fetching(this.user)
-                console.log('钱包钱 =', res)
                 if (res) {
                     if (res.length >= 1) {
                         this.wallet = res.map(e => {
