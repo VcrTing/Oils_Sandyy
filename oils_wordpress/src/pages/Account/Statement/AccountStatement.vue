@@ -156,6 +156,11 @@ import AsLoading from './Tool/AsLoading.vue'
                 console.log('bonus_statement =', res)
             },
 
+            kiii_varia() {
+                const res = this.mine
+                
+            },
+
             async initMe() {
                 this.valuation()
                 this.mine = await this.$refs.locaMe.locationMe_Async(this.member_code, 'COLLECTION')
@@ -169,6 +174,8 @@ import AsLoading from './Tool/AsLoading.vue'
 
                 if (this.mine) {
                     this.fetchingBonus()
+                    console.log('AAAA')
+                    console.log('pdf_oil_me =', this.mine)
                     sessionStorage.setItem('pdf_oil_me', JSON.stringify(this.mine))
                     this.can_print = true
                     this.lockPrint(false)

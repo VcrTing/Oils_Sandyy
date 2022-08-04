@@ -17,7 +17,6 @@ const next_opv_can_num = function(items, target, lines) {
     let inn = 0
     items = items.filter(e => e.index <= 1)
     items = items.map(e => { e.member_code = Number.parseInt(e.member_code); return e })
-    console.log('items =', items)
     lines = lines.filter(l => {
         inn = false
         items.map(e => {
@@ -27,7 +26,6 @@ const next_opv_can_num = function(items, target, lines) {
         })
         return inn
     })
-    console.log('更改后的 lines =', lines, target)
     return next_son_can_num(lines, target)
 }
 

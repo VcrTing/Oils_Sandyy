@@ -48,6 +48,7 @@
 
                     <div class="qiong-wide-35 " :class="{ 'pay-title': item.stripe_transaction_id }">付款方式：
                         <buy-way-viewing :order="item"></buy-way-viewing>
+                        <buy-way-ewallet-viewing v-if="item.is_ewallet"></buy-way-ewallet-viewing>
                     </div>
                     <div class="qiong-wide-65 mobie-pt-6 txt-timed">
                         付款時間：{{ view.ser_timed(item.ordered_date, true, false) }}
@@ -62,7 +63,7 @@
                 <div class="qiong-td" v-for="(v, i) in result" :key="i">
                     <div class="qiong-wide-60">{{ v.txt }}</div>
                     <div class="qiong-wide-40 pr-0">
-                        <span v-if="i == 0">HK$&nbsp;</span>
+                        <span v-if="i == 0">HKD&nbsp;</span>
                         {{ v.content }}</div>
                 </div>
             </div>
@@ -79,8 +80,9 @@ import IconWithText from '../../../../components/Qiong/Tool/IconWithText.vue'
 import BuysRecordsLogo from '../Extra/BuysRecordsLogo.vue'
 import ProductInline from '../Common/ProductInline.vue'
 import BuyWayViewing from '../../../../components/Viewing/Msg/BuyWayViewing.vue'
+import BuyWayEwalletViewing from '../../../../components/Viewing/Msg/BuyWayEwalletViewing.vue'
     export default {
-  components: { ProductInline, BuysRecordsLogo, QiongSubResult, QsrWrapper, IconWithText, BuyWayViewing },
+  components: { ProductInline, BuysRecordsLogo, QiongSubResult, QsrWrapper, IconWithText, BuyWayViewing, BuyWayEwalletViewing },
         props: [ 'item' ],
         data() {
             return {
@@ -97,16 +99,21 @@ import BuyWayViewing from '../../../../components/Viewing/Msg/BuyWayViewing.vue'
                 return res
             },
             result() {
-                let res = [
+                let res = this.item.is_ewallet ? [
                     {
-                        txt: '結算',
-                        content: this.item.product_total
-                    },
-                    {
+                        txt: 'eWallet 賬戶扣款',
+                        content: this.item.ewallet_detail.ewallet_used // product_total
+                    }
+                ] : [ ]
+
+                res.push({
+                        txt: this.item.is_ewallet ? '銀行卡/現金' : '結算',
+                        content: this.item.payed_total ? this.item.payed_total : 0 // product_total
+                    })
+                res.push({
                         txt: 'PV',
                         content: this.item.total_pv
-                    },
-                ]
+                    })
 
                 return res
             }

@@ -34,7 +34,13 @@ import BrTd from './Body/BrTd.vue'
         },
         props: [
             'items'
-        ]
+        ],
+        mounted() { 
+            // console.log('the items =', this.items) 
+            this.items.map(e => {
+                e.is_ewallet ? console.log('E =', e) : 0
+            })
+        }
     }
 </script>
 

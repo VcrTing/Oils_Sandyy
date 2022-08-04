@@ -16,10 +16,13 @@
             <div class="qiong-wide-7">
                 {{ item.total_pv }}
             </div>
-            <div class="qiong-wide-11">
-                {{ item.product_total }}
+            <div class="qiong-wide-12 pr-0">
+                {{ item.product_total }}&nbsp;
+                <span v-if="item.is_ewallet">
+                    (含賬戶支付)
+                </span>
             </div>
-            <div class="qiong-wide-11" :class="status_class(item.status)">
+            <div class="qiong-wide-10" :class="status_class(item.status)">
                 {{ item.status }}
             </div>
             <div class="qiong-wide-12">

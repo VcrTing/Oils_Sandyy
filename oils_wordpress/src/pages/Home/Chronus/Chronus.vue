@@ -128,6 +128,11 @@ import moment from 'moment'
 
             ser_chornu(e, need_add) {
                 try {
+                    // time-periods
+                    delete e.created_at
+                    delete e.updated_at
+                    delete e.published_at
+
                     delete e.orders
                     delete e.bonuses
                     delete e.commissions

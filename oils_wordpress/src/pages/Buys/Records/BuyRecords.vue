@@ -60,6 +60,7 @@ import BrTr from './Top/BrTr.vue'
             async init() {
                 this.loading = true
                 this.buys_origin = await this.$refs.buysREF.swicthing()
+                
                 setTimeout(e => this.loading = false, 200)
             },
 
@@ -70,13 +71,15 @@ import BrTr from './Top/BrTr.vue'
                     const transfer = this.$store.state.user_collection
                     if (transfer) {
                         for (let j= 0; j< res.length; j++ ) {
-                            for (let i= 0; i< transfer.length; i++ ) {
-                                const item = transfer[i]
-                                if (item.member_code == res[j].customer_uuid.member_code) {
-                                    index += 1
-                                    bu.push(res[j])
-                                }
-                            } 
+                            if (res[j].customer_uuid) {
+                                for (let i= 0; i< transfer.length; i++ ) {
+                                    const item = transfer[i]
+                                    if (item.member_code == res[j].customer_uuid.member_code) {
+                                        index += 1
+                                        bu.push(res[j])
+                                    }
+                                } 
+                            }
                         }
                     }
                 }

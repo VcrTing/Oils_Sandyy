@@ -16,10 +16,10 @@
             <div class="qiong-wide-7">
                 Pv
             </div>
-            <div class="qiong-wide-11">
+            <div class="qiong-wide-12">
                 結算&nbsp;(HK$)
             </div>
-            <div class="qiong-wide-11">
+            <div class="qiong-wide-10">
                 訂單狀態
             </div>
             <div class="qiong-wide-12">

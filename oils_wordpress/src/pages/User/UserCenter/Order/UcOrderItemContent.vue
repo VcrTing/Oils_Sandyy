@@ -1,7 +1,7 @@
 <template>
     <div class="qiong-td qiong-pt-15 qiong-pb-10">
         <div class="qiong-wide-10 mobie-hide"></div>
-        <div class="qiong-wide-63 mobie-wide-100 mobie-pl-7">
+        <div class="qiong-wide-58 mobie-wide-100 mobie-pl-7">
             <div class="fw-b qiong-txt-14">
                 {{ $t( 'ORDER.code' ) }}:&nbsp;{{ view.if_def(buy.order_code) }}
             </div>
@@ -39,7 +39,7 @@
         <div class="mobie-wide-45 mobie-show">
 
         </div>
-        <div class="qiong-wide-27 text-right mobie-wide-55 pc-pr-12 mobie-pr-3 mt-1">
+        <div class="qiong-wide-32 text-right mobie-wide-55 pc-pr-12 mobie-pr-3 mt-1">
             <div> &nbsp; </div>
             <div> &nbsp; </div>
             <div v-if="buy.coupon_code" class="qiong-td">
@@ -56,15 +56,24 @@
                 <div class="qiong-wide-37 pr-0 txt-sub_x2">
                     {{ $t( 'ORDER.pay_way' ) }}:&nbsp;
                 </div>
-                <div class="qiong-wide-63 pr-0">
+                <div class="qiong-wide-63 pr-0 fx-r">
                     <buy-way-viewing :order="buy"></buy-way-viewing>
+                    <div v-if="buy.is_ewallet">
+                        <buy-way-ewallet-viewing :kiii_spiit="true"></buy-way-ewallet-viewing>
+                    </div>
                 </div>
             </div>
-            <div class="qiong-td mt-1 pb-3">
+            <div class="qiong-td mt-1">
                 <div class="qiong-wide-37 pr-0">
-                    {{ $t( 'ORDER.pay_money' ) }}:&nbsp;
+                    銀行卡/現金:&nbsp;
                 </div>
                 <div class="qiong-wide-63 pr-0 fw-b">HK$&nbsp;{{ buy.price }}</div>
+            </div>
+            <div v-if="buy.is_ewallet" class="qiong-td mt-1 pb-1">
+                <div class="qiong-wide-37 pr-0">
+                    eWallet 賬戶扣款:&nbsp;
+                </div>
+                <div class="qiong-wide-63 pr-0 fw-b">{{ buy.ewallet_pay }}</div>
             </div>
         </div>
     </div>
@@ -73,10 +82,9 @@
 <script>
 import BuyWayViewing from '../../../../components/Viewing/Msg/BuyWayViewing.vue'
 import PhoneIconViewing from '../../../../components/Viewing/Msg/PhoneIconViewing.vue'
+import BuyWayEwalletViewing from '../../../../components/Viewing/Msg/BuyWayEwalletViewing.vue'
     export default {
-  components: { BuyWayViewing,
-          
-    PhoneIconViewing   },
+  components: { BuyWayViewing, PhoneIconViewing, BuyWayEwalletViewing },
         props: {
             index: {
                 type: Number

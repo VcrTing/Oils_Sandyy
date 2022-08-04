@@ -62,7 +62,7 @@ import app_init from '../../common/es/app_init/index'
                 this.$emit('finished_Father', this.finished)
             },
             // 清洗 小数点
-            clearFixed(bonu) {
+            clearFixed(b) {
                 /*
                 bonu.DPV = bonu.DPV.toFixed(2)
                 bonu.MPV = bonu.MPV.toFixed(2)
@@ -78,7 +78,10 @@ import app_init from '../../common/es/app_init/index'
                 bonu.FPV = Number.parseInt(bonu.FPV.toFixed(2))
                 bonu.active_branch_payout = Number.parseInt(bonu.active_branch_payout.toFixed(2))
                 */
-                return bonu
+                delete b.created_at
+                delete b.updated_at
+                delete b.published_at
+                return b
 
             },
             // 清洗数据
@@ -181,6 +184,7 @@ import app_init from '../../common/es/app_init/index'
 
             // 序列化用户
             _clearUser(u) {
+                
                 delete u.role
                 delete u.enrolled
                 delete u.sponsored
@@ -191,6 +195,17 @@ import app_init from '../../common/es/app_init/index'
                 delete u.updated_at
                 delete u.registered_date
                 delete u.bonus_calculations
+
+                delete u.blocked
+                delete u.provider
+                delete u.confirmed
+
+                delete u.avatar_url
+                delete u.wp_role
+                delete u.sponsor
+                delete u.enroller
+                delete u.p_customer
+                delete u.wp_jwt_date
                 return u
             },
             serialUser(users, mode) {

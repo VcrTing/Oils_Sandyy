@@ -6,7 +6,7 @@ import conf from '../../conf'
 import cleaning from '../cleaning/cleaning'
 
 const get = function(url, token, condition = {}) {
-  console.log('link =', url[0] + conn_util.builParam(condition))
+  conf.TEST ? console.log('link =', url[0] + conn_util.builParam(condition)) : 0
   return net({
     url: url[0] + conn_util.builParam(condition),
     method: 'get',

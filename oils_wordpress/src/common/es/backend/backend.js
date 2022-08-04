@@ -22,7 +22,7 @@ const view_shipping_address = function(rec, lang = 'HK') {
 }
 const view_shipping_named = function(rec, lang = 'HK') {
     if (rec) {
-        return rec.first_name + ' ' + rec.last_name
+        return rec.first_name == rec.last_name ? rec.first_name : rec.first_name + ' ' + rec.last_name
     }
     return ''
 }

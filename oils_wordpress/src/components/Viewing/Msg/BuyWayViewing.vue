@@ -1,6 +1,6 @@
 <template>
-    <div class="d-inline " v-html="pay_way">
-    </div>
+    <span class="d-inline " v-html="pay_way">
+    </span>
 </template>
 
 <script>
