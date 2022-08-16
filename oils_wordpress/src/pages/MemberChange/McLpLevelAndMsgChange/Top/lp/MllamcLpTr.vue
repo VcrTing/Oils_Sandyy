@@ -3,13 +3,14 @@
 
         <div class="qiong-tr qiong-txt-tr pb-1">
             <div class="qiong-wide-10">
+                變更對象
+            </div>
+            
+            <div class="qiong-wide-10">
                 訂單編號
             </div>
             <div class="qiong-wide-8">
                 訂單 PV
-            </div>
-            <div class="qiong-wide-10">
-                變更對象
             </div>
 
             <div class="qiong-wide-9">

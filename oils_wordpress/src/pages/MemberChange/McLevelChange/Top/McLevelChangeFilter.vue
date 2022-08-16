@@ -21,7 +21,7 @@
             </div>
 
             <div class="d-ib mobie-pt-12">
-                <input v-model="funnel.user" type="text" @keyup.enter="submit" placeholder="会员編號或名稱">
+                <input v-model="funnel.user" type="text" @keyup.enter="submit" placeholder="會員編號或名稱">
             </div>
 
             <div class="mobie-show pt-6"></div>

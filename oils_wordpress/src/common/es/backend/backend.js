@@ -128,7 +128,7 @@ const LP_OPERA_TYPED = {
     'expire': '過期',
     'additional': '額外增加',
     'reactivate': '延長(月)',
-    'deactivate': '失去資格(月)',
+    'deactivate': '從新開始LP',
 }
 const view_lp_opera_typed = function(e) {
     return e ? LP_OPERA_TYPED[ e ] : ''

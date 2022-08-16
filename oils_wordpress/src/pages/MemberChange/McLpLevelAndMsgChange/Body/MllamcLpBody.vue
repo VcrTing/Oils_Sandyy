@@ -7,16 +7,18 @@
                 v-for="(v, i) in _items" :key="i">
 
                 <nav class="qiong-td qiong-txt-td ">
-                    <div class="qiong-wide-10 fw-b">
+
+                <div class="qiong-wide-10 fw-b">
+                    {{ v.user }}
+                </div>
+
+                    <div class="qiong-wide-10">
                         {{ v.order_uuid }}
                     </div>
                     <div class="qiong-wide-8">
                         {{ v.order_pv }}
                     </div>
 
-                <div class="qiong-wide-10">
-                    {{ v.user }}
-                </div>
 
                     <div class="qiong-wide-9">
                         <span v-if="v.LP_percentage">
