@@ -1,10 +1,10 @@
 <template>
     <div class="lh-def_x2">
         <div class="qiong-td fx-l">
-            <div class="qiong-wide-9 tb-first">
+            <div class="qiong-wide-8 tb-first">
                 {{ item.uuid }}
             </div>
-            <div class="qiong-wide-10">
+            <div class="qiong-wide-9">
                 {{ item.customer_uuid.member_code }}
             </div>
             <div class="qiong-wide-25">
@@ -16,16 +16,16 @@
             <div class="qiong-wide-7">
                 {{ item.total_pv }}
             </div>
-            <div class="qiong-wide-12 pr-0">
-                {{ item.product_total }}&nbsp;
-                <span v-if="item.is_ewallet">
-                    (含賬戶支付)
-                </span>
+            <div class="qiong-wide-10 pr-0">
+                {{ item.product_total }}
+            </div>
+            <div class="qiong-wide-8">
+                <span v-if="item.is_ewallet">{{ item.ewallet_detail.ewallet_used }}</span>
             </div>
             <div class="qiong-wide-10" :class="status_class(item.status)">
                 {{ item.status }}
             </div>
-            <div class="qiong-wide-12">
+            <div class="qiong-wide-8">
                 <span v-if="item.is_new" class="first-buy">
                     首購
                 </span>

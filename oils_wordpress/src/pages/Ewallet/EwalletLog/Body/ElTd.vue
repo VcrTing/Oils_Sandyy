@@ -6,12 +6,12 @@
             v-for="(v, i) in many" :key="i"
         >
             <div class="qiong-wide-12">
-                <extra-lp-opera-view :v="v.change_type"></extra-lp-opera-view>
+                <extra-money-opera-view :v="v.change_type"></extra-money-opera-view>
             </div>
 
             <div class="qiong-wide-10">{{ v.user }}</div>
             <div class="qiong-wide-10">
-                <span v-if="v.order_id">{{ v.order_id }}</span><span v-else>--</span>
+                <span v-if="v.uuid">{{ v.uuid }}</span><span v-else>--</span>
             </div>
 
             <div class="qiong-wide-11">
@@ -37,10 +37,11 @@
 
 <script>
 import ExtraLpOperaView from '../../../../../InvensVersion/src/extra/view/lp/ExtraLpOperaView.vue'
+import ExtraMoneyOperaView from '../../../../../InvensVersion/src/extra/view/lp/ExtraMoneyOperaView.vue'
 import QiongEmpty from '../../../../components/Qiong/Ui/QiongEmpty.vue'
 import ExtraChangeTypeView from '../../../../extra/view/member_change/ExtraChangeTypeView.vue'
     export default {
-        components: { QiongEmpty, ExtraChangeTypeView, ExtraLpOperaView },
+        components: { QiongEmpty, ExtraChangeTypeView, ExtraLpOperaView, ExtraMoneyOperaView },
         props: [
             '_items'
         ],

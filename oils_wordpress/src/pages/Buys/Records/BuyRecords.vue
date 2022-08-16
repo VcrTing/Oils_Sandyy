@@ -83,6 +83,7 @@ import BrTr from './Top/BrTr.vue'
                         }
                     }
                 }
+                // bu.map(e => { e.is_ewallet ? console.log(e) : 0 ; return e})
                 return bu
             }
         }

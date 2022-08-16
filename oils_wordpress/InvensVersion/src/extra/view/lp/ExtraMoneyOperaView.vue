@@ -15,10 +15,10 @@
         data() {
             return {
                 rewords: {
-                    issue: { txt: '獎賞' },
-                    deactivate: { txt: '转账' },
-                    reward: { txt: '消费' },
-                    lp_reward: { txt: '兑换' }
+                    issue: { txt: '發放' },
+                    redeem: { txt: '購買' },
+                    manual: { txt: '手動更改' },
+                    transfer: { txt: '轉賬' }
                 }
             }
         },
@@ -38,7 +38,7 @@
 <style lang="sass" scoped>
 .tag-reword
     margin: 0
-    cursor: text
+    cursor: default
     font-weight: bold
     letter-spacing: 0.2em
     text-indent: 0.2em !important

@@ -7,9 +7,9 @@
                 <qiong-space :space="'0.7vw'"></qiong-space>
 
                 <div class="qiong-wide-15 t-c">
-                    <nav class="txt-sec_son">
-                        <p class="op-80"> 現在等級 </p>
-                        <h2 class="d-ib qiong-txt-42"> {{ rk }} </h2>
+                    <nav class="">
+                        <p class="op-80 txt-sec_x3"> 現在等級 </p>
+                        <h2 class="d-ib txt-sec_son qiong-txt-42"> {{ rk }} </h2>
                     </nav>
                     <p class="qiong-txt-10 txt-sus">
                         {{ view.backend.view_lp_ratio( rk ) * 100 }}% 積分回饋比例

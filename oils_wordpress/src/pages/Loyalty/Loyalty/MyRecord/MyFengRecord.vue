@@ -8,9 +8,9 @@
                 <qiong-space :space="'0.7vw'"></qiong-space>
 
                 <div class="qiong-wide-23 t-c">
-                    <nav class="txt-sec_son">
-                        <p class="op-80"> 本月獲得&nbsp;LP </p>
-                        <h2 class="d-ib qiong-txt-42"> {{ lp_month }} </h2>
+                    <nav>
+                        <p class="op-80 txt-sec_x3"> 本月獲得&nbsp;LP </p>
+                        <h2 class="d-ib txt-sec_son qiong-txt-42"> {{ lp_month }} </h2>
                     </nav>
                     <p class="qiong-txt-10 txt-sus">
                         (<span>{{ view.ser_timed(start, true) }}</span> - <span>{{ view.ser_timed(end, true) }}</span> 期間)
