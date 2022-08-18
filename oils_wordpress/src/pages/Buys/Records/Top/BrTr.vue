@@ -7,13 +7,13 @@
             <div class="qiong-wide-9">
                 會員編號
             </div>
-            <div class="qiong-wide-25">
+            <div class="qiong-wide-24">
                 會員名稱
             </div>
-            <div class="qiong-wide-15">
+            <div class="qiong-wide-14">
                 付款日期
             </div>
-            <div class="qiong-wide-7">
+            <div class="qiong-wide-6 pl-1">
                 Pv
             </div>
             <div class="qiong-wide-10">
@@ -22,10 +22,13 @@
             <div class="qiong-wide-8">
                 eWallet
             </div>
-            <div class="qiong-wide-10">
+            <div class="qiong-wide-5">
+                LP
+            </div>
+            <div class="qiong-wide-9">
                 訂單狀態
             </div>
-            <div class="qiong-wide-8">
+            <div class="qiong-wide-7">
             
             </div>
         </div>

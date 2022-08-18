@@ -14,14 +14,16 @@
         <td width="5%" class="fs-c">
             &nbsp;
         </td>
-        <td width="13%" class="fs-c">&nbsp;</td>
+        <td width="10%" class="fs-c">&nbsp;</td>
         <td width="25%">&nbsp;</td>
         <td width="9%" class="fs-c">&nbsp;</td>
-        <td width="16%" class="fs-c">&nbsp;</td>
+        <td width="10%" class="fs-c">&nbsp;</td>
+        <td width="7%" class="fs-c">&nbsp;</td>
+        <td width="7%" class="fs-c">&nbsp;</td>
         <td width="13%" class="">
             &nbsp;
         </td>
-        <td width="9%" class="fs-c">&nbsp;</td>
-        <td width="10%" class="fs-c">&nbsp;</td>
+        <td width="7%" class="fs-c">&nbsp;</td>
+        <td width="7%" class="fs-c">&nbsp;</td>
     </tr>
 </template>

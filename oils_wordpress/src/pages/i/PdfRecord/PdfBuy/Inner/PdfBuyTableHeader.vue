@@ -6,7 +6,9 @@
             <td class="">Name</td>
             <td class="fs-c">Order #</td>
             <td class="fs-c">Date</td>
-            <td class="fs-c">Items Subtotal;</td>
+            <td class="fs-c">LP</td>
+            <td class="fs-c">eWallet</td>
+            <td class="fs-c">Subtotal</td>
             <td class="fs-c">PV</td>
             <td class="fs-c" style="padding-left: 0; padding-right: 0;">Shipping fee</td>
         </tr>

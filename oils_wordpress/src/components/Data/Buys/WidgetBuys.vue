@@ -7,7 +7,7 @@
         name: '',
         data() {
             return {
-                hide: 'cancelled_on-hold_refunded_failed' // processing
+                hide: 'cancelled_on-hold_refunded_failed_trash' // processing
             }
         },
         methods: {

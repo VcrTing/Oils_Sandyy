@@ -5,6 +5,8 @@
         <td>&nbsp;</td>
         <td>&nbsp;</td>
         <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td class="fs-c">{{ ew }}</td>
         <td>
             <span>HK$</span>
             <span style="float: right">{{ ps }}</span>
@@ -12,9 +14,8 @@
         <td class="fs-c">
             &nbsp;{{ pv }}&nbsp;
         </td>
-        <td>
-            <span>HK$</span>
-            <span style="float: right">{{ sp }}</span>
+        <td class="fs-c">
+            <span>{{ sp }}</span>
         </td>
     </tr>
     <!-- div style="overflow: hidden; display: block;">
@@ -39,34 +40,15 @@
 
 <script>
     export default {
-        name: '',
-        props: {
-            buys: Array
-        },
-        data() {
-            return {
-                
-            }
-        },
-        mounted() {
-            /*
-            let pvs = 0
-            let price = 0
-            let ships = 0
-            
-            console.log('this.buys =', this.buys)
-            this.buys.map(e => {
-                pvs = this.view.floatAdd( pvs, e.total_pv )
-                price = this.view.floatAdd( price, e.product_total )
-                ships = this.view.floatAdd( ships, e.shipping_total )
-            })
-
-            this.pv = pvs
-            this.ps = price
-            this.sp = ships
-            */
-        },
+        props: { buys: Array },
         computed: {
+            ew() {
+                let ews = 0
+                this.buys.map(e => {
+                    e.is_ewallet ? ( ews = this.view.floatAdd(ews, e.ewallet_detail.ewallet_used) ) : 0
+                })
+                return ews
+            },
             pv() {
                 let pvs = 0
                 this.buys.map(e => {

@@ -43,37 +43,44 @@
             <div> &nbsp; </div>
             <div> &nbsp; </div>
             <div v-if="buy.coupon_code" class="qiong-td">
-                <div class="qiong-wide-37 pr-0 ">
+                <div class="qiong-wide-43 pr-0">
                     {{ $t( 'ORDER.coupon_code' ) }}:&nbsp;
                 </div>
-                <div class="qiong-wide-63 pr-0">{{ buy.coupon_code }}</div>
+                <div class="qiong-wide-57 pr-0">{{ buy.coupon_code }}</div>
             </div>
             <div v-else class="mobie-hide">
                 &nbsp;
             </div>
 
             <div class="qiong-td ">
-                <div class="qiong-wide-37 pr-0 txt-sub_x2">
+                <div class="qiong-wide-43 pr-0 txt-sub_x2">
                     {{ $t( 'ORDER.pay_way' ) }}:&nbsp;
                 </div>
-                <div class="qiong-wide-63 pr-0 fx-r">
+                <div class="qiong-wide-57 pr-0 fx-r">
                     <buy-way-viewing :order="buy"></buy-way-viewing>
-                    <div v-if="buy.is_ewallet">
-                        <buy-way-ewallet-viewing :kiii_spiit="true"></buy-way-ewallet-viewing>
+                    <div>
+                        <buy-way-lp-viewing v-if="buy.is_LP" :kiii_spiit="true"></buy-way-lp-viewing>
+                        <buy-way-ewallet-viewing v-if="buy.is_ewallet" :kiii_spiit="buy.is_LP"></buy-way-ewallet-viewing>
                     </div>
                 </div>
             </div>
             <div class="qiong-td mt-1">
-                <div class="qiong-wide-37 pr-0">
+                <div class="qiong-wide-43 pr-0">
                     銀行卡/現金:&nbsp;
                 </div>
-                <div class="qiong-wide-63 pr-0 fw-b">HK$&nbsp;{{ buy.price }}</div>
+                <div class="qiong-wide-57 pr-0 fw-b">HK$&nbsp;{{ buy.price }}</div>
             </div>
             <div v-if="buy.is_ewallet" class="qiong-td mt-1 pb-1">
-                <div class="qiong-wide-37 pr-0">
+                <div class="qiong-wide-43 pr-0">
                     eWallet 賬戶扣款:&nbsp;
                 </div>
-                <div class="qiong-wide-63 pr-0 fw-b">{{ buy.ewallet_pay }}</div>
+                <div class="qiong-wide-57 pr-0 fw-b">{{ buy.ewallet_pay }}</div>
+            </div>
+            <div v-if="buy.is_LP" class="qiong-td mt-1 pb-1">
+                <div class="qiong-wide-43 pr-0">
+                    LP 賬戶扣除:&nbsp;
+                </div>
+                <div class="qiong-wide-57 pr-0 fw-b">{{ buy.lp_pay }}</div>
             </div>
         </div>
     </div>
@@ -82,9 +89,10 @@
 <script>
 import BuyWayViewing from '../../../../components/Viewing/Msg/BuyWayViewing.vue'
 import PhoneIconViewing from '../../../../components/Viewing/Msg/PhoneIconViewing.vue'
+import BuyWayLpViewing from '../../../../components/Viewing/Msg/BuyWayLpViewing.vue'
 import BuyWayEwalletViewing from '../../../../components/Viewing/Msg/BuyWayEwalletViewing.vue'
     export default {
-  components: { BuyWayViewing, PhoneIconViewing, BuyWayEwalletViewing },
+  components: { BuyWayViewing, PhoneIconViewing, BuyWayLpViewing, BuyWayEwalletViewing },
         props: {
             index: {
                 type: Number

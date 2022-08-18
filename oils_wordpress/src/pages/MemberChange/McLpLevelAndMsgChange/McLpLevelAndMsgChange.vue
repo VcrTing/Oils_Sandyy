@@ -2,7 +2,7 @@
     
     <v-container fluid class="qiong-txt-td">
 
-        <mllamc-top-filter ref="topREF" @submit_Father="switching"></mllamc-top-filter>
+        <mllamc-top-filter ref="topREF" :typed="def_typed" @submit_Father="switching"></mllamc-top-filter>
 
         <qiong-header-filter>
             <span slot="header">LP 資料變更記錄</span>
@@ -48,6 +48,7 @@ import MllamcTr from './Top/MllamcTr.vue'
             typed(v) { this.def_typed = v; this.switching( this.$refs.topREF.result() ) },
             async switching(cond) { 
                 this.loading = true
+                console.log('CONT =', cond)
                 this.records_origin = await this.origin(cond)
                 this.pager(0, this.limit)
                 setTimeout(e => this.loading = false, 600)
@@ -59,7 +60,7 @@ import MllamcTr from './Top/MllamcTr.vue'
                 return ori
             },
             async origin(condition) {
-                condition._limit = 300
+                condition._limit = 500
                 // condition.user_contains = '203404'
                 if (this.def_typed == 1) {
                     return await this.$refs.recLpLevelREF.LpLevelAuto( condition )

@@ -8,7 +8,7 @@
             <div class="qiong-wide-10">
                 {{ v.user.member_code }}
             </div>
-            <div class="qiong-wide-24">
+            <div class="qiong-wide-20">
                 {{ v.user.display_name }}
             </div>
             <div class="qiong-wide-15 pr-0">
@@ -20,7 +20,7 @@
             <div class="qiong-wide-24 pl-2">
                 {{ v.content }}
             </div>
-            <div class="qiong-wide-14">
+            <div class="qiong-wide-17">
                 {{ v.remark }}
             </div>
         </div>

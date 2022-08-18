@@ -1,7 +1,7 @@
 <template>
-    <span class="p_ewallet">
+    <span class="p_LP">
         <span v-if="!kiii_spiit">,&nbsp;</span>
-        eWallet
+        LP
     </span>
 </template>
 
@@ -12,6 +12,6 @@ export default {
 </script>
 
 <style lang="sass">
-.p_ewallet
+.p_LP
     color: #0b42ab
 </style>

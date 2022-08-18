@@ -6,7 +6,7 @@
         <div class="v_col qiong-pt-15">
 
             <div class="d-ib">
-                <label>變更時間</label>
+                <label>變更時間{{typed}}</label>
 
                 <div class="input-time">
                     <date-select v-if="!loading" :date="funnel.date_gte" @timed_Father="(v) => funnel.date_gte = v"></date-select>
@@ -39,11 +39,13 @@
 </template>
 
 <script>
+import moment from 'moment'
 import DateSelect from '../../../../components/Qiong/Dialog/DateSelect.vue'
     export default {
   components: { DateSelect },
         name: '',
         props: {
+            typed: Number,
             _funnl: Object
         },
         data() {
@@ -59,6 +61,9 @@ import DateSelect from '../../../../components/Qiong/Dialog/DateSelect.vue'
         mounted() {
             this.reset()
         },
+        computed: {
+            chronu() { return this.$store.state.chronus }
+        },
         methods: {
             is_number(v) { return !isNaN(Number.parseInt(v)) },
 
@@ -69,7 +74,10 @@ import DateSelect from '../../../../components/Qiong/Dialog/DateSelect.vue'
                 for (let k in src) {
                     if (src[k]) {
                         if (k == 'user') {
-                            if (this.is_number(src[k])) { res['member_code'] = src[k] } else { res['user_name'] = src[k] }
+                            if (this.is_number(src[k])) { 
+                                res['member_code'] = src[k] 
+                                } else { 
+                                    res['user_name'] = src[k] }
                         } else {
                             res[k] = src[k]
                         }
@@ -79,8 +87,8 @@ import DateSelect from '../../../../components/Qiong/Dialog/DateSelect.vue'
             },
             reset() {
                 this.funnel.user = ''
-                this.funnel.date_lt = this.view.getToday()
-                this.funnel.date_gte = this.$store.state.chronus.start
+                this.funnel.date_lt = this.chronu.end ? moment(this.chronu.end).format('yyyy-MM-DD') : this.view.getToday()
+                this.funnel.date_gte = this.chronu.start
                 this.submit()
                 this.loading = false
             },
@@ -89,7 +97,11 @@ import DateSelect from '../../../../components/Qiong/Dialog/DateSelect.vue'
                 let src = this.funnel
                 for (let k in src) {
                     if (src[ k ]) {
-                        res[ k ] = src[ k ]
+                        if (k == 'user') {
+                            res['member_code'] = src[k] 
+                        } else {
+                            res[ k ] = src[ k ]
+                        }
                     }
                 }
                 return res

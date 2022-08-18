@@ -113,7 +113,9 @@ import UcOrderItemHeader from '../Order/UcOrderItemHeader.vue'
                                 stripe_transaction_id: e.stripe_transaction_id,
                                 coupon_code: e.coupon_code,
                                 is_ewallet: e.is_ewallet,
-                                ewallet_pay: e.ewallet_detail ? e.ewallet_detail.ewallet_used : 0
+                                ewallet_pay: e.ewallet_detail ? e.ewallet_detail.ewallet_used : 0,
+                                is_LP: e.is_LP,
+                                lp_pay: e.lp_detail ? e.lp_detail.lp_used : 0
                             }
 
                             e.ordered_product.map(m => {

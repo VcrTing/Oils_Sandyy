@@ -29,7 +29,7 @@
         <hr class="my-2"/>
 
         <div class="fx-s buy-footer">
-            <div class="qiong-wide-70 ">
+            <div class="qiong-wide-60 ">
                 <div>付款地址：&nbsp;&nbsp;{{ view.backend.view_shipping_address(item.billing_address) }}</div>
 
                     <div class="wide-100 mt-1">付款人姓名：{{ view.backend.view_shipping_named(item.billing_address) }}</div>
@@ -48,6 +48,7 @@
 
                     <div class="qiong-wide-35 " :class="{ 'pay-title': item.stripe_transaction_id }">付款方式：
                         <buy-way-viewing :order="item"></buy-way-viewing>
+                        <buy-way-lp-viewing v-if="item.is_LP"></buy-way-lp-viewing>
                         <buy-way-ewallet-viewing v-if="item.is_ewallet"></buy-way-ewallet-viewing>
                     </div>
                     <div class="qiong-wide-65 mobie-pt-6 txt-timed">
@@ -58,12 +59,12 @@
                     
                 </div>
             </div>
-            <div class="qiong-wide-30 mobie-pt-12 t-r qiong-txt-18 fw-b">
+            <div class="qiong-wide-40 mobie-pt-12 t-r qiong-txt-18 fw-b">
 
                 <div class="qiong-td" v-for="(v, i) in result" :key="i">
                     <div class="qiong-wide-60">{{ v.txt }}</div>
                     <div class="qiong-wide-40 pr-0">
-                        <span v-if="i == 0">HKD&nbsp;</span>
+                        <span v-if="i == 0 && v.hkd">HKD&nbsp;</span>
                         {{ v.content }}</div>
                 </div>
             </div>
@@ -80,9 +81,10 @@ import IconWithText from '../../../../components/Qiong/Tool/IconWithText.vue'
 import BuysRecordsLogo from '../Extra/BuysRecordsLogo.vue'
 import ProductInline from '../Common/ProductInline.vue'
 import BuyWayViewing from '../../../../components/Viewing/Msg/BuyWayViewing.vue'
+import BuyWayLpViewing from '../../../../components/Viewing/Msg/BuyWayLpViewing.vue'
 import BuyWayEwalletViewing from '../../../../components/Viewing/Msg/BuyWayEwalletViewing.vue'
     export default {
-  components: { ProductInline, BuysRecordsLogo, QiongSubResult, QsrWrapper, IconWithText, BuyWayViewing, BuyWayEwalletViewing },
+  components: { ProductInline, BuysRecordsLogo, QiongSubResult, QsrWrapper, IconWithText, BuyWayViewing, BuyWayLpViewing, BuyWayEwalletViewing },
         props: [ 'item' ],
         data() {
             return {
@@ -99,15 +101,24 @@ import BuyWayEwalletViewing from '../../../../components/Viewing/Msg/BuyWayEwall
                 return res
             },
             result() {
+                let is_totai = true
+                if (this.item.is_ewallet) { is_totai = false }
+                if (this.item.is_LP) { is_totai = false }
+
                 let res = this.item.is_ewallet ? [
                     {
-                        txt: 'eWallet 賬戶扣款',
+                        txt: 'eWallet 賬戶扣款', hkd: true,
                         content: this.item.ewallet_detail.ewallet_used // product_total
                     }
                 ] : [ ]
 
+                this.item.is_LP ? (res.push( {
+                        txt: 'LP 賬戶扣除', hkd: false,
+                        content: this.item.lp_detail.lp_used // product_total
+                    } )) : undefined
+
                 res.push({
-                        txt: this.item.is_ewallet ? '銀行卡/現金' : '結算',
+                        txt: is_totai ? '銀行卡/現金' : '結算', hkd: true,
                         content: this.item.payed_total ? this.item.payed_total : 0 // product_total
                     })
                 res.push({

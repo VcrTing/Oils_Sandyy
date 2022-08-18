@@ -4,7 +4,7 @@
             <div class="qiong-wide-10">
                 會員編號
             </div>
-            <div class="qiong-wide-24">
+            <div class="qiong-wide-20">
                 會員名稱
             </div>
             <div class="qiong-wide-15">
@@ -16,7 +16,7 @@
             <div class="qiong-wide-24 pl-2">
                 變更內容
             </div>
-            <div class="qiong-wide-14">
+            <div class="qiong-wide-17">
                 備註
             </div>
         </div>

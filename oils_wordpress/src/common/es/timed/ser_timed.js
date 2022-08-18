@@ -52,7 +52,7 @@ const ser_timed = function (e, cn = false, short = true) {
         return _ser_timed(e, cn, short)
     }
 }
-const ser_timed_en = function(e, short = false) {
+const ser_timed_en = function(e, short = false, is_year = true) {
     if (e == null || e == undefined) {
         return '--'
     } else {
@@ -60,11 +60,12 @@ const ser_timed_en = function(e, short = false) {
         const day = e.substring(8, 10)
         const month = Number.parseInt(e.substring(5, 7)) - 1
         
-        // + e.substring(11, 13) + ':' + e.substring(14, 16)
+        let res = ser_month_short(month) + ' ' + day
         if (!short) {
-            return day + ' ' + ser_month(month) + ' ' + year
+            res = day + ' ' + ser_month(month) + ' '
+            return is_year ? (res + ' ' + year) : res
         }
-        return ser_month_short(month) + ' ' + day + ', ' + year 
+        return is_year ? (res + ', ' + year ) : res
     }
 }
 
