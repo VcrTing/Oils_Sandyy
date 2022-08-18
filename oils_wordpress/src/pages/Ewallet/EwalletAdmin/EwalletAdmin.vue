@@ -46,6 +46,7 @@ import EwAdminForm from './body/EwAdminForm.vue'
             
             submit() {
                 let res = this.$refs.formREF.submit()
+                res.ewallet_change = Number.parseFloat(res.ewallet_change)
                 if (res) { this._submit('', res) }
             },
 
@@ -67,5 +68,14 @@ import EwAdminForm from './body/EwAdminForm.vue'
 </script>
 
 <style lang="sass" scoped>
-    
+.reset
+    color: #d62424
+    border: none
+    background: #f4ecec !important
+    border-top-right-radius: 0px !important
+    border-bottom-right-radius: 0px !important
+
+.btn-pri
+    border-top-left-radius: 0px !important
+    border-bottom-left-radius: 0px !important
 </style>

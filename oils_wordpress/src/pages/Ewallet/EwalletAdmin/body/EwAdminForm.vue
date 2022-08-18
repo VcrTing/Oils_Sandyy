@@ -1,10 +1,10 @@
 <template>
-    <form class="form-def form-transfer">
+    <div class="form-def form-transfer">
 
         <v-row>
             <v-col cols="12" :sm="5">
                 <label>收款人編號</label>
-                <input type="text" v-model="funnel.member_code" @change="fetchingUser" placeholder="請輸入收款人的編號">
+                <input type="text" v-model="funnel.member_code" @keydown.enter.stop="fetchingUser" @change="fetchingUser" placeholder="請輸入收款人的編號">
             </v-col>
             <v-col cols="12" :sm="7">
                 <label>收款人</label>
@@ -53,7 +53,7 @@
             <qiong-space :space="'0.5vw'"></qiong-space>
             <dialog-alert>{{ msg }}</dialog-alert>
         </div>
-    </form>
+    </div>
 </template>
 
 <script>
