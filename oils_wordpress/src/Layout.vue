@@ -1,13 +1,15 @@
 <template>
     <div>
         <!-- 平台 -->
-        <wordpress-app v-if="_layout == conf.LAYOUT.WORDPRESS" @sign_Father="plantFinished"></wordpress-app>
+        <wordpress-app @sign_Father="plantFinished"></wordpress-app>
+        <!--
+            v-if="_layout == conf.LAYOUT.WORDPRESS" 
         <html-app v-else-if="_layout == conf.LAYOUT.HTML" @sign_Father="plantFinished"></html-app>
-        <widget-app v-else-if="_layout == conf.LAYOUT.WIDGET" @sign_Father="plantFinished_widget"></widget-app>
+        <widget-app v-else-if="_layout == conf.LAYOUT.WIDGET" @sign_Father="plantFinished"></widget-app>-->
 
             <!-- 首次完成 -->
             <login-from-strapi 
-                ref="loginREF" v-if="_layout == conf.LAYOUT.WORDPRESS"
+                ref="loginREF"
                 @defeated_Father="loginDefeated" @success_Father="loginSuccess"></login-from-strapi>
 
             <!-- 多次刷新 -->
@@ -43,7 +45,6 @@ import LoginFromStrapi from './components/Conning/Login/LoginFromStrapi.vue'
             }
         },
         mounted() {
-
             console.log('TOKEN =', this.$store.state.token)
         },
         methods: {
@@ -53,11 +54,6 @@ import LoginFromStrapi from './components/Conning/Login/LoginFromStrapi.vue'
                 this.$refs.loginREF.touchLogin()
                 this.$emit('shimmer_Father', false)
             },
-            plantFinished_widget(v) {
-                this.finished = v
-                this.$emit('shimmer_Father', false)
-            },
-
             loginSuccess(v) { this.login_success = true },
 
             loginDefeated(typed) {
@@ -74,8 +70,11 @@ import LoginFromStrapi from './components/Conning/Login/LoginFromStrapi.vue'
 
 
             chronuChangeReload() {
-                // this.$router.push({ path: '/home/user/loading' })
-                setTimeout(e => { this.$router.push({ path: '/home/user/center' }) }, 1200)
+                if (this._layout == conf.LAYOUT.WORDPRESS) {
+                    setTimeout(e => { this.$router.push({ path: '/home/user/center' }) }, 1200)
+                } else {
+                    console.log('CHORNU 更改维持原状。')
+                }
             }
         },
     }

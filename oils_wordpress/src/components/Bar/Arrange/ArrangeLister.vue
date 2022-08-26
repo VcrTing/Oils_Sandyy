@@ -32,11 +32,17 @@
                             { icon: 'mdi-chart-line', title: '發展獎金 (Admin 視角)', link: 'bonus/development_info_admin' },
                             
                             { icon: 'mdi-alarm-panel', title: '獎金月結單', link: 'user/pma2' },
+                            {
+                                icon: 'mdi-card-account-details-outline', title: '個人資料', link: 'pw_user/myself', order: 99, active: false, 
+                            },
 
                             //
                             
                             { icon: 'mdi-database-settings-outline', title: '產品庫存', link: 'buys/inventory' },
                             { icon: 'mdi-database-cog-outline', title: '庫存操作記錄', link: 'log/stocks' },
+
+                            // 
+                            { icon: 'mdi-account-group-outline', title: '用戶列表', link: 'pw_user/list_of_all' },
 
                             //
                             { icon: 'mdi-clipboard-account', title: 'LP 資料變更記錄', link: 'member_operate/lplevel_msg_change' },
@@ -74,6 +80,9 @@
                 await this._point_wallet()
 
                 await this._member_change()
+
+                await this._user_detaii()
+
                 await this.$store.commit('saveShareType', this.share)
             },
             // 積分與錢包
@@ -148,6 +157,11 @@
                     rec( true )
                 })
             },
+
+            // 用户资料
+            _user_detaii() {
+                // this.one.push()
+            },  
 
 
             async menuNow() {

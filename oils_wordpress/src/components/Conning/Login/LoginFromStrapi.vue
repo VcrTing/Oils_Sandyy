@@ -20,12 +20,16 @@ import LoginDefeated from './LoginDefeated.vue'
                 end_login: false
             }
         },
+        computed: {
+            iayout() { return this.$store.state.layout },
+            platform() { return this.$store.state.platform_data }
+        },
         methods: {
             // 处理登录之前
             touchLogin() {
-                this.username = this.$store.state.platform_data.username
-                this.password = this.$store.state.platform_data.password
-                this.token = this.$store.state.platform_data.token
+                this.username = this.platform.username
+                this.password = this.platform.password
+                this.token = this.platform.token
 
                 if (this.username) {
                     this.login(!this.conf.TEST)
@@ -36,10 +40,10 @@ import LoginDefeated from './LoginDefeated.vue'
             },
             // 处理 平台登录干预
             intervenLogin() {
-                if (this.$store.state.layout == this.conf.LAYOUT.WORDPRESS) {
-                    this.member_code = this.$store.state.platform_data.member_code
+                if (this.iayout == this.conf.LAYOUT.WORDPRESS) {
+                    this.member_code = this.platform.member_code
                 } else {
-                    this.member_code = this.user.member_code 
+                    this.member_code = this.user.member_code ? this.user.member_code : '203001'
                 }
             },
 
@@ -51,7 +55,11 @@ import LoginDefeated from './LoginDefeated.vue'
                 this.$emit('success_Father', true)
 
                 if (user.sponser_id) {
-                    this.$router.push({ path: '/home/user/center' })
+                    if (this.iayout == this.conf.LAYOUT.WORDPRESS) {
+                        this.$router.push({ path: '/home/user/center' })
+                    } else {
+                        console.log('维持原路径')
+                    }
                 }
             },
 
@@ -71,6 +79,7 @@ import LoginDefeated from './LoginDefeated.vue'
                             }
                         }
                     } else {
+                        console.log('本地用户登录')
                         res = await this.conn.login({ identifier: this.username, password: this.password, })
                     }
 
@@ -101,6 +110,7 @@ import LoginDefeated from './LoginDefeated.vue'
                         'member_code': this.member_code
                     }
                 )
+                console.log('登录成功，获取 =', this.member_code, user)
                 if (user) {
                     if (user.length > 0) {
 

@@ -5,12 +5,10 @@
 </template>
 
 <script>
-import LoginFromStrapi from '../Conning/Login/LoginFromStrapi.vue'
 import DataFromPlantForm from '../Conning/PlantForm/DataFromPlantForm.vue'
     export default {
         components: {
             DataFromPlantForm,
-            LoginFromStrapi
         },
         name: '',
         data() {
@@ -29,7 +27,6 @@ import DataFromPlantForm from '../Conning/PlantForm/DataFromPlantForm.vue'
                     token = token.slice(0, -1)
                     this.$store.commit('changeAuth', token)
                 }
-                
                 window.sessionStorage.removeItem('sandyy_vx_tk')
                 window.sessionStorage.removeItem('sandyy_active_code')
             },
@@ -51,24 +48,17 @@ import DataFromPlantForm from '../Conning/PlantForm/DataFromPlantForm.vue'
 
             // 判断是否为切换用户
             changeUser(data) {
-
                 if (this.$store.state.platform_data) {
-
                     const rec_id = this.$store.state.platform_data.member_code
                     if (rec_id != data.member_code) {
-                        if (!this.conf.TEST) {
-                            window.location.reload()
-                        }
+                        if (!this.conf.TEST) { window.location.reload() }
                     }
-                } else {
-                    console.log('初次接收 WORDPRESS 的数据')
                 }
             },
 
             // 监测 Admin
             judgeAdmin(plant_data) {
                 if (this.conf.TEST) plant_data.isAdmin = 1;
-
                 if (plant_data.isAdmin >= 1) {
                     this.$store.commit('saveAdmin', true)
                 }

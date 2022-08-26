@@ -1,7 +1,7 @@
 
-const TEST = false
-const VERSION = '2.66'
-const VERSION_TIME = '2022-08-18' 
+const TEST = true
+const VERSION = '2.68'
+const VERSION_TIME = '2022-08-23' 
 
 const baseURL = 'https://strapi03.svr.up5d.com'
 const apiURL = baseURL
@@ -47,18 +47,18 @@ const LEADER = 'leader'
 const SIMPLER = 'simpler'
 const VIP_EMPTY = { name: '會員', type: SIMPLER, star: 0, nick: '會員', img: 'ICONS/vip_member.png', condition: [ 0 ] }
 const VIPS_SIMPLER = [
-    { name: '一級會員', type: SIMPLER, star: 1, code: SIMPLER + '_' + 1, nick: '一級會員', img: 'ICONS/vip_simpler_1.png', condition: CONDITION_SIMPLER[0] },
-    { name: '二級會員', type: SIMPLER, star: 2, code: SIMPLER + '_' + 2, nick: '二級會員', img: 'ICONS/vip_simpler_2.png', condition: CONDITION_SIMPLER[1] },
-    { name: '三級會員', type: SIMPLER, star: 3, code: SIMPLER + '_' + 3, nick: '三級會員', img: 'ICONS/vip_simpler_3.png', condition: CONDITION_SIMPLER[2] },
-    { name: '四級會員', type: SIMPLER, star: 4, code: SIMPLER + '_' + 4, nick: '四級會員', img: 'ICONS/vip_simpler_4.png', condition: CONDITION_SIMPLER[3] },
-    { name: '五級會員', type: SIMPLER, star: 5, code: SIMPLER + '_' + 5, nick: '五級會員', img: 'ICONS/vip_simpler_5.png', condition: CONDITION_SIMPLER[4] },
+    { name: '一級會員', v: 1, type: SIMPLER, star: 1, code: SIMPLER + '_' + 1, nick: '一級會員', img: 'ICONS/vip_simpler_1.png', condition: CONDITION_SIMPLER[0] },
+    { name: '二級會員', v: 2, type: SIMPLER, star: 2, code: SIMPLER + '_' + 2, nick: '二級會員', img: 'ICONS/vip_simpler_2.png', condition: CONDITION_SIMPLER[1] },
+    { name: '三級會員', v: 3, type: SIMPLER, star: 3, code: SIMPLER + '_' + 3, nick: '三級會員', img: 'ICONS/vip_simpler_3.png', condition: CONDITION_SIMPLER[2] },
+    { name: '四級會員', v: 4, type: SIMPLER, star: 4, code: SIMPLER + '_' + 4, nick: '四級會員', img: 'ICONS/vip_simpler_4.png', condition: CONDITION_SIMPLER[3] },
+    { name: '五級會員', v: 5, type: SIMPLER, star: 5, code: SIMPLER + '_' + 5, nick: '五級會員', img: 'ICONS/vip_simpler_5.png', condition: CONDITION_SIMPLER[4] },
 ]
 const VIPS_LEADER = [
-    { name: '紅寶會員', type: LEADER, star: 1, code: LEADER + '_' + 1, nick: '紅寶', img: 'ICONS/vip_leader_1.png', condition: CONDITION_LEADER[0] },
-    { name: '鑽石會員', type: LEADER, star: 2, code: LEADER + '_' + 2, nick: '鑽石', img: 'ICONS/vip_leader_2.png', condition: CONDITION_LEADER[1] },
-    { name: '銀鑽會員', type: LEADER, star: 3, code: LEADER + '_' + 3, nick: '銀鑽', img: 'ICONS/vip_leader_3.png', condition: CONDITION_LEADER[2] },
-    { name: '黑鑽會員', type: LEADER, star: 4, code: LEADER + '_' + 4, nick: '黑鑽', img: 'ICONS/vip_leader_4.png', condition: CONDITION_LEADER[3] },
-    { name: '星鑽會員', type: LEADER, star: 5, code: LEADER + '_' + 5, nick: '星鑽', img: 'ICONS/vip_leader_5.png', condition: CONDITION_LEADER[4] },
+    { name: '紅寶會員', v: 6, type: LEADER, star: 1, code: LEADER + '_' + 1, nick: '紅寶', img: 'ICONS/vip_leader_1.png', condition: CONDITION_LEADER[0] },
+    { name: '鑽石會員', v: 7, type: LEADER, star: 2, code: LEADER + '_' + 2, nick: '鑽石', img: 'ICONS/vip_leader_2.png', condition: CONDITION_LEADER[1] },
+    { name: '銀鑽會員', v: 8, type: LEADER, star: 3, code: LEADER + '_' + 3, nick: '銀鑽', img: 'ICONS/vip_leader_3.png', condition: CONDITION_LEADER[2] },
+    { name: '黑鑽會員', v: 9, type: LEADER, star: 4, code: LEADER + '_' + 4, nick: '黑鑽', img: 'ICONS/vip_leader_4.png', condition: CONDITION_LEADER[3] },
+    { name: '星鑽會員', v: 10, type: LEADER, star: 5, code: LEADER + '_' + 5, nick: '星鑽', img: 'ICONS/vip_leader_5.png', condition: CONDITION_LEADER[4] },
 ]
 
 const STRIPE_API = "https://dashboard.stripe.com/payments/"
@@ -137,6 +137,11 @@ const ENDPOINT = {
     transfer: 'wallet/e_wallet/transfer',
     transfer_audit_record: 'e_wallet/request',
     transfer_audit_edit: 'e_wallet/request_reply',
+
+    // PW
+    pw_user_iist: 'users/userDetailList', // POST
+    pw_user_detaii: '/users/userDetail', // GET, PATCH
+
 }
 
 // 库存仓库

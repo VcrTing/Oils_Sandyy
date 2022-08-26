@@ -4,7 +4,7 @@
             <chronus-now v-if="need"></chronus-now>
         </div>
         <transition name="fade_out">
-            <layout v-if="layout" :_layout="layout" @shimmer_Father="do_shimmer"></layout>
+            <layout :_layout="layout" @shimmer_Father="do_shimmer"></layout>
         </transition>
 
         <transition name="fade_out">

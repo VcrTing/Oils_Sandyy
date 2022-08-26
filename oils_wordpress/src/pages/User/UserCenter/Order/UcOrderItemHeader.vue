@@ -11,7 +11,7 @@
                 <product-name-viewing class="" :id="buy.product_uuid.id" :product="buy.product_uuid" v-if="$store.state.products"></product-name-viewing>
             </div>
             <div class="qiong-pt-5 mt-2 qiong-line-hight-15  txt-sub_x2">
-                <div class="mobie-row">
+                <div class="mobie-row user-pri">
                     <span>
                     {{ $t('ORDER.price') }}:&nbsp;
 
@@ -94,4 +94,7 @@ import ProductNameViewing from '../../../../components/Viewing/ProductNameViewin
     transform: scale(1.08)
     *
         border: none !important
+
+.user-pri
+    color: #08222a
 </style>

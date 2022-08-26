@@ -13,9 +13,11 @@
             <div style="float: left; width: 7%; padding: 0; margin: 0;">&nbsp;</div>
         </div>
         
-        <div style="height: 0.6em"></div>
-        <div style="font-size: 1.2rem">{{ title }}</div>
-        <div style="height: 1em"></div>
+        <div v-if="title">
+            <div style="height: 0.6em"></div>
+            <div style="font-size: 1.2rem">{{ title }}</div>
+            <div style="height: 1em"></div>
+        </div>
     </div>
 </template>
 

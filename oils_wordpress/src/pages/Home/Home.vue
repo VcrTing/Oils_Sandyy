@@ -11,7 +11,6 @@
 
             <init-app ref="initREF"></init-app>
             
-            <active-shimmer :active="member_area" v-if="!$store.state.is_browser"></active-shimmer>
 
             <transition :name="transitionName">
                 <router-view v-if="alive"/>
@@ -23,6 +22,7 @@
 
             <home-modals></home-modals>
             <home-refreshing></home-refreshing>
+            <active-shimmer :active="member_area" v-if="!$store.state.is_browser"></active-shimmer>
         </div>
 
         <home-loading v-else slot="content"></home-loading>
@@ -87,18 +87,18 @@ import HomeLoading from './extra/HomeLoading.vue'
                 alive: true,
 
                 menu: false,
-                
-                member_area: true,
 
                 transitionName: null
             }
         },
+        computed: {
+            member_area() {
+                let res = this.$store.state.user_backend
+                return res.member_area ? true : false
+            }
+        },
         async mounted() {
-
             await this.init()
-            
-            this.member_area = this.$store.state.user_backend.member_area ? true : false
-            
         },
         methods: {
 

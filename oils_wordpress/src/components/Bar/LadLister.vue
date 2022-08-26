@@ -87,7 +87,7 @@ import MenuSettingSimple from './menu/MenuSettingSimple.vue'
             async serMenu() {
                 const res = await this.$refs.arrangeREF.menuNow()
                 if (res) {
-                    res.one.map(e => {
+                    res.one.map(e => { 
                         this.tiles.splice(1, 0, e)
                     })
                     
@@ -96,17 +96,6 @@ import MenuSettingSimple from './menu/MenuSettingSimple.vue'
                         this.tiles_group.splice(0, 0, e)
                     })
 
-                    /*
-                    if (this.$store.state.is_admin) { 
-                        this.tiles_group.map(e => {
-                            if (e.id == 4) {
-                                e.children.push(
-                                    { icon: 'mdi-alarm-panel', title: this.$t('MENU.commission_total'), link: 'user/pma2' },
-                                )
-                            }
-                        })
-                    }
-                    */
                 }
 
                 // console.log('拥有二级菜单的 菜单', this.tiles_group)

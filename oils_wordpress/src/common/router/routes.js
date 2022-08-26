@@ -17,6 +17,10 @@ const DumpScreen = () => import('@/pages/Home/Dump/DumpScreen')
 
 import widgetRouter from './wordpress/widget'
 
+// WIDGET 页面
+const WidgetHome = () => import('../../pages_widget/WidgetHome.vue')
+import pw_userRouter from './pages_widget/user'
+
 const AllRoutes = [
     {
       path: '/home',
@@ -31,6 +35,7 @@ const AllRoutes = [
         uiRouter,
         mcRouter,
         walletRouter,
+        ...pw_userRouter('/home'),
 
         {
           path: '/home/dump',
