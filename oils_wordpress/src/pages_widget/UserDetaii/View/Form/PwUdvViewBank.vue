@@ -27,7 +27,7 @@
             </div>
             <div class="pb-2 pt-4">
                 <h3 class="py-3">Agreement</h3>
-                <pw-checkbox :def="one.agreement" @change="(v) => form.agree = v"></pw-checkbox>
+                <pw-checkbox :disabled="true" :def="one.agreement"></pw-checkbox>
             </div>
         </nav>
     </div>

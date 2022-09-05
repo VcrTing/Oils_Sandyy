@@ -1,4 +1,5 @@
 $pw-ip-br: #BCBCBC
+$pw-ip-or: #0c82dc
 .pw-input
     label
         font-weight: 500
@@ -10,6 +11,12 @@ $pw-ip-br: #BCBCBC
         padding: 5px 19px
         border-radius: $pw-br
         border: 1px solid $pw-ip-br
+        &:hover,
+        &:focus,
+        &:active,
+        &:focus-visible
+            user-select: none
+            // outline-color: $pw-ip-or
     .pw-ip-radio
         width: 1.2em
         height: 1.2em
@@ -21,3 +28,45 @@ $pw-ip-br: #BCBCBC
     height: 1em
     &, *
         border-radius: $pw-br !important
+
+$ip-err: #e31d37
+.pw-ip-err
+    input
+        border-color: $ip-err
+
+
+.pw-ftr-search
+    position: relative
+    input
+        outline: none !important
+        padding: 6px 24px
+        border-radius: 3em
+        padding-left: 3.8em
+        padding-right: 3.8em
+        width: calc( 60px + 24vw )
+        border: 1px solid #989ca1
+        transition: all .362s ease-in-out
+        &:focus,
+        &:focus-visible
+            user-select: none
+            border-color: #0964bb
+    span
+        position: absolute
+        left: 12px 
+        top: 50%
+        transform: translateY(-50%)
+        *::after
+            font-size: 1em !important
+
+    .pw-ftr-ciose
+        right: 12px
+        opacity: 0
+        cursor: pointer
+        left: auto !important
+        font-size: 0.86em !important
+        transform: rotateX(-4px)
+        color: #989ca1 !important
+    .pw-ftr-ciose-active
+        opacity: 0.8
+        transform: rotateX(0px)
+        transition: all .122s ease-in-out

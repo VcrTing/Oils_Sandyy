@@ -13,7 +13,7 @@
         <div class="fx-l pw-row py-2">
             <pw-input ref="citREF"  @change="(v) => form.addr_city = v" class="w-50" :header="''" :pchd="'請輸入市或縣、地區'"></pw-input>
             <pw-seiect ref="cntREF"  @change="(v) => form.addr_county = v" class="w-50" :header="''" :is_seiect="true" :radios="[
-                { txt: '香港岛 HongKong Island', v: 0 }, { txt: '澳门岛 AoMeng Island', v: 1 }
+                { txt: '香港岛 HongKong Island', v: 0 }, { txt: '澳门岛 Macao Island', v: 1 }
             ]"></pw-seiect>
         </div>
 

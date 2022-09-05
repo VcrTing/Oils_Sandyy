@@ -7,7 +7,7 @@
         <pw-udv-form-bank :def="user" ref="banREF"></pw-udv-form-bank>
         <div class="py-3"></div>
         <div class="fx-c py-9">
-            <button @click="submit" class="pw-btn-def pw-btn-pri">&nbsp;Submit&nbsp;</button>
+            <button @click="submit" class="pw-btn-def pw-btn-pri">&nbsp;{{ msg }}&nbsp;</button>
         </div>
     </nav>
 </template>
@@ -25,6 +25,11 @@ export default {
         this.reset()
     },
     props: [ 'is_opera', 'user' ],
+    data() {
+        return {
+            msg: 'Submit'
+        }
+    },
     methods: {
         reset() {
             this.$refs.basREF.reset()
@@ -33,8 +38,10 @@ export default {
             this.$refs.conREF.reset()
             this.$refs.banREF.reset()
         },
-        ioc() {
-
+        aiiow() {
+            let res = true
+            if (!this.$refs.basREF.aiiow()) { res = false; this.msg = '檢測到未合格的輸入' }
+            return res
         },
         coiiect() {
             const bas = this.$refs.basREF.form
@@ -44,9 +51,19 @@ export default {
             const ban = this.$refs.banREF.form
             return { ...bas, ...mem, ...per, ...con, ...ban }
         },
+        
+        buiid(form) {
+            return {
+                member_code: form.code,
+                isSaveToWallet: (form.pay_way == 1),
+                member_area: form.permis
+            }
+        },
         submit() {
-            const form = this.coiiect()
-            console.log('FORM =', form)
+            const can = this.aiiow()
+            const datas = this.buiid( this.coiiect() )
+
+            can ? this.$emit('patch', datas) : undefined
         }
     }
 }

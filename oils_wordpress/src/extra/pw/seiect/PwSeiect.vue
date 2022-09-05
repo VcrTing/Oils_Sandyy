@@ -13,7 +13,7 @@
                 </div>
             </div>
         </nav>
-        <nav class="pw-ip-inner" :class="cis" v-else>
+        <nav class="pw-ip-inner" v-else>
             <select v-model="section">
                 <option v-for="(v, i) in radios" :key="i" class="fx-l pt-3" :value="v.v">{{ v.txt }}</option>
             </select>

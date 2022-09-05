@@ -12,10 +12,10 @@
             </div>
             <pw-form-view class="pt-5" :header_cn="'地址'" :header_en="'Address:'" ></pw-form-view>
             <div class="pw-row fx-l pb-5 pt-3">
-                <div class="w-53">
+                <div class="w-53" v-if='one.address.address'>
                     {{ one.address.address }}
                 </div>
-                <div class="w-24">
+                <div class="w-24" v-if='one.address.city'>
                     {{ one.address.city }}
                 </div>
                 <div class="w-23">

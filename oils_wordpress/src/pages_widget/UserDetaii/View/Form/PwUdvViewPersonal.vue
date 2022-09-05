@@ -21,12 +21,14 @@
                     {{ one.id_card }}
                 </pw-form-view>
                 <pw-form-view class="w-23" :header_cn="'性別'" :header_en="'Gender:'" >
-                    {{ one.gender }}
+                    <span v-if="one.gender">女</span>
+                    <span v-else>男</span>
                 </pw-form-view>
             </div>
             <div class="py-5">
                 <pw-form-view :header_cn="'下期出貨方式'" :header_en="'payment method:'" >
-                    {{ one.pay_method }}
+                    <span v-if="one.pay_method">{{ one.pay_method }}</span>
+                    <span v-else>待設定</span>
                 </pw-form-view>
                 <p class="pw-sub fs-s">以每月八號前更改的記錄為準如有更改請聯絡客戶服務中心</p>
             </div>

@@ -17,16 +17,12 @@ import PdfBuyPrint from '../PdfRecord/PdfBuyPrint.vue'
 import PdfPwUserInner from './PdfPwUserInner.vue'
 export default {
         components: { PdfPwUserInner, PdfBuyPrint },
+        props: [ 'users' ],
         data() {
             return {
                 printing: false,
                 loading: false
             }
-        },
-        computed: {
-            users() { return this.$store.state.user_collection }
-        },
-        mounted() {
         },
         methods: {
             lockPrint() {

@@ -8,7 +8,9 @@
         </div>
         <div class="t-c pt-9">
             <div class="py-7"></div>
+            <!--
             <button @click="submit" class="pw-btn-def pw-btn-pri">&nbsp;Submit&nbsp;</button>
+            -->
         </div>
     </nav>
 </template>
@@ -34,7 +36,7 @@ export default {
         bank: {
           account_name: '', bank_code: '', branch_name: '',
           password: '', password_again: ''
-        }, agreement: true
+        }, agreement: 1
       }
     }
   },
@@ -50,9 +52,9 @@ export default {
         
         member_auth: this.user.member_area, first_name: this.user.display_name, last_name: '', chinese_name: '',
         birth: '', id_card: '', gender: 0,
-        pay_method: 'bank_card', upload_id_file: '', 
+        pay_method: '', upload_id_file: '', 
         phone: this.user.phone, email: this.user.email,
-        address: {  address: '', area: 'NIL', city: '', country: '香港岛', address_proof_file: '' },
+        address: {  address: '', area: 'NIL', city: '', country: '中國香港', address_proof_file: '' },
         bank: {
           account_name: '', bank_code: '', branch_name: '',
           password: '', password_again: ''

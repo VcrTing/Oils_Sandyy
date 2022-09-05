@@ -1,5 +1,5 @@
 <template>
-    <div class="pw-input pb-3">
+    <div class="pw-input pb-3" :class="{ 'pw-ip-err': err }">
         <label :for="'ip_' + _uid">
             {{ header }}
         </label>
@@ -14,7 +14,8 @@ export default {
     props: {
         typed: { type: String, default: 'text' },
         header: { type: String },
-        pchd: { type: String, default: '請輸入' }
+        pchd: { type: String, default: '請輸入' },
+        err: { type: Boolean }
     },
     watch: {
         word(n) {

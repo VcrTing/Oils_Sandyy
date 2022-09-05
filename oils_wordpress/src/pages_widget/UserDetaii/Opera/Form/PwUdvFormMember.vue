@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="fx-l py-4">
-            <pw-seiect class="w-100" :header="'Change to the following registration type*'"
+            <pw-seiect class="w-100" :header="'Change to the following registration type *'"
                 ref='rgtREF'
                 :radios="regis_type" @change="(v) => form.regis_type = v"
             ></pw-seiect>

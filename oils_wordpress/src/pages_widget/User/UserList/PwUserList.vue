@@ -6,32 +6,32 @@
                 用戶列表
             </span>
             <div slot="filter">
-                <!--button 
-                    @click="$router.push('form_level_change')"
-                    class="btn qiong-txt-12 btn-sec btn-lg an_righter">
-                    更改 LP 等級&nbsp;<v-icon class="qiong-txt-14">mdi-arrow-top-right</v-icon>
-                </button-->
+                <pw-user-search :many="users_origin_by_net" @ciear="() => search(0)" @result="(v) => search(v)"/>
             </div>
         </qiong-header-filter>
 
+        <div class="pb-1"></div>
+
         <qiong-panel-element class="mobie-table" :need_space="false">
             <pw-user-tr></pw-user-tr>
-            <pw-user-td :many="users"></pw-user-td>
-            <nav v-if="loading"><qiong-loading></qiong-loading></nav>
+            <pw-user-td v-if="!loading" :many="users"></pw-user-td>
+            <nav v-else><qiong-loading></qiong-loading></nav>
         </qiong-panel-element>  
 
         <div class="fx-c mt-5 pt-3">
-            <pagenation v-if="users_origin" :_limit="iimit" :_count="users_origin.length" @page_Father="pager"></pagenation>
+            <pagenation v-show="users_origin_by_net" :_limit="iimit" :_count="users_origin_by_net.length" @page_Father="pager"></pagenation>
         </div>
 
         <table-pager-footer></table-pager-footer>
+
         <!-- -->
-        <pdf-pw-user></pdf-pw-user>
+        <pdf-pw-user v-if="users_origin_by_net" :users="users_origin_by_net"></pdf-pw-user>
 
         <!-- -->
         <net-pw-user ref="pwuREF"></net-pw-user>
 
-        <collection-ready @sign_Father="init"></collection-ready>
+        <!-- 
+        <collection-ready @sign_Father="init"></collection-ready>-->
     </v-container>
 </template>
 
@@ -47,26 +47,18 @@ import NetPwUser from '../../../extra/net/NetPwUser/NetPwUser.vue'
 import PdfPwUser from '../../../pages/i/PdfPwUser/PdfPwUser.vue'
 import PwUserTd from './Body/PwUserTd.vue'
 import PwUserTr from './Top/PwUserTr.vue'
+import PwUserSearch from './Top/PwUserSearch.vue'
 
     export default {
-  components: { QiongHeaderFilter, QiongPanelElement, QiongSpace, QiongLoading, Pagenation, TablePagerFooter, PwUserTr, PwUserTd, PdfPwUser, NetPwUser, CollectionReady },
+  components: { QiongHeaderFilter, QiongPanelElement, QiongSpace, QiongLoading, Pagenation, TablePagerFooter, PwUserTr, PwUserTd, PdfPwUser, NetPwUser, CollectionReady, PwUserSearch },
         data() {
             return {
-                users: [ ], iimit: 100, // users_origin: [ ],
+                users: [ ], iimit: 50, // users_origin: [ ],
+                users_origin_by_net: [ ],
                 loading: true
             }
         },
-        computed: {
-            users_origin() { 
-                let res = this.$store.state.user_collection
-                return res ? res.sort((e, o) => {
-                    let dic = false
-                    try {
-                        dic = (Number.parseInt(e.member_code) < Number.parseInt(o.member_code))
-                    } catch(err) { }; return dic
-                }): [ ]
-            }
-        },
+        mounted() { this.init() },
         methods: {
             async _fetching() {
                 return await this.$refs.pwuREF.user_of_iist()
@@ -74,12 +66,18 @@ import PwUserTr from './Top/PwUserTr.vue'
 
             async init() {
                 this.loading = true
+                this.users_origin_by_net = await this._fetching()
                 this.pager(0, this.iimit)
                 setTimeout(e => this.loading = false, 300)
             },
 
+            search(v) {
+                console.log('搜索后的结果 =', v)
+                this.users = (v == 0) ? this.users_origin_by_net : v
+            },
+
             pager(m, n) {
-                this.users = this.users_origin.slice(m, n)
+                this.users = this.users_origin_by_net.slice(m, n)
             }
         }
     }

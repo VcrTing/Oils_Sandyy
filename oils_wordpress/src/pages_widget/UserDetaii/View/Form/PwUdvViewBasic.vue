@@ -29,7 +29,8 @@
         </div>
         <div class="pw-row py-5">
             <pw-form-view class="w-100" :header_cn="'會員權限'" :header_en="'Membership authority:'" >
-                {{ one.member_auth }}
+                <span v-if="one.member_auth">Active</span>
+                <span v-else>Non-active</span>
             </pw-form-view>
         </div>
     </div>

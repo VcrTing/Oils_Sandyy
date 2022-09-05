@@ -32,9 +32,6 @@
                             { icon: 'mdi-chart-line', title: '發展獎金 (Admin 視角)', link: 'bonus/development_info_admin' },
                             
                             { icon: 'mdi-alarm-panel', title: '獎金月結單', link: 'user/pma2' },
-                            {
-                                icon: 'mdi-card-account-details-outline', title: '個人資料', link: 'pw_user/myself', order: 99, active: false, 
-                            },
 
                             //
                             
@@ -160,7 +157,9 @@
 
             // 用户资料
             _user_detaii() {
-                // this.one.push()
+                this.one.push( 
+                        { icon: 'mdi-card-account-details-outline', title: '個人資料', link: 'pw_user/myself', order: 99, active: false, },
+                    )
             },  
 
 

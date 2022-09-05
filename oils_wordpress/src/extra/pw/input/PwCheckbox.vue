@@ -1,7 +1,7 @@
 <template>
     <div>
         <div v-for="(v, i) in boxs" :key="i">
-            <input v-model="chos" type="checkbox" :value="v.v" :id="'box_' + i + '_' + _uid" :name="'box_' + _uid" class="pw-checkbox"/>
+            <input :disabled="disabled" v-model="chos" type="checkbox" :value="v.v" :id="'box_' + i + '_' + _uid" :name="'box_' + _uid" class="pw-checkbox"/>
             <label :for="'box_' + i + '_' + _uid" class="pl-1 pw-sub">{{ v.txt }}</label>
         </div>
     </div>
@@ -19,6 +19,9 @@ export default {
                     txt: 'I have read and agree to the following terms and policies. I certify that I am 18 years old or above and legally able to enter into the Agreement',
                 }
             ]
+        },
+        disabled: {
+            type: Boolean, default: false
         }
     },
     watch: {

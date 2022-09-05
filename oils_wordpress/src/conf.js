@@ -1,7 +1,7 @@
 
-const TEST = true
-const VERSION = '2.68'
-const VERSION_TIME = '2022-08-23' 
+const TEST = false
+const VERSION = '2.70'
+const VERSION_TIME = '2022-09-05' 
 
 const baseURL = 'https://strapi03.svr.up5d.com'
 const apiURL = baseURL
@@ -140,7 +140,7 @@ const ENDPOINT = {
 
     // PW
     pw_user_iist: 'users/userDetailList', // POST
-    pw_user_detaii: '/users/userDetail', // GET, PATCH
+    pw_user_detaii: 'users/userDetail', // GET, PATCH
 
 }
 

@@ -1,7 +1,9 @@
 <template>
     <div>
         <div class="fx-l pw-row">
-            <pw-input ref="mbrREF" @change="(v) => form.code = v" class="w-25" :typed="'number'" :header="'Member ID'"></pw-input>
+            <pw-input ref="mbrREF" @change="(v) => form.code = v" class="w-25" 
+                :err="form_err.code"
+                :typed="'number'" :header="'Member ID *'" ></pw-input>
         </div>
         <div class="fx-l pw-row py-4">
             <pw-input ref="eriREF" @change="(v) => form.e_id = v" class="w-25" :typed="'number'" :header="'Enroller ID'"></pw-input>
@@ -20,17 +22,26 @@ export default {
     data() {
         return {
             form: { code: '', e_id: '', e_name: '', s_id: '', s_name: '' },
-            form_err: { code: '', e_id: '', e_name: '', s_id: '', s_name: '' }
+            form_err: { code: false, e_id: false, e_name: false, s_id: false, s_name: false }
         }
     },
+    mounted() {
+        this.form_err = { code: false, e_id: false, e_name: false, s_id: false, s_name: false }
+    },
     methods: {
+        aiiow() {
+            let res = true
+            if (this.form.code) { this.form_err.code = false } else { res = false; this.form_err.code = true }
+            return res
+        },
+
         reset() {
             if (this.def) {
                 this.form.code = this.def.member_code
-                this.form.e_id = this.def.sponsor_id
-                this.form.e_name = 'A' // this.def.member_code
-                this.form.s_id = this.def.enroller_id
-                this.form.s_name = 'B' // this.def.member_code
+                this.form.s_id = this.def.sponsor_id 
+                this.form.e_id = this.def.enroller_id
+                this.form.s_name = this.def.sponsor_name
+                this.form.e_name = this.def.enroller_name
             } else {
                 this.form = { code: '', e_id: '', e_name: '', s_id: '', s_name: '' }
             }
