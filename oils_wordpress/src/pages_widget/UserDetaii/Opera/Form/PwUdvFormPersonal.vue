@@ -15,7 +15,7 @@
             ]"></pw-seiect>
         </div>  
         <div class="fx-l pw-row pb-4">
-            <pw-seiect ref="pywREF" @change="(v) => form.pay_way = v" class="w-100" :cis="'pw-tit_son'" :header="'下期出種方式（以每月八號前更改的記錄為準）'" :radios="[
+            <pw-seiect ref="pywREF" @change="(v) => form.pay_way = v" class="w-100" :cis="'pw-tit_son'" :header="'支付方式（以每月八號前更改的記錄為準）'" :radios="[
                 { txt: '電子錢包', v: 1 }, { txt: '支票', v: 0 }
             ]"></pw-seiect>
         </div>

@@ -26,7 +26,7 @@
                 </pw-form-view>
             </div>
             <div class="py-5">
-                <pw-form-view :header_cn="'下期出貨方式'" :header_en="'payment method:'" >
+                <pw-form-view :header_cn="'支付方式'" :header_en="'payment method:'" >
                     <span v-if="one.pay_method">{{ one.pay_method }}</span>
                     <span v-else>待設定</span>
                 </pw-form-view>
