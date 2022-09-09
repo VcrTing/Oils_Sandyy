@@ -3,8 +3,8 @@
         <label :for="'ip_' + _uid">
             {{ header }}
         </label>
-        <nav class="pw-ip-inner">
-            <input :type="typed" v-model="word" :placeholder="pchd"/>
+        <nav class="pw-ip-inner" :class="{ 'dis_ip': !can_edit }">
+            <input :disabled="!can_edit" :type="typed" v-model="word" :placeholder="pchd"/>
         </nav>
     </div>
 </template>
@@ -15,7 +15,11 @@ export default {
         typed: { type: String, default: 'text' },
         header: { type: String },
         pchd: { type: String, default: '請輸入' },
-        err: { type: Boolean }
+        err: { type: Boolean },
+
+        can_edit: {
+            type: Boolean, default: true
+        }
     },
     watch: {
         word(n) {
@@ -38,6 +42,5 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang="sass" scoped>
 </style>

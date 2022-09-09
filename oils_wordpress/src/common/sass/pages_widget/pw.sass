@@ -22,36 +22,6 @@ $pw-sub: #8f8f8f
 .pw-sub, .pw-sub_son, .pw-sub_son *
     color: $pw-sub
 
-.pw-row
-    align-items: flex-start !important
-    margin: 0px -12px
-    & > div
-        padding-left: 12px
-        padding-right: 12px
-
-// 用户界面
-.pw-user-page
-    font-size: calc( 7px + 0.5vw )
-    overflow-y: scroll
-    background: #FFF
-    position: fixed
-    padding-left: $menu-L
-    top: 0
-    left: 0
-    right: 0
-    bottom: 0
-    & > div,
-    & > div > nav
-        width: 100%
-    & > div
-        padding: 0px
-    
-.pw-user-header
-    color: #393432
-    padding: 24px 6.2vw 16px 6.2vw
-    font-size: calc( 16px + 0.6vw )
-
-
 .pw-btn-def
     padding: 8px 1.58em
     font-weight: bold
@@ -72,6 +42,8 @@ $pw-sub: #8f8f8f
 
 @import ./user_list
 @import ./user_detaii
+
+@import ./pw_iayout
 
 
 @media screen and ( max-width: 1263px )

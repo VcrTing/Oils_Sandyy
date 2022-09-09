@@ -4,8 +4,15 @@
             {{ header }}
         </label>
         <nav class="pw-ip-inner">
-            <input class="pw-hide" @change="changeFiie($event)" :id="'file_' + _uid" type="file" :placeholder="pchd"/>
-            <button class="pw-btn-def" @click="file">
+            <nav v-if="img" class="pw-demo-img pt-2">
+                <img v-if="is_change" :src="fiie"/>
+                <img v-else :src="def"/>
+            </nav>
+            <input class="pw-hide" @change="changeFiie($event)" 
+                :id="'file_' + _uid" type="file" :placeholder="pchd"
+                accept="image/*"
+                />
+            <button class="pw-btn-def" @click="openF">
                 {{ btn }}
             </button>
             <div class="fs-s pw-sub py-3">Maximum file size 5MB</div>
@@ -18,27 +25,40 @@ export default {
     props: {
         header: { type: String },
         pchd: { type: String, default: '請輸入' },
-        btn: { type: String, default: '選擇檔案' }
+        btn: { type: String, default: '選擇檔案' },
+        def: { type: String, default: '' }
     },
     data() {
         return {
-            fiie: '', fiie_show: ''
+            fiie: '', fiie_show: '', is_change: false
         }
     },
     computed: {
-
+        img() {
+            if (this.fiie) { return this.fiie } 
+            else { return this.def }
+        }
     },
     watch: {
         fiie(n) { this.$emit('change', n) }
     },
     methods: {
         changeFiie( eve ) {
-            const f = eve.target.files
-            this.file = f ? f[0] : null
+            let rnd = new FileReader()
+            let f = eve.target.files
+            f = f ? f[0] : null
+            if (f) {
+                rnd.readAsText(f, 'utf8')
+                this.is_change = true
+                rnd.onload = () => {
+                    // const img = new Image()
+                    // img.src = rnd.result
+                    this.fiie = rnd.result
+                }
+            }
         },
-        file() {
-            const dom = document.getElementById('file_' + this._uid)
-            dom.click()
+        openF() {
+            document.getElementById('file_' + this._uid).click()
         },
         reset(def) {
             this.fiie_show = def
@@ -50,4 +70,12 @@ export default {
 <style lang="sass">
 .pw-hide
     visibility: hidden !important
+
+.pw-demo-img
+    img
+        width: auto
+        max-width: 100%
+        max-height: 100%
+    width: auto
+    height: calc( 49px + 10vh ) !important
 </style>

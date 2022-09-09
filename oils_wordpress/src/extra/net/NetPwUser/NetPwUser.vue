@@ -23,10 +23,17 @@ export default {
         },
         // 用户列表
         async user_of_iist(data = { _limit: 999 }) {
+            if (this.conf.TEST) {
+                data._limit = 3
+            }
             let res = await this.conn.ex_get( this,
                 'pw_user_iist', data
-            ); return res ? res.sort((n, o) => this._sort_users(n, o)) 
+            ); res = res ? res.sort((n, o) => this._sort_users(n, o)) 
             : [ ]
+            console.log('用户列表 =', res)
+            return res.filter(e => {
+                if (e.member_code) { return true }; return false
+            })
         },
         // 用户详情
         // 非 Admin
@@ -37,9 +44,9 @@ export default {
         },
 
         // 修改用户详情
-        async user_patch(data) {
+        async user_patch(data, member_code) {
             let res = await this.conn.ex_patch( this,
-                'pw_user_detaii', data, data.member_code
+                'pw_user_detaii', data, { member_code }
             ); return res ? res : [ ]
         }
     }

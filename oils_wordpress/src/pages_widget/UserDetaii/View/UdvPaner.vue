@@ -1,6 +1,6 @@
 <template>
     <nav class="pw-bg pw-form-panner">
-        <div>
+        <div v-if="detaii">
           <pw-udv-view-basic :one="detaii"></pw-udv-view-basic>
           <pw-udv-view-personal :one="detaii"></pw-udv-view-personal>
           <pw-udv-view-contact :one="detaii"></pw-udv-view-contact>
@@ -25,12 +25,13 @@ export default {
   props: [ 'user' ],
   data() {
     return {
-      detaii: {
+      detaii: null
+        /*
         member_code: '', name: '', name_auth: '', 
         enroller_id: '', enroller_name: '', sponsor_id: '', sponsor_name: '',
         member_auth: true, first_name: '', last_name: '', chinese_name: '',
         birth: '1998-12-12', id_card: '', gender: 0,
-        pay_method: '', upload_id_file: '', 
+        pay_method: '', upload_id_fil: { }, 
         phone: '', email: '',
         address: {  address: '', area: '', city: '', country: '', address_proof_file: '' },
         bank: {
@@ -38,28 +39,55 @@ export default {
           password: '', password_again: ''
         }, agreement: 1
       }
+      */
     }
   },
   mounted() {
-    console.log('reset =', this.user)
     this.reset()
   },
   methods: {
+    _name( ) {
+      // if (this.user.up_first_name == '203001') { return this.user.up_br_ename }
+      return this.user.up_br_ename
+      // this.user.up_first_name + ' ' + this.user.up_last_name
+    },
     reset() {
       this.detaii = {
-        member_code: this.user.member_code, name: this.user.display_name, name_auth: this.user.username, 
-        enroller_id: this.user.sponsor_id, enroller_name: 'KKMMMKK LIMIT', sponsor_id: this.user.sponsor_id, sponsor_name: 'KKLLADADA UUU',
+        member_code: this.user.member_code, 
+        name: this._name(), 
+        name_auth: this.user.username, 
+        enroller_id: this.user.sponsor_id, enroller_name: this.user.enroller_name, 
+        sponsor_id: this.user.sponsor_id, sponsor_name: this.user.sponsor_name,
         
-        member_auth: this.user.member_area, first_name: this.user.display_name, last_name: '', chinese_name: '',
-        birth: '', id_card: '', gender: 0,
-        pay_method: '', upload_id_file: '', 
+        member_auth: this.user.member_area, 
+        first_name: this.user.up_first_name, 
+        last_name: this.user.up_last_name, 
+        chinese_name: this.user.up_cname,
+
+        birth: this.user.up_dob, 
+        id_card: this.user.up_id_no, 
+        gender: this.user.up_gender,
+
+        pay_method: this.user.isSaveToWallet, 
+        upload_id_file: this.user.up_id_copy,
+
         phone: this.user.phone, email: this.user.email,
-        address: {  address: '', area: 'NIL', city: '', country: '中國香港', address_proof_file: '' },
+
+        address: {  
+          address: this.user.up_address, area: this.user.up_area, 
+          city: this.user.up_district, country: this.user.up_country, 
+          
+          address_proof_file: this.user.up_address_proof
+        },
         bank: {
-          account_name: '', bank_code: '', branch_name: '',
+          account_name: this.user.up_bank_acc, 
+          bank_code: this.user.up_bank_code, 
+          branch_name: this.user.up_bank_branch,
           password: '', password_again: ''
-        }, agreement: 1
+        }, 
+        agreement: this.user.up_agreement_box
       }
+      console.log('DETAII =', this.detaii)
     }
     ,
     submit() {

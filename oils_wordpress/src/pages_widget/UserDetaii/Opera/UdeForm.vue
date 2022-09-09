@@ -21,7 +21,6 @@ import PwUdvFormPersonal from './Form/PwUdvFormPersonal.vue'
 export default {
     components: { PwUdvFormBasic, PwUdvFormMember, PwUdvFormPersonal, PwUdvFormContact, PwUdvFormBank },
     mounted() {
-        console.log('this.user =', this.user)
         this.reset()
     },
     props: [ 'is_opera', 'user' ],
@@ -47,23 +46,81 @@ export default {
             const bas = this.$refs.basREF.form
             const mem = this.$refs.memREF.form
             const per = this.$refs.perREF.form
-            const con = this.$refs.conREF.form
+            const con = this.$refs.conREF.coiiect()
             const ban = this.$refs.banREF.form
             return { ...bas, ...mem, ...per, ...con, ...ban }
         },
-        
-        buiid(form) {
+        form_of_fiie(v) {
+            let res = { }
+            if (v.id_fiie) { res['up_id_copy'] = v.id_fiie }
+            if (v.br_copy) { res['up_br_copy'] = v.br_copy }
+            if (v.addr_fiie) { res['up_address_proof'] = v.addr_fiie }
+            return res
+        },
+        buiid(v) {
+            console.log('构建之前 =', v)
+            const data = {
+                isSaveToWallet: (v.pay_way == 1),
+                member_area: v.permis,
+                top_rank: v.ievei_h,
+                acf: {
+                    up_first_name: v.name_f,
+                    up_last_name: v.name_l,
+                    up_mobile_no: v.phone,
+
+                    up_dob: v.birth,
+                    up_id_no: v.id_no,
+
+                    up_br_ename: v.named,
+                    up_br_cname: v.name_cn,
+
+                    up_agreement_box: ( v.agree == 1 ),
+
+                    up_area: v.area,
+                    up_country: v.addr_county,
+                    up_district: v.addr_city,
+                    up_address: v.addr_detaii,
+
+                    up_bank_code: v.bank_code,
+                    up_br_no: v.branch_code,
+                    up_bank_acc: v.bank_acc,
+                    up_bank_branch: v.branch_code,
+
+                    up_gender: (v.gender == 1 ? 'female' : 'male'),
+                },
+                register_type: (
+                    [ "corp", "personal", "p_customer", "r_customer" ][ v.regis_type ]
+                )
+            }
+            console.log('构建后 =', {
+                data,
+                member_code: v.code,
+                files: this.form_of_fiie(v)
+            })
             return {
-                member_code: form.code,
-                isSaveToWallet: (form.pay_way == 1),
-                member_area: form.permis
+                data,
+                member_code: v.code,
+                files: this.form_of_fiie(v)
             }
         },
         submit() {
+            this.msg = 'submitting...'
             const can = this.aiiow()
             const datas = this.buiid( this.coiiect() )
 
-            can ? this.$emit('patch', datas) : undefined
+            // 提取 PK
+            const pk = datas.member_code
+            delete datas.member_code
+
+            // 转为 FORMDATA
+            const fm = new FormData()
+            fm.append('data', JSON.stringify( datas.data ))
+            fm.append('files', JSON.stringify( datas.files ))
+
+            can ? this.$emit('patch', [ fm, pk ]) : undefined
+        },
+        finished(m = 'submitted') {
+            this.msg = m
         }
     }
 }

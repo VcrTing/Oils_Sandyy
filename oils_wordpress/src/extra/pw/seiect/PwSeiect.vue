@@ -15,7 +15,7 @@
         </nav>
         <nav class="pw-ip-inner" v-else>
             <select v-model="section">
-                <option v-for="(v, i) in radios" :key="i" class="fx-l pt-3" :value="v.v">{{ v.txt }}</option>
+                <option v-for="(v, i) in radios" :key="i" :value="v.v" class="fx-l pt-3">{{ v.txt }}</option>
             </select>
         </nav>
     </div>
@@ -37,6 +37,10 @@ export default {
     methods: {
         reset(def) {
             this.section = def ? def : 0
+        },
+        sign_change(ee) {
+            this.section = ee.target.value
+            this.$emit('change', this.section)
         }
     },
     data() {

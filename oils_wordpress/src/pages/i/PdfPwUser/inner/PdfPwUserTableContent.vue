@@ -4,7 +4,9 @@
         <tr class="td-buy" v-for="(v, i) in _items" :key="i">
             <td width="10%">{{ v.member_code }}</td>
             <td width="19%">{{ v.display_name }}</td>
-            <td width="16%"></td>
+            <td width="16%">
+                {{ address(v) }}
+            </td>
             <td width="9%">{{ v.phone }}</td>
             <td width="17%" style="padding-right: 6px;">{{ v.email }}</td>
             <td width="10%">{{ v.register_type }}</td>
@@ -28,6 +30,13 @@
             _items: Array
         },
         methods: {
+
+            address(one) {
+                let src = one.address
+                if (src) {
+                    return `${src.country},${src.area},${src.district},${src.address}`
+                }; return ''
+            },
             active(ac) {
                 return ac ? 'Active' : 'Non-active'
             }

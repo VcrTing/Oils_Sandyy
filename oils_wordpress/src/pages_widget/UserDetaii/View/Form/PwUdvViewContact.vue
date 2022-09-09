@@ -19,7 +19,7 @@
                     {{ one.address.city }}
                 </div>
                 <div class="w-23">
-                    {{ one.address.country }}
+                    {{ contry }}
                 </div>
             </div>
             <div class="py-5">
@@ -29,16 +29,40 @@
                 {{ one.address.area }}
             </pw-form-view>
         </nav>
+
+        <net-pw-countries @sign="ioad_country"></net-pw-countries>
     </div>
 </template>
 
 <script>
+import NetPwCountries from '../../../../extra/net/NetPwUser/NetPwCountries.vue'
 import PwFormView from '../../../../extra/pw/form/PwFormView.vue'
 import PwFileView from '../../../../extra/pw/input/PwFileView.vue'
 export default {
-    components: { PwFormView, PwFileView },
-    props: ['one' ]
-}
+    components: { PwFormView, PwFileView, NetPwCountries },
+    props: ['one' ],
+    data() {
+        return {
+            countries: [ ],
+            contry: ''
+        }
+    },
+    methods: {
+        ioad_country(v) {
+            let res = ''
+            this.countries = v
+            setTimeout(e => {
+                const src = this.one.address.country
+                v.map(_v => {
+                    if (_v.v == src) {
+                        res = _v.txt
+                    }
+                });
+                this.contry = res
+            }, 200)
+        }
+    }
+}   
 </script>
 
 <style>

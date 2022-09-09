@@ -1,7 +1,7 @@
 
 const TEST = false
-const VERSION = '2.70'
-const VERSION_TIME = '2022-09-05' 
+const VERSION = '2.73'
+const VERSION_TIME = '2022-09-09' 
 
 const baseURL = 'https://strapi03.svr.up5d.com'
 const apiURL = baseURL
@@ -142,6 +142,9 @@ const ENDPOINT = {
     pw_user_iist: 'users/userDetailList', // POST
     pw_user_detaii: 'users/userDetail', // GET, PATCH
 
+    // 街道
+    states: 'states',
+    countries: 'countries'
 }
 
 // 库存仓库

@@ -7,9 +7,9 @@
         </div>
         <div class="fx-l pw-row py-4">
             <pw-input ref="eriREF" @change="(v) => form.e_id = v" class="w-25" :typed="'number'" :header="'Enroller ID'"></pw-input>
-            <pw-input ref="ernREF" @change="(v) => form.e_name = v" class="w-25" :header="'Enroller Name'"></pw-input>
+            <pw-input :can_edit="false" ref="ernREF" @change="(v) => form.e_name = v" class="w-25" :header="'Enroller Name'"></pw-input>
             <pw-input ref="spiREF" @change="(v) => form.s_id = v" class="w-25" :typed="'number'" :header="'Sponsor ID'"></pw-input>
-            <pw-input ref="spnREF" @change="(v) => form.s_name = v" class="w-25" :header="'Sponsor Name'"></pw-input>
+            <pw-input :can_edit="false" ref="spnREF" @change="(v) => form.s_name = v" class="w-25" :header="'Sponsor Name'"></pw-input>
         </div>
     </div>
 </template>

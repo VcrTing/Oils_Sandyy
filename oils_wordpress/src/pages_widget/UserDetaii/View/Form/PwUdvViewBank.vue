@@ -19,15 +19,16 @@
             </pw-form-view>
             <div class="fx-l pw-row py-5">
                 <pw-form-view class="w-53" :header_cn="'密碼'" :header_en="'Password:'" >
-                    {{ one.bank.password }}
+                    <span class="pw-sub">
+                        (不予展示)
+                    </span>
                 </pw-form-view>
                 <pw-form-view class="w-47" :header_cn="'確認密碼'" :header_en="'Confirm Password:'" >
-                    {{ one.bank.password_again }}
                 </pw-form-view>
             </div>
             <div class="pb-2 pt-4">
                 <h3 class="py-3">Agreement</h3>
-                <pw-checkbox :disabled="true" :def="one.agreement"></pw-checkbox>
+                <pw-checkbox :disabled="true" :def="one.agreement ? 1 : 0"></pw-checkbox>
             </div>
         </nav>
     </div>

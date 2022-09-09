@@ -26,9 +26,10 @@ const ex_post = function(vue, uri, data) {
 }
 
 // PATCH
-const ex_patch = function(vue, uri, data, key) {
+const ex_patch = function(vue, uri, data, params, key = '') {
+    console.log('EX PATCH =', (_build(uri, key) + conn_util.builParam(params)))
     return net({
-        url: _build(uri, key),
+        url: _build(uri, key) + conn_util.builParam(params),
         method: 'PATCH', data,
         headers: conn_util.headers(vue.$store.state.token)
     })

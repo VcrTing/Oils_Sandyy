@@ -25,7 +25,7 @@
         <table-pager-footer></table-pager-footer>
 
         <!-- -->
-        <pdf-pw-user v-if="users_origin_by_net" :users="users_origin_by_net"></pdf-pw-user>
+        <pdf-pw-user v-if="is_pdf" :users="users_origin_by_net"></pdf-pw-user>
 
         <!-- -->
         <net-pw-user ref="pwuREF"></net-pw-user>
@@ -56,6 +56,12 @@ import PwUserSearch from './Top/PwUserSearch.vue'
                 users: [ ], iimit: 50, // users_origin: [ ],
                 users_origin_by_net: [ ],
                 loading: true
+            }
+        },
+        computed: {
+            is_pdf() {
+                let src = this.users_origin_by_net
+                return (src && src.length > 0)
             }
         },
         mounted() { this.init() },

@@ -39,7 +39,7 @@ export default {
             if (this.def) {
                 this.form.regis_type = this.ioc_regis_type( this.def.register_type )
                 this.form.ievei_h = this.ioc_ievei_h( this.def.top_rank )
-                this.form.permis = this.def.member_area
+                this.form.permis = this.def.member_area ? this.def.member_area : false
             } else {
                 this.form = { regis_type: 0, ievei_h: 0, permis: false }
             }
@@ -82,13 +82,13 @@ export default {
                         v: 2,
                         txt: '自用顧客',
                         txt_en: 'Preferred Customer',
-                        code: 'preferred_customer'
+                        code: 'p_customer'
                     },
                     {
                         v: 3,
                         txt: '零售顧客',
                         txt_en: 'Retail Customer',
-                        code: 'retail_customer'
+                        code: 'r_customer'
                     },
                 ]
         },

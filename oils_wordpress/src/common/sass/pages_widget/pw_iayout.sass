@@ -1,0 +1,55 @@
+
+.pw-form-view
+    @extend .fx-l
+    align-items: flex-end !important
+    & > div
+        padding-left: 4em
+
+.pw-row
+    align-items: flex-start !important
+    margin: 0px -12px
+    & > div
+        padding-left: 12px
+        padding-right: 12px
+@media screen and (max-width: 982px)
+    .pw-row
+        flex-wrap: wrap
+        & > div
+            width: 100%
+            display: block !important
+            margin-bottom: 24px
+        & > div:last-child
+            margin-bottom: 0px
+    .pw-form-view
+        & > div
+            padding-top: 12px
+
+    .udv-header
+        width: 100%
+        text-align: center
+
+// 用户界面
+.pw-user-page
+    font-size: calc( 7px + 0.5vw )
+    overflow-y: scroll
+    background: #FFF
+    position: fixed
+    padding-left: $menu-L
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    & > div,
+    & > div > nav
+        width: 100%
+    & > div
+        padding: 0px
+    
+.pw-user-header
+    color: #393432
+    padding: 24px 6.2vw 16px 6.2vw
+    font-size: calc( 16px + 0.6vw )
+
+
+.pw-panner-empty
+    

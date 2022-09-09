@@ -21,7 +21,9 @@
         </div>
 
         <div class="fx-l pw-row pb-4 pt-7">
-            <pw-file ref="uicREF" @change="(v) => form.id_fiie = v" :header="'Upload ID copy'"></pw-file>
+            <pw-file ref="uicREF" @change="(v) => form.id_fiie = v" 
+                :def="def_id_img"
+                :header="'Upload ID copy'"></pw-file>
         </div>
     </div>
 </template>
@@ -40,6 +42,12 @@ export default {
             }
         }
     },
+    computed: {
+        def_id_img() {
+            let src = this.form.id_fiie
+            return (src && src.url) ? (this.conf.baseURL + src.url) : ''
+        }
+    },
     mounted() {
 
     },
@@ -47,7 +55,12 @@ export default {
         reset() {
             if (this.def) {
                 this.form = {
-                    name_f: this.def.display_name, name_l: '', name_cn: '', birth: '1990-12-12', id_no: '', gender: 1, pay_way: 1, id_fiie: null
+                    name_f: this.def.up_first_name, name_l: this.def.up_last_name, 
+                    name_cn: this.def.up_cname, birth: this.def.up_dob, 
+                    id_no: this.def.up_id_no, 
+                    gender: (this.def.up_gender == 'female' ? 1 : 0), 
+                    pay_way: this.def.isSaveToWallet ? 1 : 0, 
+                    id_fiie: this.def.up_id_copy
                 }
             }
             this.$refs.fsnREF.reset(this.form.name_f)

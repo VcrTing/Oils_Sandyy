@@ -21,19 +21,18 @@
                     {{ one.id_card }}
                 </pw-form-view>
                 <pw-form-view class="w-23" :header_cn="'性別'" :header_en="'Gender:'" >
-                    <span v-if="one.gender">女</span>
+                    <span v-if="(one.gender == 'female') || (one.gender == 1)">女</span>
                     <span v-else>男</span>
                 </pw-form-view>
             </div>
             <div class="py-5">
                 <pw-form-view :header_cn="'支付方式'" :header_en="'payment method:'" >
-                    <span v-if="one.pay_method">{{ one.pay_method }}</span>
-                    <span v-else>待設定</span>
+                    <span>{{ is_save_to_wallet }}</span>
                 </pw-form-view>
                 <p class="pw-sub fs-s">以每月八號前更改的記錄為準如有更改請聯絡客戶服務中心</p>
             </div>
             <div class="py-5">
-                <pw-file-view :fiie="one.upload_id_file"></pw-file-view>
+                <pw-file-view :fiie="fiie"></pw-file-view>
             </div>
         </nav>
     </div>
@@ -44,7 +43,22 @@ import PwFormView from '../../../../extra/pw/form/PwFormView.vue'
 import PwFileView from '../../../../extra/pw/input/PwFileView.vue'
 export default {
   components: { PwFileView, PwFormView },
-  props: [ 'one' ]
+  props: [ 'one' ],
+
+  computed: {
+    fiie() {
+        let res = this.one.upload_id_file
+        return (res && res.url) ? res : { }
+    },
+
+    is_save_to_wallet() {
+        let res = this.one.pay_method
+        if (res || res == false) {
+            return res ? '電子錢包' : '支票/其他'
+        }
+        return '待設定'
+    }
+  }
 }
 </script>
 

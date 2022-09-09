@@ -27,13 +27,9 @@ export default {
         methods: {
             lockPrint() {
                 if (! this.printing) {
-
                     this.printing = true
                     this.$refs.pdfBuyREF.printed()
-
-                    setTimeout(() => {
-                        this.printing = false
-                    }, 2400)
+                    setTimeout(() => { this.printing = false }, 2400)
                 }
             }
         }
