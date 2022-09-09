@@ -44,7 +44,6 @@ export default {
 
         // 修改 用户
         async patch_User(dts) {
-            console.log('PATCH =', dts)
             try {
                 await this.$refs.npuREF.user_patch(dts[0], dts[1])
                 setTimeout(e => this.$router.back(), 200)

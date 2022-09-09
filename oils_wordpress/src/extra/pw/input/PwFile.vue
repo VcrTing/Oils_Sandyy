@@ -44,17 +44,19 @@ export default {
     },
     methods: {
         changeFiie( eve ) {
-            let rnd = new FileReader()
             let f = eve.target.files
             f = f ? f[0] : null
             if (f) {
-                rnd.readAsText(f, 'utf8')
-                this.is_change = true
+                let rnd = new FileReader()
+                rnd.readAsDataURL(f)
                 rnd.onload = () => {
                     // const img = new Image()
                     // img.src = rnd.result
-                    this.fiie = rnd.result
+                    this.fiie = rnd.target.result
+                    this.is_change = true
                 }
+            } else {
+                this.is_change = false
             }
         },
         openF() {
