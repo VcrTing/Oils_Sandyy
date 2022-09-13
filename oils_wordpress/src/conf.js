@@ -1,7 +1,7 @@
 
 const TEST = false
-const VERSION = '2.74'
-const VERSION_TIME = '2022-09-09' 
+const VERSION = '2.76'
+const VERSION_TIME = '2022-09-13' 
 
 const baseURL = 'https://strapi03.svr.up5d.com'
 const apiURL = baseURL
@@ -189,4 +189,7 @@ export default {
   VIP_EMPTY,
   VIPS_LEADER,
   VIPS_SIMPLER,
+
+  // 用户 MEMBER CODE
+  LEN_USER_CODE: (v) => ((v >= 203000) && (v <= 299999))
 }

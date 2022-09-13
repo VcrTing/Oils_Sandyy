@@ -5,7 +5,7 @@
         </label>
         <nav class="pw-ip-inner">
             <nav v-if="img" class="pw-demo-img pt-2">
-                <img v-if="is_change" :src="fiie"/>
+                <img v-if="is_change" :src="fiie_show"/>
                 <img v-else :src="def"/>
             </nav>
             <input class="pw-hide" @change="changeFiie($event)" 
@@ -40,9 +40,11 @@ export default {
         }
     },
     watch: {
-        fiie(n) { this.$emit('change', n) }
+        fiie(n) { 
+            this.$emit('change', n) }
     },
     methods: {
+        
         changeFiie( eve ) {
             let f = eve.target.files
             f = f ? f[0] : null
@@ -50,14 +52,13 @@ export default {
                 let rnd = new FileReader()
                 rnd.readAsDataURL(f)
                 rnd.onload = () => {
-                    // const img = new Image()
-                    // img.src = rnd.result
-                    this.fiie = rnd.target.result
+                    try { this.fiie_show = rnd.target.result } catch(err) { 
+                        this.fiie_show = rnd.result
+                    }
+                    this.fiie = f
                     this.is_change = true
                 }
-            } else {
-                this.is_change = false
-            }
+            } else { }
         },
         openF() {
             document.getElementById('file_' + this._uid).click()

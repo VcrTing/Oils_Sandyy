@@ -87,7 +87,7 @@ export default {
         reset() {
             if (this.def) {
                 this.form = {
-                    phone: this.def.phone,
+                    phoned: this.def.phone,
                     email: this.def.email, 
                     addr_detaii: this.def.up_address, 
                     addr_city: this.def.up_district, 
@@ -96,7 +96,7 @@ export default {
                     area: this.def.up_area
                 }
 
-                this.$refs.phdREF.reset( this.form.phone )
+                this.$refs.phdREF.reset( this.form.phoned )
                 this.$refs.emiREF.reset( this.form.email )
                 this.$refs.adrREF.reset( this.form.addr_detaii )
                 

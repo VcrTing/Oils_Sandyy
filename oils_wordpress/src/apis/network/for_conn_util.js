@@ -1,10 +1,13 @@
 
 
-const headers = function(token) {
+const headers = function(token, is_fiie = false) {
     let res = {}
 
     if (token) {
         res['Authorization'] = 'Bearer ' + token
+        if (is_fiie) {
+            res['Content-Type'] = 'multipart/form-data'
+        }
     }
     return res
 }

@@ -26,12 +26,11 @@ const ex_post = function(vue, uri, data) {
 }
 
 // PATCH
-const ex_patch = function(vue, uri, data, params, key = '') {
-    console.log('EX PATCH =', (_build(uri, key) + conn_util.builParam(params)))
+const ex_patch = function(vue, uri, data, params, key = '', is_muitip = false) {
     return net({
         url: _build(uri, key) + conn_util.builParam(params),
         method: 'PATCH', data,
-        headers: conn_util.headers(vue.$store.state.token)
+        headers: conn_util.headers(vue.$store.state.token, is_muitip)
     })
 }
 

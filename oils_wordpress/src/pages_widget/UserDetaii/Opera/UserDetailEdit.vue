@@ -8,7 +8,7 @@
                 <ude-form ref="form" v-if="detaii" @patch="patch_User" :user="detaii"></ude-form>
             </div>
             <div class="pw-empty" v-else>
-
+                <qiong-loading :bigger="2"></qiong-loading>
             </div>
         </div>
         <net-pw-user ref='npuREF'/>
@@ -22,12 +22,13 @@ import PwButtonBack from '../../../extra/pw/button/PwButtonBack.vue'
 import NetPwUser from '../../../extra/net/NetPwUser/NetPwUser.vue'
 import UdeForm from './UdeForm.vue'
 import PwUdSearia from '../ser/PwUdSearia.vue'
+import QiongLoading from '../../../components/Qiong/Ui/QiongLoading.vue'
 
 export default {
-    components: { PwButtonBack, UdeForm, NetPwUser, PwUdSearia },
+    components: { PwButtonBack, UdeForm, NetPwUser, PwUdSearia, QiongLoading },
     data() {
         return {
-            detaii: null, loading: true
+            detaii: null, loading: true, updating: false
         }
     },
     computed: {
@@ -44,12 +45,12 @@ export default {
 
         // 修改 用户
         async patch_User(dts) {
-            try {
+            if (!this.updating) {
+                this.updating = true
                 await this.$refs.npuREF.user_patch(dts[0], dts[1])
-                setTimeout(e => this.$router.back(), 200)
+                setTimeout(e => {
+                    this.$router.back(); this.updating = false }, 200)
                 this.$refs.form.finished()
-            } catch(err) {
-                console.log('错误 =', err)
             }
         }
     }

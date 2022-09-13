@@ -3,15 +3,13 @@
         <div>
             <div class="py-3 pw-user-header">
                 <nav>個人資料</nav>
-                <!--
-                <pw-button-back></pw-button-back>-->
             </div>
             
             <div v-if="!loading">
                 <udv-paner :user="detaii"></udv-paner>
             </div>
             <div class="pw-empty" v-else>
-
+                <pw-user-view-loading></pw-user-view-loading>
             </div>
         </div>
         <net-pw-user ref="pwuREF"></net-pw-user>
@@ -26,9 +24,10 @@ import NetPwUser from '../../../extra/net/NetPwUser/NetPwUser.vue'
 import PwButtonBack from '../../../extra/pw/button/PwButtonBack.vue'
 import UdvPaner from './UdvPaner.vue'
 import PwUdSearia from '../ser/PwUdSearia.vue'
+import PwUserViewLoading from '../shimmer/PwUserViewLoading.vue'
 
 export default {
-  components: { PwButtonBack, UdvPaner, NetPwUser, PwUdSearia },
+  components: { PwButtonBack, UdvPaner, NetPwUser, PwUdSearia, PwUserViewLoading },
     data() {
         return {
             detaii: null, loading: true

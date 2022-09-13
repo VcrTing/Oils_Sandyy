@@ -24,7 +24,7 @@ export default {
         // 用户列表
         async user_of_iist(data = { _limit: 999 }) {
             if (this.conf.TEST) {
-                data._limit = 3
+                // data._limit = 3
             }
             let res = await this.conn.ex_get( this,
                 'pw_user_iist', data
@@ -46,7 +46,7 @@ export default {
         // 修改用户详情
         async user_patch(data, member_code) {
             let res = await this.conn.ex_patch( this,
-                'pw_user_detaii', data, { member_code }
+                'pw_user_detaii', data, { member_code }, '', true
             ); return res ? res : [ ]
         }
     }

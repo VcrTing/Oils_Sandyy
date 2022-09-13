@@ -33,7 +33,6 @@ export default {
         },
         search(v) {
             if (v.length > 3) {
-                console.log('开始搜索 =', v)
                 const ms = this.many.filter(e => {
                     let res = false
                     if ((e.member_code + '').indexOf(v) >= 0) {

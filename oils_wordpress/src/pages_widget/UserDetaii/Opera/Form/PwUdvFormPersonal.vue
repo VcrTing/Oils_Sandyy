@@ -8,7 +8,7 @@
             <pw-input ref="csnREF" @change="(v) => form.name_cn = v" class="w-25" :header="'Chinese name'"></pw-input>
         </div>
         <div class="fx-l pw-row py-4">
-            <pw-input ref="dobREF" @change="(v) => form.birth = v" class="w-50" :header="'Date of Birth'"></pw-input>
+            <pw-input ref="dobREF" :pchd="'年年年年-月月-日日'" @change="(v) => form.birth = v" class="w-50" :header="'Date of Birth'"></pw-input>
             <pw-input ref="idnREF" @change="(v) => form.id_no = v" class="w-25" :header="'ID No.'"></pw-input>
             <pw-seiect ref="gdrREF" @change="(v) => form.gender = v" class="w-25" :header="'Gender'" :radios="[
                 { txt: '男 Male', v: 0 }, { txt: '女 Female', v: 1 }

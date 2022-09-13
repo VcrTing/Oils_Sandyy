@@ -38,7 +38,9 @@ export default {
         reset() {
             if (this.def) {
                 this.form.regis_type = this.ioc_regis_type( this.def.register_type )
-                this.form.ievei_h = this.ioc_ievei_h( this.def.top_rank )
+                this.form.ievei_h = this.ioc_ievei_h( 
+                    this.def.top_rank 
+                )
                 this.form.permis = this.def.member_area ? this.def.member_area : false
             } else {
                 this.form = { regis_type: 0, ievei_h: 0, permis: false }

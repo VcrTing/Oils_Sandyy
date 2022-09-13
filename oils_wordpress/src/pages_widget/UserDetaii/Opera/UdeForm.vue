@@ -31,6 +31,7 @@ export default {
     },
     methods: {
         reset() {
+            console.log('USER =', this.user)
             this.$refs.basREF.reset()
             this.$refs.memREF.reset()
             this.$refs.perREF.reset()
@@ -43,7 +44,7 @@ export default {
             return res
         },
         coiiect() {
-            const bas = this.$refs.basREF.form
+            const bas = this.$refs.basREF.coiiect()
             const mem = this.$refs.memREF.form
             const per = this.$refs.perREF.form
             const con = this.$refs.conREF.coiiect()
@@ -52,41 +53,45 @@ export default {
         },
         form_of_fiie(v) {
             let res = { }
-            if (v.id_fiie) { res['up_id_copy'] = v.id_fiie }
-            if (v.br_copy) { res['up_br_copy'] = v.br_copy }
-            if (v.addr_fiie) { res['up_address_proof'] = v.addr_fiie }
+            if (v.id_fiie) { res['files.up_id_copy'] = v.id_fiie }
+            if (v.br_copy) { res['files.up_br_copy'] = v.br_copy }
+            if (v.addr_fiie) { res['files.up_address_proof'] = v.addr_fiie }
             return res
         },
         buiid(v) {
-            console.log('构建之前 =', v)
             const data = {
                 isSaveToWallet: (v.pay_way == 1),
                 member_area: v.permis,
                 top_rank: v.ievei_h,
+
+                phone: v.phoned,
+                enroller_id: v.e_id,
+                sponsor_id: v.s_id,
+                display_name: v.name_dp,
+
                 acf: {
                     up_first_name: v.name_f,
                     up_last_name: v.name_l,
-                    up_mobile_no: v.phone,
 
+                    // up_mobile_no: v.phone,
                     up_dob: v.birth,
-                    up_id_no: v.id_no,
-
-                    up_br_ename: v.named,
-                    up_br_cname: v.name_cn,
-
                     up_agreement_box: ( v.agree == 1 ),
 
-                    up_area: v.area,
                     up_country: v.addr_county,
                     up_district: v.addr_city,
+                    up_area: v.area,
                     up_address: v.addr_detaii,
 
                     up_bank_code: v.bank_code,
                     up_br_no: v.branch_code,
+
+                    up_cname: v.name_cn,
+                    up_gender: (v.gender == 1 ? 'female' : 'male'),
+
                     up_bank_acc: v.bank_acc,
                     up_bank_branch: v.branch_code,
+                    up_id_no: v.id_no,
 
-                    up_gender: (v.gender == 1 ? 'female' : 'male'),
                 },
                 register_type: (
                     [ "corp", "personal", "p_customer", "r_customer" ][ v.regis_type ]
@@ -115,7 +120,9 @@ export default {
             // 转为 FORMDATA
             const fm = new FormData()
             fm.append('data', JSON.stringify( datas.data ))
-            fm.append('files', JSON.stringify( datas.files ))
+            for (let k in datas.files) {
+                fm.append(k, datas.files[ k ] )
+            }
 
             can ? this.$emit('patch', [ fm, pk ]) : undefined
         },

@@ -78,7 +78,6 @@ import PwUserSearch from './Top/PwUserSearch.vue'
             },
 
             search(v) {
-                console.log('搜索后的结果 =', v)
                 this.users = (v == 0) ? this.users_origin_by_net : v
             },
 
