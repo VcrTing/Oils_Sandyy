@@ -1,0 +1,101 @@
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <style>
+        img { width: 100%; height: auto; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-size: inherit; }
+        html { font-size: 2vw; padding: 2.4rem; color: #080808; background: #f4f4f4; }
+        .pdf_dom { overflow: hidden; border-radius: 0.2rem; background-color: #FFF; }
+        div { font-size: 1rem; }
+        h2, h4, p { margin: 0.4rem 0; }
+        h2 { font-size: 2rem; } h4 { font-size: 1.4rem; }
+    </style>
+    <body>
+        <div class="pdf_dom">
+            <div class="break">
+                <img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fi0.hdslb.com%2Fbfs%2Farticle%2Fbc8267f2f6e923a209431bf0515dd34548dcaa02.jpg&refer=http%3A%2F%2Fi0.hdslb.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1655119317&t=7d99169999d0bdff48477f104a919954">
+                <div class="pa px_x2">
+                    <h2>妳好，这里是 WKHTMLTOPDF 相关的</h2>
+                    <p class="sub">
+                        這個文章裏，包含所有妳想要知道的東西？還請繼續看下去......
+                    </p>
+                    <p class="py">
+                        这里是 WKHTMLTOPDF 的官方文档：<a href="https://wkhtmltopdf.org/docs.html">https://wkhtmltopdf.org/docs.html</a>
+                    </p>
+                    <p>
+                        这里也有别人的博客哟：<a class="red" href="https://www.cnblogs.com/chenjunwu/p/12792708.html">https://www.cnblogs.com/chenjunwu/p/12792708.html</a>
+                    </p>
+                </div>   
+                <br/>
+            </div>      
+            <div class="break">     
+                <img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fi0.hdslb.com%2Fbfs%2Farticle%2F11972e8a07c1665922fd8102bf21d1c7137fca88.jpg&refer=http%3A%2F%2Fi0.hdslb.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1655119069&t=4c45e1c152763cf750176a0cf6aa57ed">
+                <div class="pa px_x2">
+                    <h4>如果你想使用 WKHTMLPDF 的配置参数的话</h4>
+                    <p class="sub">
+                        首先需要仔细看 WKTHMLTOPDF 的文档哟......
+                    </p>
+                    <div class="py">
+                        <p>
+                            请将你的参数放到<span class="red">链接后面</span>，我们会自动将参数作用到 wkhtmltopdf 里面
+                        </p>
+                        <p>参数如何加入呢？例如：</p>
+                        <br/>
+                        <p class="code">
+                            <span class="sub">/pdf/html/convert/[named]</span><b>?-L=20&-R=20-T=24&-B=24</b>
+                        </p>
+                    </div>
+                    <p>这样就能得到你想要的 PDF 效果了～～</p>
+                    <p class="sub">請繼續往下看......</p>
+                    <br/>
+                </div>
+            </div>  
+            <div class="break">
+                <img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg1.duote.com%2Fduoteimg%2Fdtnew_newsup_img%2F202109%2F20210901112001_83543.jpeg&refer=http%3A%2F%2Fimg1.duote.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1655119104&t=998980de47b13b9f20523de79d264152">
+                <div class="pa px_x2">
+                    <h4>如何主动分页呢</h4>
+                    <p class="sub">
+                        如果你想要把内容放到下一页的话......
+                    </p>
+                    <div class="py">
+                        <p>
+                            这里是我参考的博客：<a class="red" href="https://blog.csdn.net/weixin_44259134/article/details/104843817">https://blog.csdn.net/weixin_44259134/article/details/104843817</a>
+                        </p>
+                        <br/>
+                        <p>每一个外层 DIV 加入了分页样式后，若 DIV 内部会被这一页的页面分割的话，就会被分配一次到下一页</p>
+                        <p>這樣，你就能主动分配你的内容到下一页了</p>
+                    </div>
+                    <p class="sub">這樣應該就懂了 吧!!!</p>
+                </div>
+                <div class="pa px_x2">
+                    <h4 class="red">關於中文問題，不好意思，該項為付費內容。</h4>
+                </div>
+            </div>
+            <br/>
+            <br/>
+            <img class="emo" src="https://img1.baidu.com/it/u=213889542,1037079683&fm=253&fmt=auto&app=138&f=JPEG?w=294&h=294">
+        </div>
+
+        <style>
+            .pa { padding: 1.2rem; }
+            .px { padding-left: 1.2rem; padding-right: 1.2rem; }
+            .py { padding-top: 1.2rem; padding-bottom: 1.2rem; }
+            .px_x2 { padding-left: 2.4rem; padding-right: 2.4rem; }
+
+            .red { color: deeppink; }
+            .sub { color: #747474; }
+
+            a { font-weight: bolder; color: skyblue }
+            .emo { width: 8%; height: auto; border-radius: 0.2rem;  }
+
+            .code {
+                padding: 1.2rem 2.4rem;
+                border-radius: 0.8rem;
+                background-color: #f8f8f8;
+            }
+
+            .break { page-break-inside: avoid !important }
+        </style>
+    </body>
+</html>

@@ -1,0 +1,100 @@
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <style>
+        img { width: 100%; height: auto; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-size: inherit; }
+        html { font-size: 2vw; padding: 2.4rem; color: #080808; background: #f4f4f4; }
+        .pdf_dom { overflow: hidden; border-radius: 0.2rem; background-color: #FFF; }
+        div { font-size: 1rem; }
+        h2, h4, p { margin: 0.4rem 0; }
+        h2 { font-size: 2rem; } h4 { font-size: 1.4rem; }
+    </style>
+    <body>
+        <div class="pdf_dom">
+            <div class="break">
+                <img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic.jj20.com%2Fup%2Fallimg%2F911%2F122915131557%2F151229131557-19.jpg&refer=http%3A%2F%2Fpic.jj20.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1655029238&t=bbf1393fe66d2ea341c2a31f94a521b1">
+                <div class="pa px_x2">
+                    <h2>妳好，歡迎使用 PDF 平臺</h2>
+                    <p class="sub">
+                        這個文章裏，包含所有妳想要知道的東西？還請繼續看下去......
+                    </p>
+                    <p class="py">
+                        想要使用這個平臺導出 PDF，就需要做兩步驟：
+                        第壹步就是傳送 HTML 內容過來，我們可以把內容保存為 HTML 文件；
+                        第二步，把我們發給妳的文件名發送給我們，我們可以通過文件名，查找到妳的 HTML 文件，然後將文件轉換成 PDF 再送回給妳 PDF 的下載鏈接。
+                    </p>
+                </div>   
+            </div>      
+            <div class="break">     
+                <img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic1.win4000.com%2Fwallpaper%2F2020-11-05%2F5fa36d5cd484c.jpg&refer=http%3A%2F%2Fpic1.win4000.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1655028621&t=8adff6b3420d5def4b9ae4595d1f906d">
+                <div class="pa px_x2">
+                    <h4>發送妳的 HTML 內容給我們</h4>
+                    <p class="sub">
+                        需要使用 POST 方法，發送 "FORM BODY" 給我們......
+                    </p>
+                    <div class="py">
+                        <p>請發送到 <a href="/pdf/html/save">/pdf/html/save</a></p>
+                        <p>我們收到含有 <b class="red">html</b> 名稱的參數後，會將參數的內容儲存到 HTML 文件中</p>
+                        <p>
+                            之後，我們會返回壹些值給妳：
+                        </p>
+                        <br/>
+                        <p class="code">
+                            <span class="sub">{</span> named: <b>"default_20220513172125_001"</b> <span class="sub">}</span>
+                        </p>
+                    </div>
+                    <p>憑借這個 named 值，可以拿到 PDF 哦!!!</p>
+                    <p class="sub">請繼續往下看......</p>
+                    <br/>
+                </div>
+            </div>  
+            <div class="break">
+                <img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic1.win4000.com%2Fwallpaper%2F2020-01-14%2F5e1d8fe3a67c8.jpg&refer=http%3A%2F%2Fpic1.win4000.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1655030392&t=ddf116f08d3eae12c82147ba49fdd1ad">
+                <div class="pa px_x2">
+                    <h4>妳拿到的 NAMED 很有用</h4>
+                    <p class="sub">
+                        使用 GET 方法，發送妳的 named 值給我們......
+                    </p>
+                    <div class="py">
+                        <p>請發送到 <a href="/pdf/html/convert/">/pdf/html/convert/[named]</a></p>
+                        <p class="red">請註意 [named] 這裏填入妳的 named 值!!!</p>
+                        <p>這樣，我們會將 PDF 文件的下載鏈接返回給妳:</p>
+                        <br/>
+                        <p class="code">
+                            <span class="sub">{</span> pdf: <b>"https://.../pdf/default_20220513172125_001.pdf"</b> <span class="sub">}</span>
+                        </p>
+                    </div>
+                    <p>這樣應該就懂了 吧!!!</p>
+                </div>
+                <div class="pa px_x2">
+                    <h4 class="red">關於中文問題，不好意思，該項為付費內容。</h4>
+                </div>
+            </div>
+            <br/>
+            <img class="emo" src="https://img1.baidu.com/it/u=3028314533,1249944155&fm=253&fmt=auto&app=138&f=JPEG?w=507&h=500">
+        </div>
+
+        <style>
+            .pa { padding: 1.2rem; }
+            .px { padding-left: 1.2rem; padding-right: 1.2rem; }
+            .py { padding-top: 1.2rem; padding-bottom: 1.2rem; }
+            .px_x2 { padding-left: 2.4rem; padding-right: 2.4rem; }
+
+            .red { color: deeppink; }
+            .sub { color: #747474; }
+
+            a { font-weight: bolder; color: skyblue }
+            .emo { width: 8%; height: auto; border-radius: 0.2rem;  }
+
+            .code {
+                padding: 1.2rem 2.4rem;
+                border-radius: 0.8rem;
+                background-color: #f8f8f8;
+            }
+
+            .break { page-break-inside: avoid !important }
+        </style>
+    </body>
+</html>
