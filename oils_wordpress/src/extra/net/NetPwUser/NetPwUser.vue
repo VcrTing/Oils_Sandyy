@@ -48,6 +48,13 @@ export default {
             let res = await this.conn.ex_patch( this,
                 'pw_user_detaii', data, { member_code }, '', true
             ); return res ? res : [ ]
+        },
+
+        // 修改密码
+        async change_pass(data, member_code) {
+            let res = await this.conn.ex_post( this, 
+                'change_pass', data, { member_code }
+            ); return res ? res : null
         }
     }
 }

@@ -26,6 +26,7 @@ export default {
     async html_content(html) {
 
         let url = conf.pdfURL + `/pdf/html_content/?option=xx`
+        // let url = 'http://localhost:1337/pdf/html/save_n_convert/' + 'sandyy'
         
         const condition = new FormData()
 
@@ -34,7 +35,11 @@ export default {
             clearScript(html)
         )
         
-        let res = await axios.post(url, condition)
+        let res = await axios.post(url, condition, {
+          'headers': {
+
+          }
+        })
         return res
     },
 

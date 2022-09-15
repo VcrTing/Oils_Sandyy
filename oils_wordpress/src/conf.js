@@ -1,7 +1,7 @@
 
 const TEST = false
-const VERSION = '2.76'
-const VERSION_TIME = '2022-09-13' 
+const VERSION = '2.78'
+const VERSION_TIME = '2022-09-15' 
 
 const baseURL = 'https://strapi03.svr.up5d.com'
 const apiURL = baseURL
@@ -144,7 +144,10 @@ const ENDPOINT = {
 
     // 街道
     states: 'states',
-    countries: 'countries'
+    countries: 'countries',
+
+    // 修改密码
+    change_pass: 'auth/change_password'
 }
 
 // 库存仓库

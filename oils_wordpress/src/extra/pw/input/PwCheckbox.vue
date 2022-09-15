@@ -2,7 +2,7 @@
     <div>
         <div v-for="(v, i) in boxs" :key="i">
             <input :disabled="disabled" v-model="chos" type="checkbox" :value="v.v" :id="'box_' + i + '_' + _uid" :name="'box_' + _uid" class="pw-checkbox"/>
-            <label :for="'box_' + i + '_' + _uid" class="pl-1 pw-sub">{{ v.txt }}</label>
+            <label :for="'box_' + i + '_' + _uid" class="pl-1 pw-sub hand">{{ v.txt }}</label>
         </div>
     </div>
 </template>

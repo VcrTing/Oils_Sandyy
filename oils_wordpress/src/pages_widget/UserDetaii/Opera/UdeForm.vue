@@ -5,6 +5,7 @@
         <pw-udv-form-personal :def="user" ref="perREF"></pw-udv-form-personal>
         <pw-udv-form-contact :def="user" ref="conREF"></pw-udv-form-contact>
         <pw-udv-form-bank :def="user" ref="banREF"></pw-udv-form-bank>
+        <pw-udv-form-acc :def="user" ref="accREF"></pw-udv-form-acc>
         <div class="py-3"></div>
         <div class="fx-c py-9">
             <button @click="submit" class="pw-btn-def pw-btn-pri">&nbsp;{{ msg }}&nbsp;</button>
@@ -18,8 +19,9 @@ import PwUdvFormBasic from './Form/PwUdvFormBasic.vue'
 import PwUdvFormContact from './Form/PwUdvFormContact.vue'
 import PwUdvFormMember from './Form/PwUdvFormMember.vue'
 import PwUdvFormPersonal from './Form/PwUdvFormPersonal.vue'
+import PwUdvFormAcc from './Form/PwUdvFormAcc.vue'
 export default {
-    components: { PwUdvFormBasic, PwUdvFormMember, PwUdvFormPersonal, PwUdvFormContact, PwUdvFormBank },
+    components: { PwUdvFormBasic, PwUdvFormMember, PwUdvFormPersonal, PwUdvFormContact, PwUdvFormBank, PwUdvFormAcc },
     mounted() {
         this.reset()
     },
@@ -37,10 +39,12 @@ export default {
             this.$refs.perREF.reset()
             this.$refs.conREF.reset()
             this.$refs.banREF.reset()
+            this.$refs.accREF.reset()
         },
         aiiow() {
             let res = true
             if (!this.$refs.basREF.aiiow()) { res = false; this.msg = '檢測到未合格的輸入' }
+            if (!this.$refs.accREF.aiiow()) { res = false; this.msg = '請檢查密碼框的輸入' }
             return res
         },
         coiiect() {
@@ -49,7 +53,8 @@ export default {
             const per = this.$refs.perREF.form
             const con = this.$refs.conREF.coiiect()
             const ban = this.$refs.banREF.form
-            return { ...bas, ...mem, ...per, ...con, ...ban }
+            const acc = this.$refs.accREF.form
+            return { ...bas, ...mem, ...per, ...con, ...ban, ...acc }
         },
         form_of_fiie(v) {
             let res = { }
@@ -59,6 +64,7 @@ export default {
             return res
         },
         buiid(v) {
+            console.log('构建前 =', v)
             const data = {
                 isSaveToWallet: (v.pay_way == 1),
                 member_area: v.permis,
@@ -111,20 +117,30 @@ export default {
         submit() {
             this.msg = 'submitting...'
             const can = this.aiiow()
+
             const datas = this.buiid( this.coiiect() )
 
             // 提取 PK
             const pk = datas.member_code
             delete datas.member_code
+            const pass = this.$refs.accREF.coiiect_pass()
+
+            // 先有无密码的修改
+            if (can) {
+                this.finished('Changing the password...')
+                this.$emit('change_pass', [ pass, pk ])
+            }
 
             // 转为 FORMDATA
             const fm = new FormData()
             fm.append('data', JSON.stringify( datas.data ))
-            for (let k in datas.files) {
-                fm.append(k, datas.files[ k ] )
-            }
+            for (let k in datas.files) { fm.append(k, datas.files[ k ] ) }
 
-            can ? this.$emit('patch', [ fm, pk ]) : undefined
+            // 修改其他 资料
+                
+            if (can) { 
+                this.finished('Modifying User Information...')
+                this.$emit('patch', [ fm, pk ]) }
         },
         finished(m = 'submitted') {
             this.msg = m

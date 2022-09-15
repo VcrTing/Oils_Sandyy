@@ -6,26 +6,26 @@
                 用戶列表
             </span>
             <div slot="filter">
-                <pw-user-search :many="users_origin_by_net" @ciear="() => search(0)" @result="(v) => search(v)"/>
+                <pw-user-search :many="users_origin" @ciear="() => search(0)" @result="(v) => search(v)"/>
             </div>
         </qiong-header-filter>
 
         <div class="pb-1"></div>
 
         <qiong-panel-element class="mobie-table" :need_space="false">
-            <pw-user-tr></pw-user-tr>
+            <pw-user-tr :many="users_origin" @sign="refreshMany"></pw-user-tr>
             <pw-user-td v-if="!loading" :many="users"></pw-user-td>
             <nav v-else><qiong-loading></qiong-loading></nav>
         </qiong-panel-element>  
 
         <div class="fx-c mt-5 pt-3">
-            <pagenation v-show="users_origin_by_net" :_limit="iimit" :_count="users_origin_by_net.length" @page_Father="pager"></pagenation>
+            <pagenation v-show="users_origin" :_limit="iimit" :_count="users_origin.length" @page_Father="pager"></pagenation>
         </div>
 
         <table-pager-footer></table-pager-footer>
 
         <!-- -->
-        <pdf-pw-user v-if="is_pdf" :users="users_origin_by_net"></pdf-pw-user>
+        <pdf-pw-user v-if="is_pdf" :users="users_origin"></pdf-pw-user>
 
         <!-- -->
         <net-pw-user ref="pwuREF"></net-pw-user>
@@ -54,13 +54,13 @@ import PwUserSearch from './Top/PwUserSearch.vue'
         data() {
             return {
                 users: [ ], iimit: 50, // users_origin: [ ],
-                users_origin_by_net: [ ],
+                users_origin: [ ],
                 loading: true
             }
         },
         computed: {
             is_pdf() {
-                let src = this.users_origin_by_net
+                let src = this.users_origin
                 return (src && src.length > 0)
             }
         },
@@ -71,18 +71,22 @@ import PwUserSearch from './Top/PwUserSearch.vue'
             },
 
             async init() {
-                this.loading = true
-                this.users_origin_by_net = await this._fetching()
-                this.pager(0, this.iimit)
-                setTimeout(e => this.loading = false, 300)
+                this.refreshMany(await this._fetching())
             },
 
             search(v) {
-                this.users = (v == 0) ? this.users_origin_by_net : v
+                this.users = (v == 0) ? this.users_origin : v
             },
 
             pager(m, n) {
-                this.users = this.users_origin_by_net.slice(m, n)
+                this.users = this.users_origin.slice(m, n)
+            },
+
+            refreshMany(v) {
+                this.loading = true
+                this.users_origin = v
+                this.pager(0, this.iimit)
+                setTimeout(e => this.loading = false, 300)
             }
         }
     }

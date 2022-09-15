@@ -17,9 +17,14 @@ const ex_get = function(vue, uri, condition = {}, key = '') {
     })
 }
 // POST
-const ex_post = function(vue, uri, data) {
+const ex_post = function(vue, uri, data, params = {}) {
+    console.log(
+        'POST =',
+        _build(uri) + conn_util.builParam(params),
+        data
+    )
     return net({
-        url: _build(uri),
+        url: _build(uri) + conn_util.builParam(params),
         method: 'POST', data,
         headers: conn_util.headers(vue.$store.state.token)
     })

@@ -11,7 +11,7 @@
 
             <div class="w-20 pr-3">{{ v.email }}</div>
             <div class="w-10 pr-1">
-                {{ v.register_type }}
+                <pwv-regis-type :code="v.register_type"></pwv-regis-type>
             </div>
             <div class="w-9">
                 <div class="txt-sub" v-if="v.isSaveToWallet == null">
@@ -37,10 +37,11 @@
 
 <script>
 import QiongEmpty from '../../../../components/Qiong/Ui/QiongEmpty.vue';
-import PwActiveBulb from '@/extra/pw/active/PwActiveBulb.vue'
+import PwActiveBulb from '../../../../extra/pw/active/PwActiveBulb.vue'
 import PwTableOpera from '@/extra/pw/table/PwTableOpera.vue'
+import PwvRegisType from '../../../../extra/pw/view/PwvRegisType.vue';
 export default {
-  components: { PwActiveBulb, PwTableOpera, QiongEmpty },
+  components: { PwActiveBulb, PwTableOpera, QiongEmpty, PwvRegisType },
     props: [ 'many' ]
 }
 </script>

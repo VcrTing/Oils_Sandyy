@@ -5,7 +5,10 @@
                 <pw-button-back @tap="$router.back()"></pw-button-back>
             </div>
             <div v-if="!loading">
-                <ude-form ref="form" v-if="detaii" @patch="patch_User" :user="detaii"></ude-form>
+                <ude-form ref="form" v-if="detaii"
+                    @change_pass="change_Pass" 
+                    @patch="patch_User" 
+                    :user="detaii"></ude-form>
             </div>
             <div class="pw-empty" v-else>
                 <qiong-loading :bigger="2"></qiong-loading>
@@ -47,10 +50,20 @@ export default {
         async patch_User(dts) {
             if (!this.updating) {
                 this.updating = true
+                console.log('修改资料')
                 await this.$refs.npuREF.user_patch(dts[0], dts[1])
                 setTimeout(e => {
                     this.$router.back(); this.updating = false }, 200)
                 this.$refs.form.finished()
+            }
+        },
+
+        // 修改密码
+        async change_Pass(dts) {
+            if (dts[0]) {
+                console.log('修改密码 =', dts)
+                const res = await this.$refs.npuREF.change_pass(dts[0], dts[1])
+                console.log('修改到结果 =', res)
             }
         }
     }
