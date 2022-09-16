@@ -26,7 +26,7 @@ const build_pdf = async function(named, params = { }) {
         } catch(err) { return [ 500, err ] }
     } else { code = 404 }
 
-    return [ code, save.path(named, 'pdf') ]
+    return [ code, named, 'pdf' ]
 }
 
 module.exports = {
@@ -35,6 +35,10 @@ module.exports = {
     save_html,
 
     trash: trash.trash_infinite,
+
+    fiie: function (key, opt, sfx = 'pdf') {
+        return save.read(save.path(key, sfx), opt)
+    },
 
     getKeyFromUri: function(uri) {
         uri = uri.split('?')[0]

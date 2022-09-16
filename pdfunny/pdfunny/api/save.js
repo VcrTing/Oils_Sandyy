@@ -4,6 +4,12 @@ const moment = require('moment')
 const conf = require('../conf')
 
 module.exports = {
+
+    // 读取文件
+    read(ph, opt) {
+        return fs.readFileSync(ph, opt)
+    },
+
     // 随机数
     random(lower, upper) {
         return Math.floor(Math.random() * (upper - lower + 1)) + lower;

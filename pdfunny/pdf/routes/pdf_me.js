@@ -18,5 +18,11 @@ module.exports = {
             handler: 'pdf.convert',
             config: { }
         },
+        {
+            method: 'GET',
+            path: '/pdf/fiie/:key',
+            handler: 'pdf.fiie',
+            config: { }
+        },
     ]
 }
