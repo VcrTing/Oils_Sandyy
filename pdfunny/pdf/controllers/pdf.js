@@ -1,36 +1,14 @@
 'use strict';
 
 /**
- * Read the documentation (https://strapi.io/documentation/developer-docs/latest/development/backend-customization.html#core-controllers)
- * to customize this controller
+ * pdf controller
  */
-const pdfunny = require('../../../extensions/pdfunny')
 
-module.exports = {
-    async doc(ctx) { },
+const pdf_me = require('./pdf_me')
 
-    // POST
-    async save(ctx) {
-        let res = null
-        let src = ctx.request.body
+const { createCoreController } = require('@strapi/strapi').factories;
 
-        src = src ? src.html : null
-
-        if (src && (typeof src == 'string')) {
-            res = await pdfunny.save_html(src )
-        }
-        return res
-    },
-
-    // GET
-    // PK = POST 传来的 参数
-    async convert(ctx) {
-        let res = 404
-        let pk = pdfunny.getKeyFromUri(ctx.originalUrl)
-        
-        if (pk) { res = await pdfunny.build_pdf(pk, pdfunny.getParamsFromUri(ctx.originalUrl)) }
-
-        return res
-    },
-
-};
+module.exports = createCoreController('api::pdf.pdf', ({ strapi }) => ({
+    ...pdf_me
+}));
+// 

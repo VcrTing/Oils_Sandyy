@@ -1,0 +1,355 @@
+
+$distance: 12px
+
+
+._btn_FFF
+    color: white
+    i
+        color: currentColor !important
+
+._btn_none
+    border-color: transparent !important
+    background: none !important
+    user-select: none !important
+
+._btn_clear
+    padding: 0
+    border: none
+    user-select: none
+._btn_simple_2
+    display: inline
+    text-align: center
+._btn_simple
+    cursor: pointer
+    display: inline-block
+._btn
+    @extend .time
+    @extend ._btn_simple
+    padding: 0px 12px
+    border-radius: 4px
+    text-align: center
+    border: 1px solid transparent
+._btn_fly
+    color: #fff
+    border: 0
+    user-select: none
+
+// 完成按钮
+._btn_succ_fan
+    border-color: $successFan
+    color: $successFan !important
+    i
+        color: $successFan !important
+
+.btn-unfinished-red 
+    @extend ._btn_succ_fan
+    @extend ._btn_none
+
+
+////     
+
+.qiong-btn_green_deep_bc
+    background: $qAccentDeep !important
+
+// 按钮 重写
+.btn-none
+    min-width: $distance * 2 !important
+    min-height: $distance !important
+    height: auto !important
+    background: none !important
+    &::before
+        background: none !important
+
+.btn-menu-fix
+    margin-top: -($distance / 2) !important
+
+// Coupon 按钮
+.btn-coupon,
+.btn-coupon-money,
+.btn-coupon-no
+    @extend .time_l
+    @include ui_box
+
+    color: $coupon
+    font-size: 12px
+    padding: 4px 10px
+    margin-right: 6px
+    background: white
+    display: inline-block
+    border: 1px solid $couponDeep
+
+.btn-coupon-no
+    border-color: #eee
+    background: none
+    color: $qSubHeader
+
+
+.btn-coupon-money,
+.btn-coupon:hover
+    color: white
+    background: $coupon
+    border-color: $coupon
+
+.btn-coupon-money:hover
+    color: white
+    background: $couponDeep
+    border-color: $couponDeep
+
+.btn-stripe
+    font-size: 12px
+    color: $focusDark !important
+    background: $focusThin
+    padding: 3px 12px
+    border: none
+    text-decoration: none !important
+
+    &:hover 
+        span
+            text-decoration: underline !important
+
+.btn-return-fixed
+    z-index: 999
+    position: fixed
+    bottom: 10vh
+
+// 状态
+
+.btn-up_comp 
+    cursor: default
+    color: #5ba88d !important
+    i
+        background: $successDeep !important
+        color: white !important
+        border-radius: 50%
+
+    &:hover
+        color: $successHover !important
+        i
+            background: $successHover !important
+
+.btn-up_comp_no
+    color: #909090 !important
+    i
+        color: $fail !important
+        background: none !important
+
+    &:hover
+        color: #909090 !important
+    &:hover i
+        color: $fail !important
+        background: $failHover !important
+
+
+//     
+
+.app-bar-closing
+    @extend .time_l
+    @include box
+    padding: $distance * 2
+    text-align: left
+    &:hover
+        background: $qBgZebraXXL
+        i
+            background: $menuFont
+            color: #fff !important
+    &:focus
+        background: $qBrSimpleHover
+    &:avtive
+        background: $qBrSimpleHover
+
+    span
+        display: inline-block
+        color: $menuFont
+
+.app-bar-closing i 
+    @include ui_box(4px)
+    color: $menuFont !important
+    background: $qBrSimpleHover
+    margin-right: 20px
+    
+.bt-b
+    border-bottom-left-radius: 6px
+    border-bottom-right-radius: 6px
+
+.so-go-top
+    @extend .pos-l
+    @extend .qiong-pr-20
+    @extend .qiong-pl-20
+    font-size: 12px !important
+
+    .so-go-top-btn
+        @extend .time
+        @extend .bt-b
+        @extend ._btn_simple
+        padding: 6px 12px
+        color: white
+        background: $focusTool
+        border: 1px solid $focusTool
+        i
+            color: currentColor
+            font-size: 1.2em
+        &:hover 
+            background: $focusToolHover
+            border-color: $focusToolHover
+
+
+.btn-highest,
+.btn-highest-no,
+.btn-leader
+    @extend .time
+    padding: 3px 12px
+    border-radius: 3px
+    line-height: 1
+    color: white
+
+.btn-highest,
+.btn-highest-no
+    @extend ._btn_clear
+    color: white
+    border-radius: 12px
+    i
+        color: currentColor !important
+
+.btn-highest
+    color: $successNearThin
+    &:hover
+        color: $successNearHover
+.btn-highest-no
+    color: #737373 !important
+    &:hover
+        color: $menuFont
+
+.tag-lead
+    background: none
+    border: 1px solid $highestThin
+
+
+//   
+
+.lp-sku
+    color: #c59129
+
+
+.cr-rego
+    color: #1b1e81
+
+.btn-rego,
+.btn-jsz,
+.btn-ht
+    @extend ._btn_fly
+    @extend ._btn_simple_2
+
+    padding: 2px 6px
+    margin-right: 6px
+    border-radius: 4px
+    background: #5350b7
+.btn-jsz
+    background: #84a62c
+.btn-ht
+    background: #b2702d
+
+.link-purple
+    @extend .time
+    @extend .qiong-txt-td
+    color: #654ebe !important
+    .v-icon
+        @extend .qiong-txt-14
+        color: #654ebe !important
+
+    &:hover
+        color: #5642a6 !important
+
+.btn-tiny_loyalty
+    cursor: pointer
+    display: inline
+    i
+        background: #fff87b
+        border-radius: 2px
+        // color: #fff !important
+        font-size: 14px !important
+
+.btn-inventory
+    @extend .time
+    @extend ._btn_simple_2
+
+    line-height: 1 
+    padding: 2px 4px
+    margin-right: 6px
+    border-radius: 4px
+    background: #fffb26
+
+.icon-tool_go
+    @extend .qiong-txt-20
+
+
+.btn-form,
+.btn-form_icon
+    @extend .time
+    @extend ._btn_fly
+    line-height: 2.1
+    padding: 0px 12px
+    border-radius: 4px
+    background: #ca3f3f
+
+    &:hover
+        background: #b23030
+        box-shadow: 2px 2px 6px -3px rgba(124, 211, 255, 0.33)
+
+    
+.btn-form_icon
+    padding: 4px 6px !important
+    color: #fff9f9 !important
+    *
+        color: #fff9f9 !important
+
+.btn-ietool
+    @extend .time
+    @extend ._btn_simple
+    @extend ._btn_simple_2
+    padding: 4px 18px
+    line-height: 2.1
+    border-radius: 6px
+
+    &:hover
+        color: #5a1616
+        background: #f6f8f8
+
+.ietool-trsh
+    @extend .time
+    @extend .fx-c
+    width: 2.4em
+    height: 2.4em
+    user-select: none
+    display: inline-flex !important
+    cursor: pointer
+    text-align: center
+    border-radius: 100%
+    *
+        color: #4e0c0c !important
+    &:hover
+        background: #f6f7f8
+        *
+            color: #7f2424 !important
+
+
+// 
+.btn-tag-plus
+    @extend .time
+    margin: 0
+    color: #b24d4d
+    padding: 4px 24px
+    border-radius: 60px
+    background: #f9e4e4
+    // border: 1px solid #e77f7f
+    i
+        color: currentColor !important
+
+    &:hover 
+        color: #ffffffee
+        background: #c33528
+    &:focus,
+    &:active,
+    &:focus-visible
+        // color: #ffffffee
+        // background: #d74739
+        box-shadow: 0px 0px 0px 3px #d9757555

@@ -1,0 +1,88 @@
+
+
+.time_20
+    transition: all 2s !important
+.time_10
+    transition: all 1s !important
+.time_l
+    transition: all .4s !important
+.time
+    transition: all .3s !important
+.time_s
+    transition: all .2s !important
+
+.fi-bottom
+    float: none !important
+    align-self: flex-end
+    vertical-align: bottom !important
+
+.fx-r,
+.flex-center
+    display: flex
+    align-items: center
+    justify-content: center !important
+
+.fx-r
+    justify-content: end !important
+
+.flex-bottom
+    display: flex
+    align-items: bottom
+    justify-content: flex-start
+
+.flex-middle
+    display: flex
+    align-items: center
+    justify-content: flex-start
+
+.pos-middle
+    position: absolute
+    top: 50%
+    transform: translateY(-50%)
+
+@mixin box
+    width: 100%
+    display: block
+
+@mixin ui_box($radius: 3px)
+    border-radius: $radius
+
+@mixin qiong_a($line: true)
+    @extend .time
+    color: $a !important
+
+    &:hover
+        color: $aDeep !important
+    &:focus
+        color: $aDark !important
+    &:active
+        color: $aDark !important
+
+    @if ($line == true)
+        text-decoration: underline !important
+    @else 
+        text-decoration: none !important
+
+
+    i
+        color: $a !important
+    &:hover
+        i
+            color: $aDeep !important
+    &:focus
+        i
+            color: $aDark !important
+    &:active
+        i
+            color: $aDark !important
+
+@mixin qiong_img($radius: 6px)
+    @extend .time
+
+    width: 100%
+    display: inline-block
+    border-radius: $radius
+    background: #f1f1f1
+    
+    &:hover
+        transform: scale(1.05)

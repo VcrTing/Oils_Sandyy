@@ -1,6 +1,4 @@
 
-const FileSaver = require('file-saver');
-
 const fs = require('fs'); 
 const moment = require('moment')
 const conf = require('../conf')

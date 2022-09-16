@@ -1,0 +1,202 @@
+
+@import ../ui.sass
+
+.v-navigation-drawer--fixed
+    z-index: 600
+
+.qiong-ex-panels .v-expansion-panel,
+.qiong-ex-panels .v-expansion-panel-header
+    line-height: 1 !important
+    background: none !important
+    height: none !important
+    padding: 0px !important
+
+.qiong-ex-panels .v-expansion-panel-content
+    background: none !important
+
+.qiong-ex-panels .v-expansion-panel-content__wrap
+    background: #f6f7f8 !important
+    // border: 1px solid #ececed
+    border-top: none
+    border-left: none
+    border-right: none
+
+.qiong-ex-panels .v-expansion-panel-header__icon
+    display: none !important
+
+    .product-msg-fix
+        .na med
+            color: #1b1918
+
+.theme--light.v-application 
+    background: #fff
+    color: rgba(0, 0, 0, 1) !important
+
+// 文本框
+.qiong-round_input 
+    overflow: hidden
+.qiong-round_input .error--text
+    color: #888888 !important
+
+.qiong-round_input .v-text-field__slot::after,
+.qiong-round_input .v-input__slot::before,
+.qiong-round_input .v-input__slot::after
+    color: none !important
+    border: none !important
+
+.qiong-round_input input
+    color: #676767 !important
+    padding: 1vw 2.4vw
+    border-radius: 70px
+    padding: calc( 15px + 0.5vw ) !important
+
+
+.qiong-round_input .v-input__slot
+    transform: transition all 1s !important
+    border: 1px solid #f1f1f1 !important
+    border-radius: 70px
+.qiong-round_input:hover .v-input__slot,
+.qiong-round_input:facous .v-input__slot
+    
+.qiong-round_input .v-messages__message
+    padding-bottom: 0.8vh !important
+
+.qiong-input_L_self
+    box-sizing: border-box !important
+    padding: calc( 16px + 0.5vw ) !important
+
+.qiong-input_S_self
+    box-sizing: border-box !important
+    padding: calc( 15px + 0.5vw ) !important
+.qiong-input_T_self
+    box-sizing: border-box !important
+    padding: calc( 14px + 0.5vw ) !important
+
+.qiong-input_L .v-input__slot
+    height: calc( 25px + 1.5vw )
+
+// Check Box
+.qiong-accent_reverse_check_box,
+.qiong-accent_reverse_check_box label
+    color: #8f8f8f !important
+
+.qiong-accent_reverse_check_box .v-messages
+    display: none !important
+
+// Tree
+
+.qiong-the-tree .v-treeview-node__label
+    word-break: normal
+    
+    width: 35% !important
+    flex: none !important
+    --webkit-box-flex: none !important
+
+.qiong-the-tree .v-treeview-node__append
+    width: 65% !important
+    margin: 0 !important
+    flex: none !important
+    --webkit-box-flex: none !important
+
+.qiong-the-tree .v-treeview-node__level
+    width: 0px
+
+.qiong-the-tree .v-treeview-node__toggle
+    display: none !important
+
+.qiong-the-tree .v-treeview-node__root
+    height: 36px !important 
+    min-height: 36px
+    padding: 0px !important
+
+.qiong-the-tree .v-treeview-node__content
+    margin: 0 !important
+
+.qiong-the-tree .v-treeview-node__root:hover > div
+    // background-color: $qPrimaryHover
+
+// 面板
+.qiong-ex-panel:hover .v-expansion-panel
+    // background-color: $qBgZebraXXL !important
+
+.qiong-ex-panel .v-expansion-panel-header
+    padding-left: 0px !important
+    padding-right: 0px !important
+.qiong-ex-panel .v-expansion-panel-content__wrap
+    padding: 0px !important
+    
+.qiong-ex-panel .v-icon
+    // color: $qPrimary !important
+    opacity: 0.4
+
+.qiong-ex-panel:hover .v-expansion-panel-header--mousedown
+    box-shadow: 0px 2px 2px -1px rgba(0, 0, 0, 0.1) !important
+
+.qiong-ex-panels .v-expansion-panel-content__wrap
+    padding-left: 0px
+    padding-right: 0px
+    padding-bottom: 0px
+
+// 菜单
+.v-list-item--active,
+.v-list-item__content
+    color: rgba(0,0,0,.87) !important
+
+.v-list-group__items .v-list-item--active::before
+    background: #000000 
+    opacity: 0.06
+
+.v-list-item--active-MANY::before
+    background: #000
+    opacity: 0.06
+
+
+.container--fluid
+    padding-top: 0px !important
+    padding-bottom: 0px !important
+
+
+//    
+.pdf-btn
+    @extend .time
+    // background: $qPrimary !important
+    box-shadow: none !important
+    // box-shadow: 0px 1px 4px -1px rgba(0, 0, 0, 0.2) !important
+    background: rgba(0, 0, 0, 0.2) !important
+    border: none !important
+    color: white !important
+
+    &:hover
+        background: rgba(0, 0, 0, 0.5) !important
+
+.pdf-timple 
+    .content
+        height: auto !important
+
+
+.develop-tree > .v-treeview-node > .v-treeview-node__children > div:nth-child(2n + 1)
+    background: #f9fafb
+
+.menu-none-fx
+    &:target
+        opacity: 0 !important
+    &:visited
+        opacity: 0 !important
+
+    &:hover 
+        background: none !important
+    &:hover:before
+        opacity: 0 !important
+    &:focus:before
+        opacity: 0 !important
+
+    .v-ripple__container
+        background: none !important
+        opacity: 0
+        display: none
+        &::after
+            opacity: 0 !important
+        &::before
+            opacity: 0 !important
+
+/**/

@@ -14,6 +14,7 @@ const save_html = async function(content) {
 const build_pdf = async function(named, params = { }) {
     
     let code = 200
+
     if (await save.exist(named)) {
         try {
             if (await save.exist(named, 'pdf')) {

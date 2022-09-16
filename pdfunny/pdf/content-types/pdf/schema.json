@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pdfs",
+  "info": {
+    "singularName": "pdf",
+    "pluralName": "pdfs",
+    "displayName": "Pdf"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "named": {
+      "type": "string"
+    },
+    "path_pdf": {
+      "type": "string"
+    },
+    "pdf": {
+      "type": "string"
+    },
+    "html": {
+      "type": "richtext"
+    },
+    "now": {
+      "type": "datetime"
+    },
+    "live_day": {
+      "type": "integer"
+    }
+  }
+}

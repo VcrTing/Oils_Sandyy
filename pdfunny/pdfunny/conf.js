@@ -3,8 +3,8 @@
 const util = require('./util')
 
 const ORI = 'wkhtmltopdf'
-const PATH_PDF = util.path_n() + '/extensions/pdfunny/SAVE/pdf'
-const PATH_HTML = util.path_n() + '/extensions/pdfunny/SAVE/html'
+const PATH_PDF = util.path_n() + '/src/extensions/pdfunny/SAVE/pdf'
+const PATH_HTML = util.path_n() + '/src/extensions/pdfunny/SAVE/html'
 // 文档: https://blog.csdn.net/javaJxl/article/details/123989786
 
 const conf = {

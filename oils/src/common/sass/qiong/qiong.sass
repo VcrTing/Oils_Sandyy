@@ -1,0 +1,128 @@
+
+
+.round
+    border-radius: 3em !important
+
+.round-l
+    border-top-left-radius: 3em !important
+    border-bottom-left-radius: 3em !important
+.round-r
+    border-top-right-radius: 3em !important
+    border-bottom-right-radius: 3em !important
+
+@import ./rewrite.sass
+@import ./qiong_font.sass
+@import ./qiong_space.sass
+@import ./qiong_table.sass
+@import ./qiong_animate.sass
+
+@import ./qiong_item.sass
+@import ./qiong_panel.sass
+@import ./qiong_button.sass
+
+@import ./qiong_input.sass
+@import ./qiong_ui_extrac
+@import ./qiong_ui_implement
+
+.cur-normal
+    cursor: normal !important
+
+.ul-point
+    width: calc( 1px + 0.15vw )
+    height: calc( 1px + 0.15vw )
+    border-radius: 100%
+    display: inline-block
+    background-color: $qPrimary
+
+.qiong-a
+    @include qiong_a
+    text-decoration: none
+
+.qiong-pager-zebra
+    // background: $qBgZebra !important
+    background: #f1f1f1 !important
+.qiong-pager-light
+    background: $qBgLight !important
+
+.pos-rel
+    position: relative
+
+.qiong-br-0
+    border-radius: 0px !important
+
+.qiong-img img
+    @include qiong_img
+
+.qiong-img-wrapper
+    background: #fefefe !important
+.qiong-img,
+.qiong-img-wrapper
+.qiong-img-wrapper,
+.qiong-img-wrapper div
+    width: 100%
+    line-height: 0
+    min-height: 36px !important
+
+.mh-0 
+    min-height: 0px !important
+
+.qiong-bg
+    background: $mainBG !important
+
+.qiong-image_panel_Logo_L
+    background: url('~@/assets/Logo_L.svg') center center no-repeat $qAccent
+    background-color: qAccent
+
+
+.z-max
+.z-max > div
+    z-index: 999 !important
+
+// 版面
+.qiong-product-msg
+    line-height: 1.6
+
+.qiong-line-border,
+.qiong-line-border-L,
+.qiong-product-msg
+    border-bottom: 1px solid $qLineL
+
+.qiong-line-border-L
+    border-color: $qLineL !important
+
+
+//   
+.vip_showing
+    border-radius: 100%
+    box-sizing: border-box !important
+    
+.vip_showing img
+    padding: 6px !important
+    background: white
+    border-radius: 100%
+
+///import css-variables fro 
+.pl-s
+    padding-left: 2px
+.pr-s
+    padding-right: 2px
+
+// PDF 
+
+//     
+
+.the_loading
+    font-size: 2.4vw
+    color: $qPrimary
+    font-weight: bold
+
+//    
+    
+.mh-s,
+.mh-s > div
+    min-height: 16vh !important
+
+// 
+
+.h-fill
+    height: 100%
