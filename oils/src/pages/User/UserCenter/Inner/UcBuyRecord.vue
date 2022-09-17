@@ -34,9 +34,9 @@
                 </div>
                 <qiong-loading v-else></qiong-loading>
                 
-                <buy-me ref="buyMe"></buy-me>
         </qiong-panel-element>
 
+        <buy-me ref="buyMe"></buy-me>
         <qiong-space :space="'10vh'"></qiong-space>
     </div>
 </template>
@@ -57,16 +57,14 @@ import UcOrderItemHeader from '../Order/UcOrderItemHeader.vue'
             QiongSpace,
             QiongEmpty,
             QiongLoading,
-                UcOrderItemContent,
-                UcOrderItemHeader,
-                QiongHeader,
-                QiongPanelElement
+            UcOrderItemContent,
+            UcOrderItemHeader,
+            QiongHeader,
+            QiongPanelElement
         },
-        name: '',
         data() {
             return {
                 items: [ ],
-
                 buying: [ ],
                 buying_die: [ ],
                 loading: true
@@ -84,10 +82,7 @@ import UcOrderItemHeader from '../Order/UcOrderItemHeader.vue'
             
             serial_buy(buy) {
                 let status = this.view.backend.view_pay_status(buy.status)
-                if (status && status.status_code > 0) {
-                    return true
-                }
-                return false
+                return (status && status.status_code > 0)
             },
 
             build_buy(buying) {
@@ -125,29 +120,22 @@ import UcOrderItemHeader from '../Order/UcOrderItemHeader.vue'
                                     ...m,
                                     how_many_buy: e.length
                                 }
-
                                 const inner = this.serial_buy(data)
                                 if (inner) res.push(data)
                             })
                         })
-                    }
-
-                    rej( res )
+                    } rej( res )
                 })
             },
             async dataLoading() {
-                
                 this.loading = true
                 let res = await this.$refs.buyMe.buyLoading()
-                res = await this.build_buy(res)
-                
                 if (res) {
+                    res = await this.build_buy(res)
                     this.buying = res.filter(e => e.status != 'cancelled')
                     this.buying_die = res.filter(e => e.status == 'cancelled')
-
                     this.change()
                     if (this.buying.length > 4) { this.$emit('long_Father', true) }
-                    
                 }
             }
         },

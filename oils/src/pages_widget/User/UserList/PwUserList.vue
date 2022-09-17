@@ -30,13 +30,10 @@
         <!-- -->
         <net-pw-user ref="pwuREF"></net-pw-user>
 
-        <!-- 
-        <collection-ready @sign_Father="init"></collection-ready>-->
     </v-container>
 </template>
 
 <script>
-import CollectionReady from '../../../components/Init/Ready/CollectionReady.vue'
 import Pagenation from '../../../components/Bar/Pagenation/Pagenation.vue'
 import QiongPanelElement from '../../../components/Qiong/Ele/QiongPanelElement.vue'
 import TablePagerFooter from '../../../components/Qiong/Footer/TablePagerFooter.vue'
@@ -50,10 +47,10 @@ import PwUserTr from './Top/PwUserTr.vue'
 import PwUserSearch from './Top/PwUserSearch.vue'
 
     export default {
-  components: { QiongHeaderFilter, QiongPanelElement, QiongSpace, QiongLoading, Pagenation, TablePagerFooter, PwUserTr, PwUserTd, PdfPwUser, NetPwUser, CollectionReady, PwUserSearch },
+  components: { QiongHeaderFilter, QiongPanelElement, QiongSpace, QiongLoading, Pagenation, TablePagerFooter, PwUserTr, PwUserTd, PdfPwUser, NetPwUser, PwUserSearch },
         data() {
             return {
-                users: [ ], iimit: 50, // users_origin: [ ],
+                users: [ ], iimit: 50,
                 users_origin: [ ],
                 loading: true
             }

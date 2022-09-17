@@ -1,8 +1,8 @@
 
-const { exec } = require('child_process');
+const { exec, execSync } = require('child_process');
 
-const comd = function(_m, call) {
-    exec(_m, function(err, stdout, stderr) { call(stdout, stderr) })
+const comd = function(_m) {
+    execSync(_m)
 }
 
 module.exports = comd

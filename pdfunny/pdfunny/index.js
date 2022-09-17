@@ -20,12 +20,9 @@ const build_pdf = async function(named, params = { }) {
             if (await save.exist(named, 'pdf')) {
                 code = 401
             } else {
-                let cp = await wktopdf.index(named, params)
-                comd(cp, (res) => { })
-            }
+                comd( await wktopdf.index(named, params) ) }
         } catch(err) { return [ 500, err ] }
     } else { code = 404 }
-
     return [ code, named, 'pdf' ]
 }
 
@@ -36,8 +33,8 @@ module.exports = {
 
     trash: trash.trash_infinite,
 
-    fiie: function (key, opt, sfx = 'pdf') {
-        return save.read(save.path(key, sfx), opt)
+    fiie: async function (key, opt, sfx = 'pdf') {
+        return await save.read(save.path(key, sfx), opt)
     },
 
     getKeyFromUri: function(uri) {

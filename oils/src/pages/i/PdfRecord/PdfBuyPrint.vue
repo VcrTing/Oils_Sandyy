@@ -39,6 +39,7 @@
             async printed() {
                 
                 try {
+                    this.$emit('start')
                     let doom = document.getElementById('pdf_buy')
                     let res = doom.outerHTML
 
@@ -48,13 +49,14 @@
                     res = await this.view.pdf.html_content( res )
 
                     if (res) {
-                        this.download(res.data.pdf)
+                        this.download( res ) // res.data.pdf
                     }
                 } catch (err) {
 
                     this.$store.commit('saveDialog', 700)
                     setTimeout(() => { this.$store.commit('saveDialog', 0) }, 4000)
                 }
+                this.$emit('finish')
             },
 
             download(res) {
@@ -64,10 +66,7 @@
                     a.href = res
                     a.target = '_blank'
                     a.click()
-
-                } catch(err) {
-                    
-                }
+                } catch(err) { }
             }
         }
     }

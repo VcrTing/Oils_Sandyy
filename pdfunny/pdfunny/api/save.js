@@ -7,7 +7,9 @@ module.exports = {
 
     // 读取文件
     read(ph, opt) {
-        return fs.readFileSync(ph, opt)
+        return new Promise((rej) => {
+            fs.readFile(ph, opt, (err, data) => rej(data))
+        }) 
     },
 
     // 随机数

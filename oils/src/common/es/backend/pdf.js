@@ -1,6 +1,8 @@
 import conf from '../../../conf'
 import axios from 'axios'
 
+import pdf_uuny from '../plugin/pdf_uuny'
+
 const clear = function(code) {
     code = code.replace(/(?:^|\n|\r)\s*\/\*[\s\S]*?\*\/\s*(?:\r|\n|$)/g, '\n').replace(/(?:^|\n|\r)\s*\/\/.*(?:\r|\n|$)/g, '\n');  
     code = code.replace(/(?:^|\n|\r)\s*\/\*\#[\s\S]*?\*\/\s*(?:\r|\n|$)/g, '\n').replace(/(?:^|\n|\r)\s*\/\/.*(?:\r|\n|$)/g, '\n');  
@@ -10,55 +12,39 @@ const clear = function(code) {
 const clearScript = function(v) {
     let res = v
     try {
-
         res = v.replace(/\<script/g, '<!--script>')
         res = res.replace(/\/script\>/g, 'script-->')
-
-        res = clear(res)
-    } catch(err) {
-        
-    }
-    return res
+        res = clear(res) } catch(err) { } return res
 }
 
 export default {
+    // FROM PDF 02
+    async html_content(htmi) {
+        let res = await pdf_uuny.save( clearScript(htmi) )
+        console.log('save res =', res)
+        if (res) {
+            const nw = await pdf_uuny.convert(res)
+            console.log('convert res =', nw)
+            if (nw) {
+              return await pdf_uuny.fiie(res)
+            }
+        } return res
+    },
 
+    // HTML CONTENT
+    /*
     async html_content(html) {
-
         let url = conf.pdfURL + `/pdf/html_content/?option=xx`
-        // let url = 'http://localhost:1337/pdf/html/save_n_convert/' + 'sandyy'
-        
         const condition = new FormData()
-
-        condition.append(
-            'html', 
-            clearScript(html)
-        )
-        
-        let res = await axios.post(url, condition, {
-          'headers': {
-
-          }
-        })
-        return res
+        condition.append( 'html', clearScript(html) )
+        return await axios.post(url, condition, { 'headers': { } })
     },
-
     async html_img(_img) {
-
-
-        let url = conf.pdfURL + `/pdf/img/`
-        
         const condition = new FormData()
-
-        condition.append(
-            'img', 
-            _img
-        )
-        
-        let res = await axios.post(url, condition)
-
-        return res
+        condition.append( 'img', _img )
+        return await axios.post(conf.pdfURL + `/pdf/img/`, condition)
     },
+    */
 
     _html(html) {
         let res = 

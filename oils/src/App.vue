@@ -57,7 +57,7 @@
             },
 
             do_shimmer(v) { 
-                this.shimmer = v
+                setTimeout(e => this.shimmer = v, 3000)
             },
 
         },
