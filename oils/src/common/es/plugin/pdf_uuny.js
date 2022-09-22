@@ -30,6 +30,7 @@ export default {
         if (res && (res[0] < 404)) { return res[1] } return undefined
     },
     fiie: async (named) => {
-        return ENDPOINT['fiie'](named) // await net['get']( ENDPOINT['fiie'](named) )
+        // ENDPOINT['fiie'](named) //
+        return await net['get']( ENDPOINT['fiie'](named), { 'encoding': 'utf-8' } )
     }
 }

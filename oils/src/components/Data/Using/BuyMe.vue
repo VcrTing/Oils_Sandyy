@@ -4,43 +4,34 @@
 
 <script>
     export default {
-        name: '',
+        computed: {
+            token() { return this.$store.state.token },
+            chron() { return this.$store.state.chronus },
+            user_back() { return this.$store.state.user_backend }
+        },
         data() {
             return {
                 buyed: false
             }
         },
         methods: {
-            async buyEasy(id, chronu) {
-                
-            },
+            async buyEasy(id, chronu) { },
+
             async buyLoading(member_code = null, chronu = null) {
                 let condition = {
-                    'time_period': this.$store.state.chronus.id,
+                    'time_period': this.chron.id,
                     '_sort': 'published_at:DESC',
-                    '_limit': 999
-                }
+                    '_limit': 999 }
                 if (member_code) {    
                     condition['customer_uuid.member_code'] = member_code
                 } else {
-                    condition['customer_uuid'] = this.$store.state.user_backend.id
+                    condition['customer_uuid'] = this.user_back.id
                 }
 
-                if (chronu) {
-                    condition['time_period'] = chronu
-                }
+                if (chronu) { condition['time_period'] = chronu }
+                const res = await this.conn.get(this.api.orders, this.token, condition)
 
-                const res = await this.conn.get(this.api.orders, this.$store.state.token, condition)
-
-                if (res) {
-                    if (res.length > 0) {
-
-                        this.buyed = true
-                    } else {
-                        this.buyed = false
-                    }
-                }
-
+                if (res) { this.buyed = (res.length > 0) }
                 return res
             }
         },

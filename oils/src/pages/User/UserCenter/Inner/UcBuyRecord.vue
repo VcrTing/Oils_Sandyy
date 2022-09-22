@@ -38,6 +38,7 @@
 
         <buy-me ref="buyMe"></buy-me>
         <qiong-space :space="'10vh'"></qiong-space>
+        <Sign v-if="can" @sign_Father="dataLoading"></Sign>
     </div>
 </template>
 
@@ -50,18 +51,20 @@ import QiongLoading from '../../../../components/Qiong/Ui/QiongLoading.vue'
 import QiongSpace from '../../../../components/Qiong/Ui/QiongSpace.vue' 
 import UcOrderItemContent from '../Order/UcOrderItemContent.vue'
 import UcOrderItemHeader from '../Order/UcOrderItemHeader.vue'
+import Sign from '@/extra/func/Sign.vue'
 
     export default {
-        components: { 
-            BuyMe,
-            QiongSpace,
-            QiongEmpty,
-            QiongLoading,
-            UcOrderItemContent,
-            UcOrderItemHeader,
-            QiongHeader,
-            QiongPanelElement
-        },
+        components: {
+    BuyMe,
+    QiongSpace,
+    QiongEmpty,
+    QiongLoading,
+    UcOrderItemContent,
+    UcOrderItemHeader,
+    QiongHeader,
+    QiongPanelElement,
+    Sign
+},
         data() {
             return {
                 items: [ ],
@@ -70,8 +73,16 @@ import UcOrderItemHeader from '../Order/UcOrderItemHeader.vue'
                 loading: true
             }
         },
+        computed: {
+            chron() { return this.$store.state.chronus },
+            user_back() { return this.$store.state.user_backend }, 
+            can() {
+                const id = this.chron.id 
+                return id && this.user_back
+            }
+        },
         mounted() {
-            this.dataLoading()
+            
         },
         methods: {
             change(f) {

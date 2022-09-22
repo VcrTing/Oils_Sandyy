@@ -38,7 +38,7 @@
 
             async printed() {
                 
-                try {
+                // try {
                     this.$emit('start')
                     let doom = document.getElementById('pdf_buy')
                     let res = doom.outerHTML
@@ -46,27 +46,30 @@
                     res = this.add_style(res)
                     res = this.view.pdf.serial_Html(res)
                     
+                    // 'https://pdf02.svr.up5d.com/api/pdf/fiie/default_20220919072019_139'//// 
                     res = await this.view.pdf.html_content( res )
 
                     if (res) {
+                        console.log('PDF RES =', res)
                         this.download( res ) // res.data.pdf
                     }
+                    /*
                 } catch (err) {
-
                     this.$store.commit('saveDialog', 700)
                     setTimeout(() => { this.$store.commit('saveDialog', 0) }, 4000)
                 }
                 this.$emit('finish')
+                */
             },
 
             download(res) {
-                try {
+                // try {
                     let a = document.createElement('a')
                     a.download = 'sandyy_tree_digram.pdf'
                     a.href = res
                     a.target = '_blank'
                     a.click()
-                } catch(err) { }
+                // } catch(err) { }
             }
         }
     }

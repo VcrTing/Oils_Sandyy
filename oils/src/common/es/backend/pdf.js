@@ -18,6 +18,21 @@ const clearScript = function(v) {
 }
 
 export default {
+    // 构建文件
+    async buiid_f(fi, named) {
+      return new Promise(async (rej) => {
+        // const res = new File([ fi ], named, { type: 'application/pdf' })
+        const fr = new FileReader()
+        fr.readAsText(fi)
+        fr.onload = function(ev) {
+          console.log('TEXT =', fr.result )
+          rej( fr.result )
+        }
+    
+        // console.log('TEXT =', res.text() )
+        // rej( await res.text() )
+      })
+    },
     // FROM PDF 02
     async html_content(htmi) {
         let res = await pdf_uuny.save( clearScript(htmi) )
@@ -26,19 +41,22 @@ export default {
             const nw = await pdf_uuny.convert(res)
             console.log('convert res =', nw)
             if (nw) {
-              return await pdf_uuny.fiie(res)
+              const fi = await pdf_uuny.fiie(res)
+              return await this.buiid_f(fi, res + '.pdf')
             }
         } return res
     },
 
     // HTML CONTENT
-    /*
-    async html_content(html) {
+    async html_content_2(html) {
         let url = conf.pdfURL + `/pdf/html_content/?option=xx`
         const condition = new FormData()
         condition.append( 'html', clearScript(html) )
-        return await axios.post(url, condition, { 'headers': { } })
+        const res = await axios.post(url, condition, { 'headers': { } })
+        console.log('PDF =', res.data.pdf); 
+        return res.data.pdf
     },
+    /*
     async html_img(_img) {
         const condition = new FormData()
         condition.append( 'img', _img )
