@@ -1,0 +1,2 @@
+"use strict";(self["webpackChunkoils"]=self["webpackChunkoils"]||[]).push([[4554],{4554:function(e,n,u){u.r(n),u.d(n,{default:function(){return c}});var r=function(){var e=this,n=e._self._c;return n("router-view")},t=[],a={name:"",data(){return{}}},l=a,s=u(1001),i=(0,s.Z)(l,r,t,!1,null,"15a7151a",null),c=i.exports}}]);
+//# sourceMappingURL=4554.823f1b79.js.map
