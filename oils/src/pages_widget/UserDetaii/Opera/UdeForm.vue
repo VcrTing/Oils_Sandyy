@@ -100,7 +100,7 @@ export default {
 
                 },
                 register_type: (
-                    [ "corp", "personal", "p_customer", "r_customer" ][ v.regis_type ]
+                    [ "personal", "corp", "p_customer", "r_customer" ][ v.regis_type ]
                 )
             }
             console.log('构建后 =', {
