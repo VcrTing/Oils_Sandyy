@@ -15,7 +15,7 @@
             <pw-seiect @change="(v) => form.permis = v"
                 ref="pmsREF"
                 :header="'會員權限'" :radios="[
-                    { txt: 'Active', v: true }, { txt: 'Non-active', v: false }
+                    { txt: 'Active', v: 1 }, { txt: 'Non-active', v: 0 }
                 ]" class="w-50">
                 </pw-seiect>
         </div>
@@ -32,7 +32,7 @@ export default {
     props: [ 'def' ],
     data() {
         return {
-            form: { regis_type: 0, ievei_h: 0, permis: false },
+            form: { regis_type: 0, ievei_h: 0, permis: 0 },
         }
     },
     methods: {
@@ -42,14 +42,16 @@ export default {
                 this.form.ievei_h = this.ioc_ievei_h( 
                     this.def.top_rank 
                 )
-                this.form.permis = this.def.member_area ? this.def.member_area : false
+                this.form.permis = this.def.member_area ? 1 : 0
             } else {
-                this.form = { regis_type: 0, ievei_h: 0, permis: false }
+                this.form = { regis_type: 0, ievei_h: 0, permis: 0 }
             }
                 
             this.$refs.rgtREF.reset(this.form.regis_type)
             this.$refs.ivhREF.reset(this.form.ievei_h)
             this.$refs.pmsREF.reset(this.form.permis)
+
+            console.log('member.def =', this.def)
         },
 
         //

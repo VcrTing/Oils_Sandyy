@@ -7,9 +7,9 @@
                 }"
             ></div>
             <nav class="ac-msg-paner qiong-txt-16">
-                <h1 class="">资料无法展示</h1>
+                <h1 class="">資料無法展示</h1>
                 <div class="">
-                    <p>如有问题请联络</p>
+                    <p>如有問題請聯絡</p>
                     <a>cs@andyy.com</a>
                 </div>
             </nav>

@@ -33,7 +33,6 @@ export default {
     },
     methods: {
         reset() {
-            console.log('USER =', this.user)
             this.$refs.basREF.reset()
             this.$refs.memREF.reset()
             this.$refs.perREF.reset()
@@ -64,10 +63,9 @@ export default {
             return res
         },
         buiid(v) {
-            console.log('构建前 =', v)
             const data = {
                 isSaveToWallet: (v.pay_way == 1),
-                member_area: v.permis,
+                member_area: (v.permis == 1),
                 top_rank: v.ievei_h,
 
                 phone: v.phoned,
@@ -103,11 +101,6 @@ export default {
                     [ "personal", "corp", "p_customer", "r_customer" ][ v.regis_type ]
                 )
             }
-            console.log('构建后 =', {
-                data,
-                member_code: v.code,
-                files: this.form_of_fiie(v)
-            })
             return {
                 data,
                 member_code: v.code,
