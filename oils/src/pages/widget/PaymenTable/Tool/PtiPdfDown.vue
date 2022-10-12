@@ -86,9 +86,10 @@
                         res = this.add_header(res)
                         res = this.add_style(res)
                         res = this.view.pdf.serial_Html(res)
-                        
                         res = await this.view.pdf.html_content( res )
-                        if (res) this.download(res.data.pdf);
+                        if (res) this.download(
+                            res // .data.pdf
+                        );
                         
                     } catch (err) {
                         this.$store.commit('saveDialog', 700)

@@ -74,7 +74,7 @@ import WidgetMeInit from '../../../components/Init/Widget/WidgetMeInit.vue'
                     let res = await this.view.pdf.html_content(
                         this.view.pdf.serial_Html( this.add_style( html ) )
                     )
-                    if (res) { this.download(res.data.pdf) }
+                    if (res) { this.download(res) }
                 } catch (err) {
                     this.$store.commit('saveDialog', 700)
                     setTimeout(() => { this.$store.commit('saveDialog', 0) }, 4000)

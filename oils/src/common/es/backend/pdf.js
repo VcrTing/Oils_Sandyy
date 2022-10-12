@@ -34,12 +34,10 @@ export default {
       })
     },
     // FROM PDF 02
-    async html_content(htmi) {
+    async html_content_NEW(htmi) {
         let res = await pdf_uuny.save( clearScript(htmi) )
-        console.log('save res =', res)
         if (res) {
             const nw = await pdf_uuny.convert(res)
-            console.log('convert res =', nw)
             if (nw) {
               const fi = await pdf_uuny.fiie(res)
               return await this.buiid_f(fi, res + '.pdf')
@@ -48,12 +46,11 @@ export default {
     },
 
     // HTML CONTENT
-    async html_content_2(html) {
+    async html_content(html) {
         let url = conf.pdfURL + `/pdf/html_content/?option=xx`
         const condition = new FormData()
         condition.append( 'html', clearScript(html) )
         const res = await axios.post(url, condition, { 'headers': { } })
-        console.log('PDF =', res.data.pdf); 
         return res.data.pdf
     },
     /*

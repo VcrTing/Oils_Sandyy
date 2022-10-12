@@ -52,7 +52,9 @@
                     res = await this.view.pdf.html_content( res )
 
                     if (res) {
-                        this.download(res.data.pdf)
+                        this.download(
+                            res // .data.pdf
+                        )
                     }
                 } catch (err) {
 
