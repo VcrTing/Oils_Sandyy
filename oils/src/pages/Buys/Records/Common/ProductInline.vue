@@ -15,7 +15,7 @@
                     {{ named(pro) }}
                 </div>
                 <div class="qiong-td pt-1 qiong-txt-12">
-                    <div class="d-ib pr-4 txt-sub_x2">
+                    <div class="d-ib pr-4 txt-sub_x2 ">
                         單價：HK$&nbsp;{{ _product.unit_price }}，
                     </div>
                     <div class="d-ib mini-wide-100 txt-sub_x2 ">
@@ -87,5 +87,8 @@ import QiongSpace from '../../../../components/Qiong/Ui/QiongSpace.vue'
 
 .pro-named
     font-weight: 450
-    color: #090a09 !important
+    color: #0c100d !important
+
+.txt-sub_x2 
+    color: #434346 !important
 </style>

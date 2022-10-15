@@ -31,6 +31,8 @@
                 if (chronu) { condition['time_period'] = chronu }
                 const res = await this.conn.get(this.api.orders, this.token, condition)
 
+                // console.log('个人中心的订单: ', condition)
+                // console.log('订单 res: ', res)
                 if (res) { this.buyed = (res.length > 0) }
                 return res
             }

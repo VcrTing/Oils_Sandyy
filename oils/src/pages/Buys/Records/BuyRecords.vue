@@ -7,7 +7,7 @@
         <qiong-panel-element class="mobie-table" :need_space="false">
             <br-tr></br-tr>
 
-            <buy-records-inner v-if="!loading && allow" :items="buys"></buy-records-inner>
+            <buy-records-inner v-if="!loading" :items="buys"></buy-records-inner>
             <qiong-loading v-else></qiong-loading>
         </qiong-panel-element>
 
@@ -48,13 +48,11 @@ import BrTr from './Top/BrTr.vue'
             }
         },
         computed: {
-            allow() {
-                return (this.$store.state.user_collection && this.$store.state.user_collection.length > 0)
-            },
-            buys() {
-                if (this.buys_origin) { return this.meBuying(this.buys_origin) }
-                return [ ]
-            }
+            user_back() { return this.$store.state.user_backend },
+            
+            coii() { return this.$store.state.user_collection },
+            allow() { return (this.coii && this.coii.length > 0) },
+            buys() { return this.buys_origin ? this.meBuying(this.buys_origin) : [ ] }
         },
         methods: {
             async init() {
@@ -67,20 +65,23 @@ import BrTr from './Top/BrTr.vue'
             meBuying(res) {
                 let bu = [ ]
                 if (res) {
-                    let index = 0
-                    const transfer = this.$store.state.user_collection
-                    if (transfer) {
-                        for (let j= 0; j< res.length; j++ ) {
-                            if (res[j].customer_uuid) {
-                                for (let i= 0; i< transfer.length; i++ ) {
-                                    const item = transfer[i]
-                                    if (item.member_code == res[j].customer_uuid.member_code) {
-                                        index += 1
-                                        bu.push(res[j])
-                                    }
+                    let tsf = this.coii
+                    tsf = tsf ? tsf : [ ]
+
+                    if (tsf.length > 0) {
+                        res.map(e => {
+                            if (e.customer_uuid) {
+                                for (let i= 0; i< tsf.length; i++ ) {
+                                    const item = tsf[i]
+                                    (item.member_code == e.customer_uuid.member_code) ? bu.push(e) : undefined
                                 } 
                             }
-                        }
+                        })
+                    } else {
+                        res.map(e => {
+                            const cc = e.customer_uuid;
+                            cc ? (cc.member_code == this.user_back.member_code) ? bu.push(e) : undefined : undefined
+                        })
                     }
                 }
                 // bu.map(e => { e.is_ewallet ? console.log(e) : 0 ; return e})

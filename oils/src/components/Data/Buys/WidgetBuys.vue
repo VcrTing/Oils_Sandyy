@@ -14,6 +14,10 @@
 
             async swicthing() {
                 let buys = [ ]
+                console.log('搜索 购买记录', {
+                    'time_period': this.$store.state.chronus.id, '_sort': 'ordered_date:DESC',
+                    '_limit': 999
+                })
                 let res = await this.conn.get(this.api.orders, this.$store.state.token, {
                     'time_period': this.$store.state.chronus.id, '_sort': 'ordered_date:DESC',
                     '_limit': 999
@@ -22,11 +26,13 @@
                 if (this.$store.state.is_admin) {
                     // res = this.filterMe(res)
                 }
+                console.log('购买记录 res =', res)
                 
                 res.map(e => {
                     if ( this.hide.indexOf( e.status ) < 0) { buys.push( e ) }
                 })
 
+                console.log('购买记录 buys =', buys)
                 return buys
             },
 

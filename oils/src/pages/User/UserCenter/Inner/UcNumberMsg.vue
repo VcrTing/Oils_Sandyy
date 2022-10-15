@@ -1,60 +1,54 @@
 <template>
         
-        <nav v-if="!loading">
-                
-            <div class="qiong-txt-td mb-1 qiong-pt-7 unm-title fw-b">
-                    {{ $t('HEADER.now_member_level') }}
-            </div>
+    <uc-nm-tit v-if="!loading">
+        <!-- -->
+        <div slot="pay_ievei" class="pt-2 pb-2 user-vip-card bg-simple">
+                <div class="qiong-wide-25 flex-center pr-0 qiong-pt-5 mini-wide-40">
+                    <level-image-viewing :bigger="2" 
+                        :item="me.vip.name + '_' + me.vip.star"
+                        :extra_class="'vip_showing'"
+                        class="w-full"
+                    ></level-image-viewing>
+                </div>
 
-            <qiong-space :space="'0.6vh'"></qiong-space>
-
-            <div class="pt-2 pb-2 user-vip-card bg-simple">
-                    <div class="qiong-wide-25 flex-center pr-0 qiong-pt-5 mini-wide-40">
-                        <level-image-viewing :bigger="2" 
-                            :item="me.vip.name + '_' + me.vip.star"
-                            :extra_class="'vip_showing'"
-                            class="w-full"
-                        ></level-image-viewing>
-                    </div>
-
-                    <div class="mini-wide-60 mini-user-msg-vip">
-                        <div class=" mini-view ">
-                            <div class="qiong-txt-18 fw-b">
-                                {{ me.username }}
-                            </div>
-                            <div class="sub-header">
-                                Lv.&nbsp;{{ me.bonu_period.Rank }}
-                            </div>
+                <div class="mini-wide-60 mini-user-msg-vip">
+                    <div class=" mini-view ">
+                        <div class="qiong-txt-18 fw-b">
+                            {{ me.username }}
+                        </div>
+                        <div class="sub-header">
+                            Lv.&nbsp;{{ me.bonu_period.Rank }}
                         </div>
                     </div>
-                    <div class="qiong-wide-75 pr-0 mini-wide-100 mini-user-msg-task">
+                </div>
+                <div class="qiong-wide-75 pr-0 mini-wide-100 mini-user-msg-task">
 
-                        <table class="w-full qiong-line-hight-15 mobie-lh">
-                            <tr v-for="(v, i) in res" :key="i">
-                                <td>{{ v.txt }}</td>
-                                <td class="text-right">{{ v.content }}</td>
-                            </tr>
-                        </table>
-                    </div>
+                    <table class="w-full qiong-line-hight-15 mobie-lh">
+                        <tr v-for="(v, i) in res" :key="i">
+                            <td>{{ v.txt }}</td>
+                            <td class="text-right">{{ v.content }}</td>
+                        </tr>
+                    </table>
+                </div>
+        </div>
+        <!-- -->
+        <div slot="next_ievei_tit" class="qiong-txt-td txt-sub_son">
+            <div v-if="next_vip">
+                <span class="op-80">{{ $t('HEADER.next_level_task_before') }}</span>
+                    &nbsp;
+                    <div class="d-inline txt-cold">{{ next_vip.nick }}</div>
+        
+                &nbsp;
+                <span class="op-80">{{ $t('HEADER.next_level_task_after') }}</span>
             </div>
-
-            <div class="qiong-txt-td mb-1 mt-3 qiong-pt-15 txt-sub_son">
-                <div v-if="next_vip">
-                    <span class="op-80">{{ $t('HEADER.next_level_task_before') }}</span>
-                        &nbsp;
-                        <div class="d-inline txt-cold">{{ next_vip.nick }}</div>
-            
-                    &nbsp;
-                    <span class="op-80">{{ $t('HEADER.next_level_task_after') }}</span>
-                </div>
-                <div v-else>
-                    <span class="op-80">{{ $t('CONTENT.top_membership_level') }}</span>
-                    &nbsp;
-                    <div class="d-inline txt-cold" v-if="next_vip">{{ next_vip.nick }}</div>
-                </div>
-            </div>        
-            <qiong-space :space="'1.2vh'"></qiong-space>
-
+            <div v-else>
+                <span class="op-80">{{ $t('CONTENT.top_membership_level') }}</span>
+                &nbsp;
+                <div class="d-inline txt-cold" v-if="next_vip">{{ next_vip.nick }}</div>
+            </div>
+        </div>        
+        <!-- -->
+        <div slot="next_ievei_cont">
             <div v-for="(v, i) in result_next" :key="i" >
                 <div class="bg-iine qiong-mb-10 circle-XL mobie-mb-16">
 
@@ -72,24 +66,25 @@
                     </div>
                 </div>
             </div>
-                <div class="bg-iine qiong-mb-10 circle-XL mobie-mb-16" v-if="res_next">
+            <div class="bg-iine qiong-mb-10 circle-XL mobie-mb-16" v-if="res_next">
 
-                    <div class="unm-task-card ani-up_2">
-                        <div class="qiong-wide-48 qiong-pl-20 pr-0">
-                            {{ res_next.txt }}
-                        </div>
-                        <div class="qiong-wide-27 text-right pr-3">
-                            {{ res_next.content }}/{{ view.if_def(res_next.target, '0') }}
-                        </div>
-                        <div class="qiong-wide-25 pr-0 unm-finished-td">
-                                <finised-btn-viewing :rec="Number.parseInt(res_next.content)" :target="Number.parseInt(res_next.target)" 
-                                class="flex-center"></finised-btn-viewing>
-                        </div>
+                <div class="unm-task-card ani-up_2">
+                    <div class="qiong-wide-48 qiong-pl-20 pr-0">
+                        {{ res_next.txt }}
+                    </div>
+                    <div class="qiong-wide-27 text-right pr-3">
+                        {{ res_next.content }}/{{ view.if_def(res_next.target, '0') }}
+                    </div>
+                    <div class="qiong-wide-25 pr-0 unm-finished-td">
+                            <finised-btn-viewing :rec="Number.parseInt(res_next.content)" :target="Number.parseInt(res_next.target)" 
+                            class="flex-center"></finised-btn-viewing>
                     </div>
                 </div>
+            </div>
+        </div>
+    </uc-nm-tit>
 
-        </nav>
-        <qiong-loading v-else></qiong-loading>
+    <qiong-loading v-else></qiong-loading>
 </template>
 
 <script>
@@ -102,19 +97,15 @@ import LevelImageViewing from '../../../../components/Viewing/LevelImageViewing.
 import LevelViewing from '../../../../components/Viewing/LevelViewing.vue'
 import QiongSpace from '../../../../components/Qiong/Ui/QiongSpace.vue'
 
+import UcNmTit from '../Titie/UcNmTit.vue'
+
     export default {
-        components: { LevelImageViewing,
-            FinisedBtnViewing,
-            QiongLoading,
-                LevelViewing,
-                QiongSpace
-        },
+        components: { LevelImageViewing, FinisedBtnViewing, QiongLoading, LevelViewing, QiongSpace, UcNmTit },
         props: {
             me: {
                 type: Object
             }
         },
-        name: '',
         data() {
             return {
 
@@ -159,6 +150,7 @@ import QiongSpace from '../../../../components/Qiong/Ui/QiongSpace.vue'
             }
         },
         mounted() {
+            console.log('this.me.vip =', this.me.vip)
             this.next_vip = app_init.vip_view.vip_next(this.me.vip.name + '_' + this.me.vip.star)
             this.finished = app_init.vip_view.finished_vip(this.me.vip.name, this.me.vip.star)
 
@@ -179,7 +171,8 @@ import QiongSpace from '../../../../components/Qiong/Ui/QiongSpace.vue'
                             target: this.next_vip.condition[2], unit: ''
                         }
                     ]
-
+            
+            console.log('this.res =', this.res)
             this.loading = false
         },
 
@@ -206,6 +199,4 @@ import QiongSpace from '../../../../components/Qiong/Ui/QiongSpace.vue'
 .bg-simple
     background: #efefef
 
-.bg-iine
-    background: #e7e7e7
 </style>

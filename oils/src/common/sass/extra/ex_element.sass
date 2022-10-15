@@ -58,3 +58,20 @@
     transition: all .242s ease-in
     &:hover
         color: $pri
+
+    
+.bg-iine
+    background: #e7e7e7
+
+.skeieton
+    position: relative
+    user-select: none
+    overflow: hidden
+    &::after
+        background: linear-gradient(30deg, transparent, #fff6f6, transparent) // linear-gradient(30deg, pink, blue) // 
+        position: absolute
+        content: ''
+        top: 0
+        left: 40px
+        width: 48px
+        height: 100%

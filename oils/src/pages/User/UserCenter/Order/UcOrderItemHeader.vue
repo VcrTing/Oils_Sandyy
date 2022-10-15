@@ -7,7 +7,7 @@
         </div>
         
         <div class="qiong-wide-50 qiong-pt-10 pl-3">
-            <div class="qiong-txt-22 ">
+            <div class="qiong-txt-22 txt-pro-tit">
                 <product-name-viewing class="" :id="buy.product_uuid.id" :product="buy.product_uuid" v-if="$store.state.products"></product-name-viewing>
             </div>
             <div class="qiong-pt-5 mt-2 qiong-line-hight-15  txt-sub_x2">
@@ -97,4 +97,8 @@ import ProductNameViewing from '../../../../components/Viewing/ProductNameViewin
 
 .user-pri
     color: #08222a
+
+.txt-pro-tit
+    *
+        color: #1e1e1e
 </style>

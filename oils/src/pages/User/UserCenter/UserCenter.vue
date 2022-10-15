@@ -19,7 +19,11 @@
 
                         <time-msg-viewing class="text-right qiong-line-hight-15 qiong-pt-10"></time-msg-viewing>
                         <qiong-space :space="'12px'" class="mobie-view"></qiong-space>
-                        <uc-number-msg v-if="!loading" :me="mine_Enroller"></uc-number-msg>  
+
+                        <div v-if="!loading">
+                            <uc-number-msg v-if="mine_Enroller" :me="mine_Enroller"></uc-number-msg>  
+                            <qiong-empty v-else></qiong-empty>
+                        </div>
                         <qiong-loading v-else></qiong-loading>
 
                     </nav>
@@ -33,10 +37,11 @@
         <table-pager-footer v-if="long"></table-pager-footer>
 
         <collection-ready @sign_Father="init = false"></collection-ready>
+        
         <div v-if="!init">
             <me-son-can-num ref="mscnREF"></me-son-can-num>
             <bonus-enroller-line-me ref="belmREF"></bonus-enroller-line-me>
-            <return-me v-if="$store.state.user_collection && $store.state.user_collection.length > 0 && !init" @recive_Father="recive"></return-me>
+            <return-me v-if="coii && coii.length > 0 && !init" @recive_Father="recive"></return-me>
         </div>
     </v-container>
 </template>
@@ -59,25 +64,29 @@ import BonusEnrollerLineMe from '@/components/Data/Me/BonusEnrollerLineMe.vue'
 import MeSonCanNum from '../../../components/Data/Me/MeSonCanNum.vue'
 
 import TimeMsgViewing from '@/components/Viewing/Chronu/TimeMsgViewing.vue'
+import QiongEmpty from '@/components/Qiong/Ui/QiongEmpty.vue'
+import ExSkUcnm from '../../../extra/skeleton/user/ExSkUcnm.vue'
 
     export default {
-        components: { 
-                QiongPagePanel, UcActiveUnderLine,
-                UcBuyRecord,
-                QiongSpace,
-                UcNumberMsg,
-                QiongPanelElement,
-                QiongHeader,
-                QiongLoading,
-                CollectionReady,
-                TablePagerFooter,
-                QiongHeaderFilter,
-                ReturnMe,
-                BonusEnrollerLineMe,
-                MeSonCanNum,
-                
-                TimeMsgViewing
-        },
+        components: {
+    QiongPagePanel,
+    UcActiveUnderLine,
+    UcBuyRecord,
+    QiongSpace,
+    UcNumberMsg,
+    QiongPanelElement,
+    QiongHeader,
+    QiongLoading,
+    CollectionReady,
+    TablePagerFooter,
+    QiongHeaderFilter,
+    ReturnMe,
+    BonusEnrollerLineMe,
+    MeSonCanNum,
+    TimeMsgViewing,
+    QiongEmpty,
+    ExSkUcnm
+},
         name: '',
             data() {
             return {
@@ -86,6 +95,9 @@ import TimeMsgViewing from '@/components/Viewing/Chronu/TimeMsgViewing.vue'
                 init: true,
                 loading: true
             }
+        },
+        computed: {
+            coii() { return this.$store.state.user_collection }
         },
         methods: {
             async recive(v) {

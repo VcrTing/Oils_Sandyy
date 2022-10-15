@@ -141,6 +141,7 @@ import Sign from '@/extra/func/Sign.vue'
             async dataLoading() {
                 this.loading = true
                 let res = await this.$refs.buyMe.buyLoading()
+                
                 if (res) {
                     res = await this.build_buy(res)
                     this.buying = res.filter(e => e.status != 'cancelled')

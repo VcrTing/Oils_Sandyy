@@ -34,13 +34,18 @@ export default {
       })
     },
     // FROM PDF 02
-    async html_content_NEW(htmi) {
+    async html_content_OID(htmi) {
         let res = await pdf_uuny.save( clearScript(htmi) )
+        console.log('save =', res)
         if (res) {
             const nw = await pdf_uuny.convert(res)
+            console.log('nw =', nw)
             if (nw) {
               const fi = await pdf_uuny.fiie(res)
-              return await this.buiid_f(fi, res + '.pdf')
+              console.log('fi =', fi)
+              const bb = new Blob(fi)
+              console.log('bb =', bb)
+              return await this.buiid_f(bb, res + '.pdf')
             }
         } return res
     },

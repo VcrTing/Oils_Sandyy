@@ -11,12 +11,12 @@ import app_init from '../../common/es/app_init/index'
             return {
                 user: null,
                 chronu: '',
-                finished: false,
+                results: [ ],
 
                 relation_s: '',
                 relation_e: '',
+                finished: false,
 
-                results: [ ]
             }
         },
         computed: {
@@ -42,9 +42,13 @@ import app_init from '../../common/es/app_init/index'
 
                     let orders = await this.fetchingOrders()
                     
+                    console.log('APP INIT 1 =', user_s, user_e, orders)
+
                     // 清理数据
                     app_init.user_with_orders(user_s, orders, this.buildData)
                     app_init.user_with_orders(user_e, orders, this.buildData)
+
+                    console.log('APP INIT 2 =', user_s, user_e, orders)
                     
                     // 制作树形
                     res_sponser = await app_init.rolling(user_s, this.user.member_code, 'SPONSER' )
@@ -52,6 +56,8 @@ import app_init from '../../common/es/app_init/index'
 
                     // 搜集 Collect
                     const coll = await app_init.collection(user_s, user_e)
+
+                    console.log('APP INIT coll =', coll)
 
                     // 保存数据
                     await this.saving(user_s, user_e, res_sponser, res_enroller, coll)
@@ -86,6 +92,7 @@ import app_init from '../../common/es/app_init/index'
             },
             // 清洗数据
             buildData(user) {
+                console.log('进入 user =', user)
                 let named, star, bonu
                 if (user.bonuses && user.bonuses.length > 0) {
                     for (let b of user.bonuses) {

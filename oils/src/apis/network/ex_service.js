@@ -9,7 +9,7 @@ const _build = function(ep, key = '') {
     return conf.apiURL + '/' + conf.ENDPOINT[ ep ] + '/'  + key
 } 
 const ex_get = function(vue, uri, condition = {}, key = '') {
-    vue.conf.TEST ? console.log('Ex Url =', _build(uri, key) + conn_util.builParam(condition)) : 0
+    // vue.conf.TEST ? console.log('Ex Url =', _build(uri, key) + conn_util.builParam(condition)) : 0
     return net({
         url: _build(uri, key) + conn_util.builParam(condition),
         method: 'GET',
