@@ -6,8 +6,8 @@
                 <span v-if="v.is_new">首</span>
                 <span v-else>&nbsp;</span>
             </td>
-            <td class="fs-c">{{ v.customer_uuid.member_code }}</td>
-            <td >{{ v.customer_uuid.display_name }}</td>
+            <td class="fs-c">{{ v.customer_uuid ? v.customer_uuid.member_code : '' }}</td>
+            <td >{{ v.customer_uuid ? v.customer_uuid.display_name : '' }}</td>
             <td class="fs-c">{{ v.uuid }}</td>
             <td class="fs-c">{{ view.ser_timed_en(v.ordered_date, true, false) }}</td>
 

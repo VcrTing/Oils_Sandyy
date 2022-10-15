@@ -5,10 +5,10 @@
                 {{ item.uuid }}
             </div>
             <div class="qiong-wide-9">
-                {{ item.customer_uuid.member_code }}
+                {{ item.customer_uuid ? item.customer_uuid.member_code : '' }}
             </div>
             <div class="qiong-wide-24">
-                {{ item.customer_uuid.display_name }}
+                {{ item.customer_uuid ? item.customer_uuid.display_name : '' }}
             </div>
             <div class="qiong-wide-14">
                 {{ view.ser_timed(item.ordered_date, false, false) }}

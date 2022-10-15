@@ -19,6 +19,8 @@
                     '_limit': 999
                 })
                 
+                console.log('购买元数据 =', res)
+                
                 if (this.$store.state.is_admin) {
                     // res = this.filterMe(res)
                 }

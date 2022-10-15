@@ -39,7 +39,7 @@
                         {{ v.LP_difference }}&nbsp;LP
                     </div>
                     
-                    <div class="qiong-wide-6 txt-sus">
+                    <div class="qiong-wide-6 txt-sus op-60">
                         {{ v.wallet_before }}
                     </div>
                     <div class="qiong-wide-8 pr-0">

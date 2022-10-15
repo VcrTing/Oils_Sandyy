@@ -2,6 +2,10 @@
     <v-container fluid class="qiong-txt-td">
         <qiong-header-filter>
             <span slot="header">購買記錄</span>
+            <span v-if="need_funni" slot="filter">
+                <button class="btn-filter-pure" :class="{ 'btn-filter-pure-active': funni }" @click="funni = true">通常訂單</button>
+                <button class="btn-filter-pure" :class="{ 'btn-filter-pure-active': !funni }" @click="funni = false">全部訂單</button>
+            </span>
         </qiong-header-filter>
 
         <qiong-panel-element class="mobie-table" :need_space="false">
@@ -44,10 +48,19 @@ import BrTr from './Top/BrTr.vue'
         data() {
             return {
                 buys_origin: [ ],
-                loading: true
+                loading: true,
+                
+                funni: true
             }
         },
         computed: {
+
+            need_funni() { let res = false 
+                if (this.user_back.member_code == '203001') {
+                    if (this.admin) { res = true }
+                }; return res
+            },
+            admin() { return this.$store.state.is_admin },
             user_back() { return this.$store.state.user_backend },
             
             coii() { return this.$store.state.user_collection },
@@ -68,15 +81,17 @@ import BrTr from './Top/BrTr.vue'
                     let tsf = this.coii
                     tsf = tsf ? tsf : [ ]
                     if (tsf.length > 0) {
-                        res.map(e => {
-                            if (e.customer_uuid) {
-                                let item = {}
-                                for (let i= 0; i< tsf.length; i++ ) {
-                                    item = tsf[i];
-                                    (item.member_code == e.customer_uuid.member_code) ? bu.push(e) : undefined
-                                } 
-                            }
-                        })
+                        if (this.funni) {
+                            res.map(e => {
+                                if (e.customer_uuid) {
+                                    let item = {}
+                                    for (let i= 0; i< tsf.length; i++ ) {
+                                        item = tsf[i];
+                                        (item.member_code == e.customer_uuid.member_code) ? bu.push(e) : undefined
+                                    } 
+                                }
+                            })
+                        } else { res.map(e => bu.push(e)) }
                     } else {
                         res.map(e => {
                             const cc = e.customer_uuid;
@@ -86,7 +101,7 @@ import BrTr from './Top/BrTr.vue'
                 }
                 // bu.map(e => { e.is_ewallet ? console.log(e) : 0 ; return e})
                 return bu
-            }
+            },
         }
     }
 </script>
