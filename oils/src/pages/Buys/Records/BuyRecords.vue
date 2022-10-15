@@ -67,12 +67,12 @@ import BrTr from './Top/BrTr.vue'
                 if (res) {
                     let tsf = this.coii
                     tsf = tsf ? tsf : [ ]
-
                     if (tsf.length > 0) {
                         res.map(e => {
                             if (e.customer_uuid) {
+                                let item = {}
                                 for (let i= 0; i< tsf.length; i++ ) {
-                                    const item = tsf[i]
+                                    item = tsf[i];
                                     (item.member_code == e.customer_uuid.member_code) ? bu.push(e) : undefined
                                 } 
                             }

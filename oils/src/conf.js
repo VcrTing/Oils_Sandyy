@@ -1,6 +1,6 @@
 
 const TEST = false
-const VERSION = '2.84'
+const VERSION = '2.85'
 const VERSION_TIME = '2022-10-15' 
 
 const baseURL = 'https://strapi03.svr.up5d.com'
