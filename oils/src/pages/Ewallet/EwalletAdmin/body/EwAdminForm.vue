@@ -103,7 +103,7 @@ import DialogAlert from '@/components/Shimmer/Alert/DialogAlert.vue'
                 let rec = this.funnel.ewallet_change
                 rec = Number.parseInt(rec)
                 rec = (rec && rec != 0) ? true : false
-                return (rec + this.hkd) >= 0 ? true : false
+                return rec // (rec + this.hkd) >= 0 ? true : false
             },
             async fetchingUser() {
                 if (this.validCode()) {

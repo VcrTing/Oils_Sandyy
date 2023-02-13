@@ -20,7 +20,8 @@ $trans_Active: #bdbec4
         &:focus-visible
             border-color: $trans_Active
 
-$pri_ex: #cd2828
+$pri_ex: #ce2828 // #cd2828
+$btn_rds: 0.4rem
 .btn-transfer
     @extend .fx-c
     margin-top: 24px
@@ -30,11 +31,11 @@ $pri_ex: #cd2828
     button:first-child 
         padding: 12px 36px
         border: 2px solid transpaernt !important
-        border-top-left-radius: 0.3rem
-        border-bottom-left-radius: 0.3rem
+        border-top-left-radius: $btn_rds
+        border-bottom-left-radius: $btn_rds
     button:last-child
         padding: 12px 48px
-        border-radius: 0.2rem
+        border-radius: $btn_rds
 
     .btn-pri
         background-color: $pri_ex

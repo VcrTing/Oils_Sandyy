@@ -1,2 +1,0 @@
-"use strict";(self["webpackChunkoils"]=self["webpackChunkoils"]||[]).push([[5715,9221],{1291:function(e,n,t){t.r(n),t.d(n,{default:function(){return o}});var u=function(){var e=this,n=e._self._c;return n("payment-table")},a=[],l=t(3279),r={components:{PaymentTable:l["default"]},name:"",data(){return{}}},s=r,c=t(1001),f=(0,c.Z)(s,u,a,!1,null,"8e9541fc",null),o=f.exports}}]);
-//# sourceMappingURL=5715.3c0c3747.js.map

@@ -45,9 +45,11 @@ import EwAdminForm from './body/EwAdminForm.vue'
             },
             
             submit() {
-                let res = this.$refs.formREF.submit()
-                res.ewallet_change = Number.parseFloat(res.ewallet_change)
-                if (res) { this._submit('', res) }
+                try {
+                    let res = this.$refs.formREF.submit()
+                    res.ewallet_change = Number.parseFloat(res.ewallet_change)
+                    if (res) { this._submit('', res) }
+                } catch(err) { alert('網絡錯誤！！！') }
             },
 
             refresh() {
