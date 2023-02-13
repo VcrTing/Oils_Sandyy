@@ -1,2 +1,0 @@
-"use strict";(self["webpackChunkoils"]=self["webpackChunkoils"]||[]).push([[9632,63],{6561:function(t,n,e){e.r(n),e.d(n,{default:function(){return f}});var u=function(){var t=this,n=t._self._c;return n("account-statement",{attrs:{_mode:1}})},a=[],s=e(7707),c={components:{AccountStatement:s["default"]},name:"",data(){return{}}},r=c,l=e(1001),o=(0,l.Z)(r,u,a,!1,null,"44688034",null),f=o.exports}}]);
-//# sourceMappingURL=9632.fc3b73b2.js.map
