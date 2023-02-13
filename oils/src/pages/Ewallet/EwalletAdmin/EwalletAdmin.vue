@@ -23,7 +23,7 @@
             <div v-else>
                 <sts-opera-shimmer></sts-opera-shimmer>
                 <div class="fx-c py-8">
-                    <button @click="refresh" class="btn-sim an_upper">确认</button>
+                    <button @click="refresh" class="btn-sim an_upper">確認</button>
                 </div>
             </div>
         </div>
