@@ -1,6 +1,6 @@
 <template>
     <div class="px-7" v-if="items && items.length > 0">
-        <div class="qiong-td qiong-txt-td py-3 lh-def"
+        <div class="qiong-td qiong-txt-td py-2 lh-def fx-l"
             v-for="(v, i) in many" :key="i"
         >
             <div class="qiong-wide-12">
@@ -27,7 +27,9 @@
             <div class="qiong-wide-12">{{ v.wallet_new_value }}</div>
             
             <div class="qiong-wide-15">{{ view.ser_timed( v.date, false, false ) }}</div>
-            <div class="qiong-wide-13"></div>
+            <div class="qiong-wide-13">
+                {{ view.view_remark(v.change_detail) }}
+            </div>
         </div>
         <qiong-space :space="'12px'"></qiong-space>
     </div>
@@ -52,6 +54,7 @@ import ExtraLpOperaView from '../../../../../extra/view/lp/ExtraLpOperaView.vue'
                 return res
             }
         },
+        mounted() { },
         components: { QiongSpace, QiongEmpty, LoyaltyPvViewing, ExtraLpOperaView },
     }
 </script>

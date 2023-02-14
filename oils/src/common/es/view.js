@@ -49,5 +49,15 @@ export default {
     if_def,
 
     price_view,
-    scrollTo
+    scrollTo,
+
+    view_remark: (src) => {
+        src = src ? src + '' : ''
+        if(src.startsWith('Manually')) {
+            let _src = src.replace('Manually added,  remark: ', '')
+            _src = src.replace('Manually added,  remark:', '')
+            return src.replace('Manually added, remark:', '')
+        }
+        return ''
+    }
 }
